@@ -2,21 +2,18 @@ GCHARSET                                       "UTF-8
             "; body {
   background-color: transparent;
   color: black;
-  font-family: "Ubuntu Beta", UbuntuBeta, Ubuntu, "Bitstream Vera Sans",
-    "DejaVu Sans", Tahoma, sans-serif;
+  font-family: verdana, arial, serif;
   font-size: small;
   margin: 5px;
   overflow: hidden;
 }
 
 * {
-  font-family: "Ubuntu Beta", UbuntuBeta, Ubuntu, "Bitstream Vera Sans",
-    "DejaVu Sans", Tahoma, sans-serif;
+  font-family: verdana, arial, serif;
 }
 
 body.fontface {
-  font-family: "Ubuntu Beta", UbuntuBeta, Ubuntu, "Bitstream Vera Sans",
-    "DejaVu Sans", Tahoma, sans-serif;
+  font-family: verdana, arial, serif;
 }
 
 m
