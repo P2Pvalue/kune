@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,7 +28,7 @@ import org.apache.commons.logging.LogFactory;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ServerException.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ServerException extends RuntimeException {
@@ -48,8 +48,9 @@ public class ServerException extends RuntimeException {
 
   /**
    * Instantiates a new server exception.
-   *
-   * @param text the text
+   * 
+   * @param text
+   *          the text
    */
   public ServerException(final String text) {
     super(text);
@@ -58,9 +59,11 @@ public class ServerException extends RuntimeException {
 
   /**
    * Instantiates a new server exception.
-   *
-   * @param text the text
-   * @param cause the cause
+   * 
+   * @param text
+   *          the text
+   * @param cause
+   *          the cause
    */
   public ServerException(final String text, final Throwable cause) {
     super(text, cause);
@@ -69,8 +72,9 @@ public class ServerException extends RuntimeException {
 
   /**
    * Instantiates a new server exception.
-   *
-   * @param cause the cause
+   * 
+   * @param cause
+   *          the cause
    */
   public ServerException(final Throwable cause) {
     super(cause);

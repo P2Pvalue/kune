@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -26,17 +26,17 @@ package cc.kune.core.shared;
 // TODO: Auto-generated Javadoc
 /**
  * The Class CoreConstants.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class CoreConstants {
-  
+
   /** The Constant MAX_LONG_NAME_SIZE. */
   public static final int MAX_LONG_NAME_SIZE = 60;
-  
+
   /** The Constant MAX_SHORT_NAME_SIZE. */
   public static final int MAX_SHORT_NAME_SIZE = 30;
-  
+
   /** The Constant MOZILLA_FF_LINK. */
   public static final String MOZILLA_FF_LINK = "https://www.mozilla.com/en-US/firefox/fx/";
 

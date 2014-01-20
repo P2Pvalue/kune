@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,7 +37,7 @@ import com.gwtplatform.mvp.client.ViewImpl;
 // TODO: Auto-generated Javadoc
 /**
  * The Class CoreView is where the general armor of Kune it created/attached.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class CoreViewImpl extends ViewImpl implements CorePresenter.CoreView {
@@ -47,9 +47,11 @@ public class CoreViewImpl extends ViewImpl implements CorePresenter.CoreView {
 
   /**
    * Instantiates a new core view.
-   *
-   * @param armor the body
-   * @param stateManager the state manager
+   * 
+   * @param armor
+   *          the body
+   * @param stateManager
+   *          the state manager
    */
   @Inject
   public CoreViewImpl(final GSpaceArmorDefault armor, final StateManagerDefault stateManager) {
@@ -60,7 +62,9 @@ public class CoreViewImpl extends ViewImpl implements CorePresenter.CoreView {
     History.addValueChangeHandler(stateManager);
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see com.gwtplatform.mvp.client.View#asWidget()
    */
   @Override

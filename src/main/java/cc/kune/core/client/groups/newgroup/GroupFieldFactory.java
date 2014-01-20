@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -47,8 +47,9 @@ public class GroupFieldFactory {
 
   /**
    * Instantiates a new group field factory.
-   *
-   * @param i18n the i18n
+   * 
+   * @param i18n
+   *          the i18n
    */
   @Inject
   public GroupFieldFactory(final I18nTranslationService i18n) {
@@ -57,10 +58,13 @@ public class GroupFieldFactory {
 
   /**
    * Creates a new GroupField object.
-   *
-   * @param fieldSet the field set
-   * @param fieldSetId the field set id
-   * @param radioId the radio id
+   * 
+   * @param fieldSet
+   *          the field set
+   * @param fieldSetId
+   *          the field set id
+   * @param radioId
+   *          the radio id
    * @return the radio
    */
   public Radio createClosedRadio(final FieldSet fieldSet, final String fieldSetId, final String radioId) {
@@ -75,10 +79,13 @@ public class GroupFieldFactory {
 
   /**
    * Creates a new GroupField object.
-   *
-   * @param fieldSet the field set
-   * @param fieldSetId the field set id
-   * @param radioId the radio id
+   * 
+   * @param fieldSet
+   *          the field set
+   * @param fieldSetId
+   *          the field set id
+   * @param radioId
+   *          the radio id
    * @return the radio
    */
   public Radio createCommunityRadio(final FieldSet fieldSet, final String fieldSetId,
@@ -94,8 +101,9 @@ public class GroupFieldFactory {
 
   /**
    * Creates a new GroupField object.
-   *
-   * @param fieldId the field id
+   * 
+   * @param fieldId
+   *          the field id
    * @return the text field< string>
    */
   public TextField<String> createGroupShortName(final String fieldId) {
@@ -123,8 +131,9 @@ public class GroupFieldFactory {
 
   /**
    * Creates a new GroupField object.
-   *
-   * @param fieldId the field id
+   * 
+   * @param fieldId
+   *          the field id
    * @return the text field< string>
    */
   public TextField<String> createLongName(final String fieldId) {
@@ -145,10 +154,13 @@ public class GroupFieldFactory {
 
   /**
    * Creates a new GroupField object.
-   *
-   * @param fieldSet the field set
-   * @param fieldSetId the field set id
-   * @param radioId the radio id
+   * 
+   * @param fieldSet
+   *          the field set
+   * @param fieldSetId
+   *          the field set id
+   * @param radioId
+   *          the radio id
    * @return the radio
    */
   public Radio createOrgRadio(final FieldSet fieldSet, final String fieldSetId, final String radioId) {
@@ -160,10 +172,13 @@ public class GroupFieldFactory {
 
   /**
    * Creates a new GroupField object.
-   *
-   * @param fieldSet the field set
-   * @param fieldSetId the field set id
-   * @param radioId the radio id
+   * 
+   * @param fieldSet
+   *          the field set
+   * @param fieldSetId
+   *          the field set id
+   * @param radioId
+   *          the radio id
    * @return the radio
    */
   public Radio createProjectRadio(final FieldSet fieldSet, final String fieldSetId, final String radioId) {

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -49,39 +49,45 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class InvitationClientManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
 public class InvitationClientManager {
-  
+
   /** The chat engine. */
   private final ChatClient chatEngine;
-  
+
   /** The i18n. */
   private final I18nTranslationService i18n;
-  
+
   /** The invitation service. */
   private final Provider<InvitationServiceAsync> invitationService;
-  
+
   /** The session. */
   private final Session session;
-  
+
   /** The sn service. */
   private final Provider<SocialNetServiceAsync> snService;
-  
+
   /** The state manager. */
   private final StateManager stateManager;
 
   /**
    * Instantiates a new invitation client manager.
-   *
-   * @param invitationService the invitation service
-   * @param chatEngine the chat engine
-   * @param snService the sn service
-   * @param session the session
-   * @param i18n the i18n
-   * @param stateManager the state manager
+   * 
+   * @param invitationService
+   *          the invitation service
+   * @param chatEngine
+   *          the chat engine
+   * @param snService
+   *          the sn service
+   * @param session
+   *          the session
+   * @param i18n
+   *          the i18n
+   * @param stateManager
+   *          the state manager
    */
   @Inject
   public InvitationClientManager(final Provider<InvitationServiceAsync> invitationService,
@@ -97,8 +103,9 @@ public class InvitationClientManager {
 
   /**
    * Process.
-   *
-   * @param hash the hash
+   * 
+   * @param hash
+   *          the hash
    */
   public void process(final String hash) {
     invitationService.get().getInvitation(hash, new AsyncCallbackSimple<InvitationDTO>() {

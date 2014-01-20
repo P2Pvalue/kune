@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -39,23 +39,26 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class CleanInvitationsJob.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class CleanInvitationsJob implements Job {
 
   /** The Constant LOG. */
   public static final Log LOG = LogFactory.getLog(CleanInvitationsJob.class);
-  
+
   /** The invitation manager. */
   private final InvitationManager invitationManager;
 
   /**
    * Instantiates a new clean invitations job.
-   *
-   * @param invitationManager the invitation manager
-   * @throws ParseException the parse exception
-   * @throws SchedulerException the scheduler exception
+   * 
+   * @param invitationManager
+   *          the invitation manager
+   * @throws ParseException
+   *           the parse exception
+   * @throws SchedulerException
+   *           the scheduler exception
    */
   @Inject
   public CleanInvitationsJob(final InvitationManager invitationManager) throws ParseException,
@@ -63,7 +66,9 @@ public class CleanInvitationsJob implements Job {
     this.invitationManager = invitationManager;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.quartz.Job#execute(org.quartz.JobExecutionContext)
    */
   @Override

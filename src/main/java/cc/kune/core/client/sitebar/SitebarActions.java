@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,17 +28,17 @@ import cc.kune.common.client.actions.ui.descrip.ToolbarDescriptor;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface SitebarActions.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface SitebarActions {
-  
+
   /** The Constant LEFT_TOOLBAR. */
   static final ToolbarDescriptor LEFT_TOOLBAR = new ToolbarDescriptor();
-  
+
   /** The Constant MORE_MENU. */
   static final MenuDescriptor MORE_MENU = new MenuDescriptor();
-  
+
   /** The Constant RIGHT_TOOLBAR. */
   static final ToolbarDescriptor RIGHT_TOOLBAR = new ToolbarDescriptor();
 

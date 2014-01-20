@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -26,7 +26,7 @@ package cc.kune.core.client.state;
 /**
  * The Class HistoryTokenMustBeAuthCallback is used to indicate the action
  * related to this token (like #inbox, etc) should be authenticated.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public abstract class HistoryTokenMustBeAuthCallback implements HistoryTokenCallback {
@@ -36,8 +36,9 @@ public abstract class HistoryTokenMustBeAuthCallback implements HistoryTokenCall
 
   /**
    * Instantiates a new history token must be auth callback.
-   *
-   * @param signInMessage the sign in message
+   * 
+   * @param signInMessage
+   *          the sign in message
    */
   public HistoryTokenMustBeAuthCallback(final String signInMessage) {
     this.infoMessage = signInMessage;
@@ -53,7 +54,9 @@ public abstract class HistoryTokenMustBeAuthCallback implements HistoryTokenCall
     return true;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.client.state.HistoryTokenCallback#getInfoMessage()
    */
   @Override

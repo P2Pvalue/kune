@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -26,31 +26,34 @@ import cc.kune.core.shared.domain.utils.StateToken;
 
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving rename events.
- * The class that is interested in processing a rename
- * event implements this interface, and the object created
- * with that class is registered with a component using the
+ * The listener interface for receiving rename events. The class that is
+ * interested in processing a rename event implements this interface, and the
+ * object created with that class is registered with a component using the
  * component's <code>addRenameListener<code> method. When
  * the rename event occurs, that object's appropriate
  * method is invoked.
- *
+ * 
  * @see RenameEvent
  */
 public interface RenameListener {
 
   /**
    * On fail.
-   *
-   * @param token the token
-   * @param oldTitle the old title
+   * 
+   * @param token
+   *          the token
+   * @param oldTitle
+   *          the old title
    */
   void onFail(StateToken token, String oldTitle);
 
   /**
    * On success.
-   *
-   * @param token the token
-   * @param title the title
+   * 
+   * @param token
+   *          the token
+   * @param title
+   *          the title
    */
   void onSuccess(StateToken token, String title);
 

@@ -1,6 +1,6 @@
 /*
  *
-x * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+x * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -49,6 +49,7 @@ import cc.kune.core.client.groups.newgroup.GroupFieldFactory;
 import cc.kune.core.client.notify.spiner.SpinerPanel;
 import cc.kune.core.client.notify.spiner.SpinerPresenter;
 import cc.kune.core.client.rpcservices.AsyncCallbackSimple;
+import cc.kune.core.client.services.ClientFileDownloadUtils;
 import cc.kune.core.client.sitebar.AbstractSignInAction;
 import cc.kune.core.client.sitebar.AbstractSignOutAction;
 import cc.kune.core.client.sitebar.ErrorsDialog;
@@ -152,6 +153,7 @@ public class EmbedCoreGinModule extends ExtendedGinModule {
     eagle(TokenMatcher.class);
     s(ActionRegistryByType.class);
 
+    s(ClientFileDownloadUtils.class);
     s(ErrorsDialog.class);
   }
 }

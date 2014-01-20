@@ -5,7 +5,7 @@
 export DH_VERBOSE=1
 
 #%:
-#	dh $@
+# dh $@
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/rules/patchsys-quilt.mk
@@ -37,7 +37,7 @@ kune-version:
 
 build/kune::
 
-#	mvn assembly:assembly -Dgwt.compiler.skip=$(NO_GWT) -P production
+# mvn assembly:assembly -Dgwt.compiler.skip=$(NO_GWT) -P production
 
 binary-indep: build install/kune
 binary-arch: binary-indep
@@ -67,18 +67,19 @@ install/kune::
 # Debuggin: http://people.debian.org/~seanius/policy/dbconfig-common-using.html/ch-develguide.html#s-debugging
 
 	cat $(CURDIR)/src/main/resources/db/kune_initialize.sql \
-            $(CURDIR)/src/main/resources/db/init-data-countries.sql \
-            $(CURDIR)/src/main/resources/db/init-data-languages.sql \
-            $(CURDIR)/src/main/resources/db/update-0020-names-width.sql \
-	    $(CURDIR)/src/main/resources/db/update-0021-avatarLastModifiedTime-deb.sql \
-	    $(CURDIR)/src/main/resources/db/update-0022-userSingInLog.sql \
-	    $(CURDIR)/src/main/resources/db/update-0023-inviation.sql \
-            $(CURDIR)/src/main/resources/db/update-0024-add-indexes.sql \
-            $(CURDIR)/src/main/resources/db/update-0008-i18n-pt-br.sql \
-	    $(CURDIR)/src/main/resources/db/update-0025-i18n-country-codes.txt \
-	    $(CURDIR)/src/main/resources/db/update-0026-i18n-max-size.sql \
-            > $(DEST)/usr/share/dbconfig-common/data/kune/install/mysql
-        # Add the upgrades algo in the previous install
+		$(CURDIR)/src/main/resources/db/init-data-countries.sql \
+		$(CURDIR)/src/main/resources/db/init-data-languages.sql \
+		$(CURDIR)/src/main/resources/db/update-0020-names-width.sql \
+		$(CURDIR)/src/main/resources/db/update-0021-avatarLastModifiedTime-deb.sql \
+		$(CURDIR)/src/main/resources/db/update-0022-userSingInLog.sql \
+		$(CURDIR)/src/main/resources/db/update-0023-inviation.sql \
+		$(CURDIR)/src/main/resources/db/update-0024-add-indexes.sql \
+		$(CURDIR)/src/main/resources/db/update-0008-i18n-pt-br.sql \
+		$(CURDIR)/src/main/resources/db/update-0025-i18n-country-codes.txt \
+		$(CURDIR)/src/main/resources/db/update-0026-i18n-max-size.sql \
+		$(CURDIR)/src/main/resources/db/update-0027-waveindex.sql \
+		> $(DEST)/usr/share/dbconfig-common/data/kune/install/mysql
+#	Add the upgrades algo in the previous install
 	cp $(CURDIR)/src/main/resources/db/init-data-countries.sql     $(DEST)/usr/share/dbconfig-common/data/kune/upgrade/mysql/0.1.0+b5
 	cp $(CURDIR)/src/main/resources/db/init-data-languages.sql     $(DEST)/usr/share/dbconfig-common/data/kune/upgrade/mysql/0.1.0+b6
 	cp $(CURDIR)/src/main/resources/db/update-0020-names-width.sql $(DEST)/usr/share/dbconfig-common/data/kune/upgrade/mysql/0.2.0+b12
@@ -88,6 +89,7 @@ install/kune::
 	cp $(CURDIR)/src/main/resources/db/update-0024-add-indexes.sql $(DEST)/usr/share/dbconfig-common/data/kune/upgrade/mysql/0.3.0+b20
 	cp $(CURDIR)/src/main/resources/db/update-0025-i18n-country-codes.txt $(DEST)/usr/share/dbconfig-common/data/kune/upgrade/mysql/0.3.0+b24
 	cp $(CURDIR)/src/main/resources/db/update-0026-i18n-max-size.sql $(DEST)/usr/share/dbconfig-common/data/kune/upgrade/mysql/0.3.0+b27
+	cp $(CURDIR)/src/main/resources/db/update-0027-waveindex.sql $(DEST)/usr/share/dbconfig-common/data/kune/upgrade/mysql/0.3.0+b35
 
 # FIXME
 #	cp logrotate $(DEST)/etc/logrotate.d/
@@ -96,6 +98,8 @@ install/kune::
 	rsync -aC --delete $(CURDIR)/src/main/webapp/* $(KUNE)/webapp
 	rsync -aC --delete $(TARGETC)/ws/* $(KUNE)/webclient/ws
 	rsync -aC --delete $(TARGETC)/wse/* $(KUNE)/webclient/wse
+	rsync -aC --delete $(TARGETC)/WEB-INF/deploy/ws/symbolMaps/ $(KUNE)/symbolMapsWs/
+	rsync -aC --delete $(TARGETC)/WEB-INF/deploy/wse/symbolMaps/ $(KUNE)/symbolMapsWse/
 
 #get-orig-source:
-#        sh -e debian/orig-tar.sh
+#	sh -e debian/orig-tar.sh

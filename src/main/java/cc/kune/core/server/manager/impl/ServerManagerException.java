@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,7 +27,7 @@ import cc.kune.core.server.error.ServerException;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ServerManagerException.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ServerManagerException extends ServerException {
@@ -44,8 +44,9 @@ public class ServerManagerException extends ServerException {
 
   /**
    * Instantiates a new server manager exception.
-   *
-   * @param text the text
+   * 
+   * @param text
+   *          the text
    */
   public ServerManagerException(final String text) {
     super(text);
@@ -53,9 +54,11 @@ public class ServerManagerException extends ServerException {
 
   /**
    * Instantiates a new server manager exception.
-   *
-   * @param text the text
-   * @param cause the cause
+   * 
+   * @param text
+   *          the text
+   * @param cause
+   *          the cause
    */
   public ServerManagerException(final String text, final Throwable cause) {
     super(text, cause);
@@ -63,8 +66,9 @@ public class ServerManagerException extends ServerException {
 
   /**
    * Instantiates a new server manager exception.
-   *
-   * @param cause the cause
+   * 
+   * @param cause
+   *          the cause
    */
   public ServerManagerException(final Throwable cause) {
     super(cause);

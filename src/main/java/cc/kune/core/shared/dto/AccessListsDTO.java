@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,40 +27,52 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 // TODO: Auto-generated Javadoc
 /*
  * AccessList samples (using GroupListMode)
- *  
- * |---------------------------------------------------------+--------+---------------+----------+---------|
- * | AccessList (A: Admins, E:Editors, V: Viewers            |        | Administrable | Editable | Visible |
- * |---------------------------------------------------------+--------+---------------+----------+---------|
- * | (A:EVERYONE, E: EVERYONE, V:EVERYONE, P:NO)             | Group1 | yes           | yes      | yes     |
- * |                                                         | Group2 | yes           | yes      | yes     |
- * |---------------------------------------------------------+--------+---------------+----------+---------|
- * | (A:NORMAL(Group1), E: NORMAL, V:EVERYONE, P:NO)         | Group1 | yes           | yes      | yes     |
- * |                                                         | Group2 | no            | no       | yes     |
- * |---------------------------------------------------------+--------+---------------+----------+---------|
- * | (A:NORMAL(Group1), E: NORMAL(Group2), V:EVERYONE, P:NO) | Group1 | yes           | yes      | yes     |
- * |                                                         | Group2 | no            | yes      | yes     |
- * |                                                         | Group3 | no            | no       | yes     |
- * |---------------------------------------------------------+--------+---------------+----------+---------|
- * | (A:NORMAL(Group1), E: NORMAL, V:NORMAL(Group2), P:NO)   | Group1 | yes           | yes      | yes     |
- * |                                                         | Group2 | no            | no       | yes     |
- * |                                                         | Group3 | no            | no       | no      |
- * |---------------------------------------------------------+--------+---------------+----------+---------|
- * 
+
+ |---------------------------------------------------+--------+---------------+----------+---------|
+ | AccessList (A: Admins, E:Editors, V: Viewers      |        | Administrable | Editable | Visible |
+ |---------------------------------------------------+--------+---------------+----------+---------|
+ | (A:EVERYONE, E: EVERYONE, V:EVERYONE)             | Group1 | yes           | yes      | yes     |
+ |                                                   | Group2 | yes           | yes      | yes     |
+ |---------------------------------------------------+--------+---------------+----------+---------|
+ | (A:NORMAL(Group1), E: NORMAL, V:EVERYONE)         | Group1 | yes           | yes      | yes     |
+ |                                                   | Group2 | no            | no       | yes     |
+ |---------------------------------------------------+--------+---------------+----------+---------|
+ | (A:NORMAL(Group1), E: NORMAL(Group2), V:EVERYONE) | Group1 | yes           | yes      | yes     |
+ |                                                   | Group2 | no            | yes      | yes     |
+ |                                                   | Group3 | no            | no       | yes     |
+ |---------------------------------------------------+--------+---------------+----------+---------|
+ | (A:NORMAL(Group1), E: NORMAL, V:NORMAL(Group2))   | Group1 | yes           | yes      | yes     |
+ |                                                   | Group2 | no            | no       | yes     |
+ |                                                   | Group3 | no            | no       | no      |
+ |---------------------------------------------------+--------+---------------+----------+---------|
+ | (A:NORMAL(Group1), E:NORMAL(Group2), V: NOBODY)   | Group1 | yes           | yes      | yes     |
+ |                                                   | Group2 | no            | yes      | yes     |
+ |                                                   | Group3 | no            | no       | no      |
+ |---------------------------------------------------+--------+---------------+----------+---------|
+ | (A:NORMAL(Group1), E: NOBODY, V:NORMAL(Group2))   | Group1 | yes           | yes      | yes     |
+ |                                                   | Group2 | no            | no       | yes     |
+ |                                                   | Group3 | no            | no       | no      |
+ |---------------------------------------------------+--------+---------------+----------+---------|
+ | (A:NORMAL(Group1), E: NOBODY, V:NOBODY)           | Group1 | yes           | yes      | yes     |
+ |                                                   | Group2 | no            | no       | no      |
+ |                                                   | Group3 | no            | no       | no      |
+ |---------------------------------------------------+--------+---------------+----------+---------|
+
  */
 
 /**
  * The Class AccessListsDTO.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class AccessListsDTO implements IsSerializable {
-  
+
   /** The admins. */
   private GroupListDTO admins;
-  
+
   /** The editors. */
   private GroupListDTO editors;
-  
+
   /** The viewers. */
   private GroupListDTO viewers;
 
@@ -73,10 +85,13 @@ public class AccessListsDTO implements IsSerializable {
 
   /**
    * Instantiates a new access lists dto.
-   *
-   * @param admins the admins
-   * @param editors the editors
-   * @param viewers the viewers
+   * 
+   * @param admins
+   *          the admins
+   * @param editors
+   *          the editors
+   * @param viewers
+   *          the viewers
    */
   public AccessListsDTO(final GroupListDTO admins, final GroupListDTO editors, final GroupListDTO viewers) {
     this.admins = admins;
@@ -86,7 +101,7 @@ public class AccessListsDTO implements IsSerializable {
 
   /**
    * Gets the admins.
-   *
+   * 
    * @return the admins
    */
   public GroupListDTO getAdmins() {
@@ -95,7 +110,7 @@ public class AccessListsDTO implements IsSerializable {
 
   /**
    * Gets the editors.
-   *
+   * 
    * @return the editors
    */
   public GroupListDTO getEditors() {
@@ -104,7 +119,7 @@ public class AccessListsDTO implements IsSerializable {
 
   /**
    * Gets the viewers.
-   *
+   * 
    * @return the viewers
    */
   public GroupListDTO getViewers() {
@@ -113,8 +128,9 @@ public class AccessListsDTO implements IsSerializable {
 
   /**
    * Sets the admins.
-   *
-   * @param admins the new admins
+   * 
+   * @param admins
+   *          the new admins
    */
   public void setAdmins(final GroupListDTO admins) {
     this.admins = admins;
@@ -122,8 +138,9 @@ public class AccessListsDTO implements IsSerializable {
 
   /**
    * Sets the editors.
-   *
-   * @param editors the new editors
+   * 
+   * @param editors
+   *          the new editors
    */
   public void setEditors(final GroupListDTO editors) {
     this.editors = editors;
@@ -131,14 +148,17 @@ public class AccessListsDTO implements IsSerializable {
 
   /**
    * Sets the viewers.
-   *
-   * @param viewers the new viewers
+   * 
+   * @param viewers
+   *          the new viewers
    */
   public void setViewers(final GroupListDTO viewers) {
     this.viewers = viewers;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see java.lang.Object#toString()
    */
   @Override

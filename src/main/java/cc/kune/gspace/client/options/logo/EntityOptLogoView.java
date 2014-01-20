@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,14 +29,14 @@ import cc.kune.gspace.client.options.EntityOptionsUploaderView;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface EntityOptLogoView.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface EntityOptLogoView extends EntityOptionsTabView, EntityOptionsUploaderView {
 
   /**
    * Gets the on submit.
-   *
+   * 
    * @return the on submit
    */
   OnAcceptCallback getOnSubmit();
@@ -58,9 +58,11 @@ public interface EntityOptLogoView extends EntityOptionsTabView, EntityOptionsUp
 
   /**
    * Sets the upload params.
-   *
-   * @param userHash the user hash
-   * @param token the token
+   * 
+   * @param userHash
+   *          the user hash
+   * @param token
+   *          the token
    */
   void setUploadParams(String userHash, String token);
 

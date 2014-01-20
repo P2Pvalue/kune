@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,22 +27,23 @@ import cc.kune.domain.Group;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface StatsService.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface StatsService {
 
   /**
    * Gets the home stats.
-   *
+   * 
    * @return the home stats
    */
   HomeStats getHomeStats();
 
   /**
    * Gets the home stats.
-   *
-   * @param userGroup the user group
+   * 
+   * @param userGroup
+   *          the user group
    * @return the home stats
    */
   HomeStats getHomeStats(Group userGroup);

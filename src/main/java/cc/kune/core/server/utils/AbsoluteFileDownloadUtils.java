@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,11 +28,10 @@ import cc.kune.core.shared.utils.SharedFileDownloadUtils;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class AbsoluteFileDownloadUtils get url of avatars etc, with absolute
  * urls (with domain, etc).
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
@@ -43,8 +42,9 @@ public class AbsoluteFileDownloadUtils extends SharedFileDownloadUtils {
 
   /**
    * Instantiates a new absolute file download utils.
-   *
-   * @param properties the properties
+   * 
+   * @param properties
+   *          the properties
    */
   @Inject
   public AbsoluteFileDownloadUtils(final KuneBasicProperties properties) {
@@ -54,10 +54,11 @@ public class AbsoluteFileDownloadUtils extends SharedFileDownloadUtils {
 
   /**
    * Gets the site common name.
-   *
+   * 
    * @return the site common name
    */
   public String getSiteCommonName() {
     return properties.getSiteCommonName();
   }
+
 }

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,17 +27,19 @@ import cc.kune.core.shared.dto.EmailNotificationFrequency;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface PendingNotificationSender. Used to send pending notifications
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface NotificationSender {
 
   /**
    * Send the notification to users with some frequency configured.
-   *
-   * @param notification the notification to send
-   * @param currentFrequency the current frequency (only users with this frequency should be
-   * processed
+   * 
+   * @param notification
+   *          the notification to send
+   * @param currentFrequency
+   *          the current frequency (only users with this frequency should be
+   *          processed
    */
   void send(PendingNotification notification, EmailNotificationFrequency currentFrequency);
 }

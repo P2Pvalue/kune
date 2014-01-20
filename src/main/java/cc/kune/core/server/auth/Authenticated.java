@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,7 +32,7 @@ import com.google.inject.BindingAnnotation;
  * Use in *RPC methods to check if user is authenticated
  * 
  * The first param in the method must be the userHash.
- *
+ * 
  * @author danigb@gmail.com
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
@@ -42,7 +42,7 @@ public @interface Authenticated {
 
   /**
    * if false, only checks for session expiration.
-   *
+   * 
    * @return true, if successful
    */
   boolean mandatory() default true;

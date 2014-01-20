@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under 
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under 
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public 
  * License version 3, (the "License"); you may not use this file except in 
@@ -30,7 +30,7 @@ import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 // TODO: Auto-generated Javadoc
 /**
  * Sample of GinModule (but with GWTPlatform).
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class HelloWordGinModule extends AbstractPresenterModule {
@@ -41,20 +41,22 @@ public class HelloWordGinModule extends AbstractPresenterModule {
    */
   /**
    * The Interface HelloWordGinjector.
-   *
+   * 
    * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
    */
   public interface HelloWordGinjector extends Ginjector {
-    
+
     /**
      * Gets the hello world presenter.
-     *
+     * 
      * @return the hello world presenter
      */
     AsyncProvider<HelloWorldPresenter> getHelloWorldPresenter();
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see com.google.gwt.inject.client.AbstractGinModule#configure()
    */
   @Override

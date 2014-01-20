@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,17 +34,21 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserSessionMonitor.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
 public class UserSessionMonitor implements HttpSessionListener {
-  
+
   /** The Constant LOG. */
   public static final Log LOG = LogFactory.getLog(UserSessionMonitor.class);
 
-  /* (non-Javadoc)
-   * @see javax.servlet.http.HttpSessionListener#sessionCreated(javax.servlet.http.HttpSessionEvent)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * javax.servlet.http.HttpSessionListener#sessionCreated(javax.servlet.http
+   * .HttpSessionEvent)
    */
   @Override
   public void sessionCreated(final HttpSessionEvent event) {
@@ -53,8 +57,12 @@ public class UserSessionMonitor implements HttpSessionListener {
     // event.getSession().getServletContext().getContextPath(),
   }
 
-  /* (non-Javadoc)
-   * @see javax.servlet.http.HttpSessionListener#sessionDestroyed(javax.servlet.http.HttpSessionEvent)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * javax.servlet.http.HttpSessionListener#sessionDestroyed(javax.servlet.http
+   * .HttpSessionEvent)
    */
   @Override
   public void sessionDestroyed(final HttpSessionEvent event) {

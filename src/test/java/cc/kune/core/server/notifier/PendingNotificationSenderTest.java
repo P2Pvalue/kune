@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -33,47 +33,50 @@ import cc.kune.core.server.utils.FormattedString;
 // TODO: Auto-generated Javadoc
 /**
  * The Class PendingNotificationSenderTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class PendingNotificationSenderTest extends AbstractPendingNotificationTest {
 
   /** The Constant BODY. */
   private static final FormattedString BODY = FormattedString.build("Some body");
-  
+
   /** The Constant OTHER_BODY. */
   private static final FormattedString OTHER_BODY = FormattedString.build("Some other body");
-  
+
   /** The Constant OTHER_SUBJECT. */
   private static final FormattedString OTHER_SUBJECT = FormattedString.build("Some other subject");
-  
+
   /** The Constant SUBJECT. */
   private static final FormattedString SUBJECT = FormattedString.build("Some subject");
-  
+
   /** The manager. */
   private PendingNotificationSender manager;
-  
+
   /** The other notif. */
   private PendingNotificationProvider otherNotif;
-  
+
   /** The sender. */
   private NotificationSender sender;
-  
+
   /** The some forced notif. */
   private PendingNotificationProvider someForcedNotif;
-  
+
   /** The some notif. */
   private PendingNotificationProvider someNotif;
-  
+
   /** The some similar notif. */
   private PendingNotificationProvider someSimilarNotif;
 
   /**
    * Assert queues.
-   *
-   * @param i the i
-   * @param j the j
-   * @param k the k
+   * 
+   * @param i
+   *          the i
+   * @param j
+   *          the j
+   * @param k
+   *          the k
    */
   private void assertQueues(final int i, final int j, final int k) {
     assertEquals(i, manager.getImmediateCount());
@@ -81,7 +84,9 @@ public class PendingNotificationSenderTest extends AbstractPendingNotificationTe
     assertEquals(k, manager.getDailyCount());
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.notifier.AbstractPendingNotificationTest#before()
    */
   @Override

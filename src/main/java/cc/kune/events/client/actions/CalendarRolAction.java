@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -23,7 +23,7 @@
 package cc.kune.events.client.actions;
 
 import cc.kune.core.client.actions.RolAction;
-import cc.kune.core.client.actions.RolComparator;
+import cc.kune.core.client.actions.RolActionHelper;
 import cc.kune.core.client.state.Session;
 import cc.kune.core.shared.domain.utils.AccessRights;
 import cc.kune.core.shared.dto.AccessRolDTO;
@@ -36,20 +36,26 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class CalendarRolAction.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public abstract class CalendarRolAction extends RolAction {
 
   /**
    * Instantiates a new calendar rol action.
-   *
-   * @param eventBus the event bus
-   * @param session the session
-   * @param calendar the calendar
-   * @param rolRequired the rol required
-   * @param authNeed the auth need
-   * @param onlyOnApp the only on app
+   * 
+   * @param eventBus
+   *          the event bus
+   * @param session
+   *          the session
+   * @param calendar
+   *          the calendar
+   * @param rolRequired
+   *          the rol required
+   * @param authNeed
+   *          the auth need
+   * @param onlyOnApp
+   *          the only on app
    */
   public CalendarRolAction(final EventBus eventBus, final Session session,
       final Provider<CalendarViewer> calendar, final AccessRolDTO rolRequired, final boolean authNeed,
@@ -61,8 +67,8 @@ public abstract class CalendarRolAction extends RolAction {
           public void onCalendarStateChange(final CalendarStateChangeEvent event) {
             // if the calendar is not selecting a appointment don't show this
             final AccessRights rights = session.getContainerState().getContainerRights();
-            final boolean isEnabled = RolComparator.isEnabled(rolRequired, rights);
-            final boolean isMember = RolComparator.isMember(rights);
+            final boolean isEnabled = RolActionHelper.isAuthorized(rolRequired, rights);
+            final boolean isMember = RolActionHelper.isMember(rights);
             final boolean isOnApp = !calendar.get().getAppToEdit().equals(CalendarViewer.NO_APPOINT);
             final boolean newEnabled = isMember && isEnabled && (!onlyOnApp || isOnApp);
             setEnabled(!newEnabled);

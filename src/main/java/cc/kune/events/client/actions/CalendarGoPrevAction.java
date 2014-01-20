@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,7 +32,7 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class CalendarGoPrevAction.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class CalendarGoPrevAction extends RolAction {
@@ -42,8 +42,9 @@ public class CalendarGoPrevAction extends RolAction {
 
   /**
    * Instantiates a new calendar go prev action.
-   *
-   * @param calViewer the cal viewer
+   * 
+   * @param calViewer
+   *          the cal viewer
    */
   @Inject
   public CalendarGoPrevAction(final CalendarViewer calViewer) {
@@ -51,8 +52,12 @@ public class CalendarGoPrevAction extends RolAction {
     this.calViewer = calViewer;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common.client.actions.ActionEvent)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common
+   * .client.actions.ActionEvent)
    */
   @Override
   public void actionPerformed(final ActionEvent event) {

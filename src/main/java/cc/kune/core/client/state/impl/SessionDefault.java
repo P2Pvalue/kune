@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -25,6 +25,8 @@ package cc.kune.core.client.state.impl;
 import java.util.Collection;
 import java.util.List;
 
+import cc.kune.common.client.log.Log;
+import cc.kune.common.client.utils.WindowUtils;
 import cc.kune.core.client.cookies.CookiesManager;
 import cc.kune.core.client.events.AppStartEvent;
 import cc.kune.core.client.events.AppStartEvent.AppStartHandler;
@@ -35,6 +37,8 @@ import cc.kune.core.client.events.UserSignInOrSignOutEvent.UserSignInOrSignOutHa
 import cc.kune.core.client.events.UserSignOutEvent;
 import cc.kune.core.client.events.UserSignOutEvent.UserSignOutHandler;
 import cc.kune.core.client.events.WaveSessionAvailableEvent;
+import cc.kune.core.client.rpcservices.AsyncCallbackSimple;
+import cc.kune.core.client.rpcservices.UserServiceAsync;
 import cc.kune.core.client.state.Session;
 import cc.kune.core.shared.SessionConstants;
 import cc.kune.core.shared.domain.utils.StateToken;
@@ -54,6 +58,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 /**
  * The Class SessionDefault.
@@ -62,36 +67,21 @@ import com.google.inject.Inject;
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class SessionDefault implements Session {
-
-  /** The cookie manager. */
   private final CookiesManager cookieManager;
-
-  /** The countries array. */
   private Object[][] countriesArray;
-
-  /** The current language. */
   private I18nLanguageDTO currentLanguage;
-
-  /** The current state. */
   private StateAbstractDTO currentState;
-
-  /** The current user info. */
   private UserInfoDTO currentUserInfo;
-
-  /** The event bus. */
   private final EventBus eventBus;
-
-  /** The init data. */
   private InitDataDTO initData;
 
+  private Boolean isDev;
+  private boolean isEmbedded = false;
   /** The languages array. */
   private Object[][] languagesArray;
-
-  /** The timezones array. */
   private Object[][] timezonesArray;
-
-  /** The user hash. */
   private String userHash;
+  private final Provider<UserServiceAsync> userServiceProvider;
 
   /**
    * Instantiates a new session default.
@@ -104,19 +94,27 @@ public class SessionDefault implements Session {
    *          the event bus
    */
   @Inject
-  public SessionDefault(final CookiesManager cookieManager, final EventBus eventBus) {
+  public SessionDefault(final CookiesManager cookieManager,
+      final Provider<UserServiceAsync> userServiceProvider, final EventBus eventBus) {
     this.cookieManager = cookieManager;
     this.eventBus = eventBus;
     this.userHash = cookieManager.getAuthCookie();
     this.userHash = userHash == null || userHash.equals("null") ? null : userHash;
+    this.userServiceProvider = userServiceProvider;
     languagesArray = null;
+    check(new AsyncCallbackSimple<Void>() {
+      @Override
+      public void onSuccess(final Void result) {
+      }
+    });
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see cc.kune.core.client.state.Session#getContainerState()
-   */
+  @Override
+  public void check(final AsyncCallbackSimple<Void> callback) {
+    Log.debug("Checking session (userhash: " + getUserHash() + ")");
+    userServiceProvider.get().onlyCheckSession(getUserHash(), callback);
+  }
+
   @Override
   public StateContainerDTO getContainerState() {
     return (StateContainerDTO) currentState;
@@ -132,21 +130,11 @@ public class SessionDefault implements Session {
     return (StateContentDTO) currentState;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see cc.kune.core.client.state.Session#getCountries()
-   */
   @Override
   public List<I18nCountryDTO> getCountries() {
     return initData.getCountries();
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see cc.kune.core.client.state.Session#getCountriesArray()
-   */
   @Override
   public Object[][] getCountriesArray() {
     if (countriesArray == null) {
@@ -444,6 +432,20 @@ public class SessionDefault implements Session {
     return currentState == null ? false : currentState.getGroup().isPersonal();
   }
 
+  @Override
+  public boolean isEmbedded() {
+    return isEmbedded;
+  }
+
+  @Override
+  public boolean isGuiInDevelopment() {
+    if (isDev == null) {
+      final String isDevParam = WindowUtils.getParameter(SessionConstants.DEVELOPMENT);
+      isDev = isDevParam == null ? false : Boolean.valueOf(isDevParam);
+    }
+    return isDev;
+  }
+
   /*
    * (non-Javadoc)
    * 
@@ -655,6 +657,11 @@ public class SessionDefault implements Session {
       eventBus.fireEvent(new UserSignOutEvent());
     }
     eventBus.fireEvent(new UserSignInOrSignOutEvent(isLogged()));
+  }
+
+  @Override
+  public void setEmbedded(final boolean isEmbedded) {
+    this.isEmbedded = isEmbedded;
   }
 
   /*

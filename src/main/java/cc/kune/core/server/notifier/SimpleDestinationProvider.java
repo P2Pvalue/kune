@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,11 +29,11 @@ import java.util.List;
 // TODO: Auto-generated Javadoc
 /**
  * The Class SimpleDestinationProvider.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class SimpleDestinationProvider implements DestinationProvider {
-  
+
   /** The list. */
   private final List<Addressee> list;
 
@@ -48,7 +48,9 @@ public class SimpleDestinationProvider implements DestinationProvider {
     list = Arrays.asList(addressee);
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see java.lang.Object#equals(java.lang.Object)
    */
   @Override
@@ -73,7 +75,9 @@ public class SimpleDestinationProvider implements DestinationProvider {
     return true;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.notifier.DestinationProvider#getDest()
    */
   @Override
@@ -81,7 +85,9 @@ public class SimpleDestinationProvider implements DestinationProvider {
     return list;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see java.lang.Object#hashCode()
    */
   @Override

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,15 +30,16 @@ import com.calclab.emite.core.client.packet.IPacket;
 // TODO: Auto-generated Javadoc
 /**
  * The Class XMLRol.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class XMLRol extends DelegatedPacket {
 
   /**
    * Instantiates a new xML rol.
-   *
-   * @param delegate the delegate
+   * 
+   * @param delegate
+   *          the delegate
    */
   public XMLRol(final IPacket delegate) {
     super(delegate);
@@ -46,7 +47,7 @@ public class XMLRol extends DelegatedPacket {
 
   /**
    * Gets the rol required.
-   *
+   * 
    * @return the rol required
    */
   public AccessRolDTO getRolRequired() {
@@ -55,7 +56,7 @@ public class XMLRol extends DelegatedPacket {
 
   /**
    * Checks if is auth need.
-   *
+   * 
    * @return true, if is auth need
    */
   public boolean isAuthNeed() {

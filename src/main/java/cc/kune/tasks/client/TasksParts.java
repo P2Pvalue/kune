@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -35,20 +35,26 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class TasksParts.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class TasksParts {
 
   /**
    * Instantiates a new tasks parts.
-   *
-   * @param session the session
-   * @param clientTool the client tool
-   * @param viewerSelector the viewer selector
-   * @param tasksActions the tasks actions
-   * @param contentViewer the content viewer
-   * @param folderViewer the folder viewer
+   * 
+   * @param session
+   *          the session
+   * @param clientTool
+   *          the client tool
+   * @param viewerSelector
+   *          the viewer selector
+   * @param tasksActions
+   *          the tasks actions
+   * @param contentViewer
+   *          the content viewer
+   * @param folderViewer
+   *          the folder viewer
    */
   @Inject
   public TasksParts(final SessionConstants session, final Provider<TasksClientTool> clientTool,

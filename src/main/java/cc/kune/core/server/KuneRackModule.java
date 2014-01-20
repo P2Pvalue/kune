@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -126,6 +126,8 @@ public class KuneRackModule implements RackModule {
     configModule = new AbstractModule() {
       @Override
       public void configure() {
+        // Warning: parent instances (like Wave classes) are not intercepted.
+        // See: http://code.google.com/p/google-guice/issues/detail?id=461
         bindInterceptor(Matchers.annotatedWith(LogThis.class), new NotInObject(),
             new LoggerMethodInterceptor());
         // if (sessionScope != null) {
@@ -248,6 +250,8 @@ public class KuneRackModule implements RackModule {
             kuneProperties);
         install(openfireDataSource);
         final KuneJpaLocalTxnInterceptor kuneJpaTxnInterceptor = kuneDataSource.getTransactionInterceptor();
+        // Warning: parent instances (like Wave classes) are not intercepted
+        // See: http://code.google.com/p/google-guice/issues/detail?id=461
         bindInterceptor(annotatedWith(KuneTransactional.class), any(), kuneJpaTxnInterceptor);
         bindInterceptor(any(), annotatedWith(KuneTransactional.class), kuneJpaTxnInterceptor);
         filter("/*").through(DataSourceKunePersistModule.MY_DATA_SOURCE_ONE_FILTER_KEY);

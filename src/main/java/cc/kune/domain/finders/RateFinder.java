@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,15 +32,16 @@ import com.google.inject.persist.finder.Finder;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface RateFinder.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface RateFinder {
 
   /**
    * Calculate rate.
-   *
-   * @param content the content
+   * 
+   * @param content
+   *          the content
    * @return the double
    */
   @Finder(query = "SELECT AVG(r.value) FROM Rate r WHERE r.content = :content")
@@ -48,8 +49,9 @@ public interface RateFinder {
 
   /**
    * Calculate rate number of users.
-   *
-   * @param content the content
+   * 
+   * @param content
+   *          the content
    * @return the long
    */
   @Finder(query = "SELECT count(*) FROM Rate r WHERE r.content = :content")
@@ -57,9 +59,11 @@ public interface RateFinder {
 
   /**
    * Find.
-   *
-   * @param user the user
-   * @param content the content
+   * 
+   * @param user
+   *          the user
+   * @param content
+   *          the content
    * @return the rate
    */
   @Finder(query = "SELECT r FROM Rate r WHERE r.rater = :user AND r.content = :content")

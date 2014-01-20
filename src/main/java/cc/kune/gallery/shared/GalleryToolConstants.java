@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,32 +28,32 @@ import cc.kune.core.shared.ToolConstants;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GalleryToolConstants.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public final class GalleryToolConstants {
-  
+
   /** The Constant ICON_TYPE_ALBUM. */
   public static final KuneIcon ICON_TYPE_ALBUM = new KuneIcon('j');
-  
+
   /** The Constant ICON_TYPE_ROOT. */
   public static final KuneIcon ICON_TYPE_ROOT = new KuneIcon('j');
-  
+
   /** The Constant ICON_TYPE_UPLOADEDFILE. */
   public static final KuneIcon ICON_TYPE_UPLOADEDFILE = new KuneIcon('j');
-  
+
   /** The Constant ROOT_NAME. */
   public static final String ROOT_NAME = "gallery";
-  
+
   /** The Constant TOOL_NAME. */
   public static final String TOOL_NAME = "gallery";
-  
+
   /** The Constant TYPE_ALBUM. */
   public static final String TYPE_ALBUM = TOOL_NAME + "." + "album";
-  
+
   /** The Constant TYPE_ROOT. */
   public static final String TYPE_ROOT = TOOL_NAME + "." + "root";
-  
+
   /** The Constant TYPE_UPLOADEDFILE. */
   public static final String TYPE_UPLOADEDFILE = TOOL_NAME + "." + ToolConstants.UPLOADEDFILE_SUFFIX;
 

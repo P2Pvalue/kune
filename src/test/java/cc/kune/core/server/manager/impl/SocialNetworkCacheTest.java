@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -35,26 +35,26 @@ import cc.kune.domain.User;
 // TODO: Auto-generated Javadoc
 /**
  * The Class SocialNetworkCacheTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class SocialNetworkCacheTest {
 
   /** The cache. */
   private SocialNetworkCache cache;
-  
+
   /** The data. */
   private SocialNetworkData data;
-  
+
   /** The group1. */
   private Group group1;
-  
+
   /** The group2. */
   private Group group2;
-  
+
   /** The user1. */
   private User user1;
-  
+
   /** The user2. */
   private User user2;
 

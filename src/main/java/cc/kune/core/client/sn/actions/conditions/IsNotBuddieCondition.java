@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,7 +32,7 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class IsNotBuddieCondition.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
@@ -40,17 +40,23 @@ public class IsNotBuddieCondition extends IsBuddieCondition {
 
   /**
    * Instantiates a new checks if is not buddie condition.
-   *
-   * @param session the session
-   * @param contactManager the contact manager
+   * 
+   * @param session
+   *          the session
+   * @param contactManager
+   *          the contact manager
    */
   @Inject
   public IsNotBuddieCondition(final Session session, final SimpleContactManager contactManager) {
     super(session, contactManager);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.client.sn.actions.conditions.IsBuddieCondition#mustBeAdded(cc.kune.common.client.actions.ui.descrip.GuiActionDescrip)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.client.sn.actions.conditions.IsBuddieCondition#mustBeAdded
+   * (cc.kune.common.client.actions.ui.descrip.GuiActionDescrip)
    */
   @Override
   public boolean mustBeAdded(final GuiActionDescrip descr) {

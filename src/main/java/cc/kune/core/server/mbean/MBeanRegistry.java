@@ -1,5 +1,6 @@
-/*******************************************************************************
- * Copyright (C) 2007, 2013 Licensed to the Comunes Association (CA) under
+/*
+ *
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -17,8 +18,8 @@
  *
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *******************************************************************************/
-
+ *
+ */
 package cc.kune.core.server.mbean;
 
 import java.lang.management.ManagementFactory;
@@ -39,7 +40,7 @@ import com.google.inject.Singleton;
 /**
  * The Class MBeanRegistry is responsible of mbean objects registration into the
  * JVM MBean Server.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
@@ -47,7 +48,7 @@ public class MBeanRegistry {
 
   /** The Constant LOG. */
   public static final Log LOG = LogFactory.getLog(MBeanRegistry.class);
-  
+
   /** The mbean server. */
   private final MBeanServer mbeanServer;
 
@@ -60,9 +61,11 @@ public class MBeanRegistry {
 
   /**
    * Register this object itself in the JVM MBean Server.
-   *
-   * @param object the object
-   * @param objectName the object name
+   * 
+   * @param object
+   *          the object
+   * @param objectName
+   *          the object name
    */
   public void registerAsMBean(final Object object, final String objectName) {
     ObjectName mbeanName = null;

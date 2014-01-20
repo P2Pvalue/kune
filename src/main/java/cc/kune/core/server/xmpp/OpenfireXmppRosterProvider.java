@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -36,7 +36,7 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class OpenfireXmppRosterProvider.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class OpenfireXmppRosterProvider extends DefaultManager<RosterItem, Long> implements
@@ -48,9 +48,11 @@ public class OpenfireXmppRosterProvider extends DefaultManager<RosterItem, Long>
 
   /**
    * Instantiates a new openfire xmpp roster provider.
-   *
-   * @param em the em
-   * @param finder the finder
+   * 
+   * @param em
+   *          the em
+   * @param finder
+   *          the finder
    */
   @Inject
   public OpenfireXmppRosterProvider(@DataSourceOpenfire final Provider<EntityManager> em,
@@ -59,7 +61,9 @@ public class OpenfireXmppRosterProvider extends DefaultManager<RosterItem, Long>
     this.finder = finder;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.xmpp.XmppRosterProvider#count()
    */
   @Override
@@ -68,8 +72,11 @@ public class OpenfireXmppRosterProvider extends DefaultManager<RosterItem, Long>
     return finder.count();
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.xmpp.XmppRosterProvider#getRoster(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.xmpp.XmppRosterProvider#getRoster(java.lang.String)
    */
   @Override
   @OpenfireTransactional

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,18 +34,19 @@ import com.google.gwt.user.client.ui.HasText;
 // TODO: Auto-generated Javadoc
 /**
  * The Class EntityOptUploadButton.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class EntityOptUploadButton extends Composite implements HasClickHandlers {
-  
+
   /** The btn. */
   private final Button btn;
 
   /**
    * Instantiates a new entity opt upload button.
-   *
-   * @param text the text
+   * 
+   * @param text
+   *          the text
    */
   public EntityOptUploadButton(final String text) {
     final DecoratorPanel decorator = new DecoratorPanel();
@@ -56,8 +57,12 @@ public class EntityOptUploadButton extends Composite implements HasClickHandlers
     decorator.setHeight("50px");
   }
 
-  /* (non-Javadoc)
-   * @see com.google.gwt.event.dom.client.HasClickHandlers#addClickHandler(com.google.gwt.event.dom.client.ClickHandler)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * com.google.gwt.event.dom.client.HasClickHandlers#addClickHandler(com.google
+   * .gwt.event.dom.client.ClickHandler)
    */
   @Override
   public HandlerRegistration addClickHandler(final ClickHandler handler) {
@@ -66,7 +71,7 @@ public class EntityOptUploadButton extends Composite implements HasClickHandlers
 
   /**
    * Checks for text.
-   *
+   * 
    * @return the checks for text
    */
   public HasText hasText() {

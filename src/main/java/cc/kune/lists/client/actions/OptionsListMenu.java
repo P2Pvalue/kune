@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,7 +31,7 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class OptionsListMenu.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
@@ -39,8 +39,9 @@ public class OptionsListMenu extends MenuDescriptor {
 
   /**
    * Instantiates a new options list menu.
-   *
-   * @param res the res
+   * 
+   * @param res
+   *          the res
    */
   @Inject
   public OptionsListMenu(final CoreResources res) {

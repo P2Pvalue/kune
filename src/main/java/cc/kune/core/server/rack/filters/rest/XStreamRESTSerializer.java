@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,13 +32,14 @@ public class XStreamRESTSerializer implements RESTSerializer {
 
   public XStreamRESTSerializer() {
     serializers = new HashMap<String, XStream>(2);
-    XStream stream = new XStream(new JettisonMappedXmlDriver());
+    final XStream stream = new XStream(new JettisonMappedXmlDriver());
     serializers.put(RESTMethod.FORMAT_JSON, stream);
     serializers.put(RESTMethod.FORMAT_XML, new XStream());
 
   }
 
-  public String serialize(Object target, String format) {
+  @Override
+  public String serialize(final Object target, final String format) {
     return serializers.get(format).toXML(target);
   }
 }

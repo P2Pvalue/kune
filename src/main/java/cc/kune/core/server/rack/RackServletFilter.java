@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,11 +37,14 @@ import javax.servlet.ServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.waveprotocol.box.server.persistence.file.FileUtils;
 import org.waveprotocol.box.server.rpc.ServerRpcProvider;
 import org.waveprotocol.box.server.waveserver.CustomImportServlet;
 
 import cc.kune.core.client.errors.DefaultException;
 import cc.kune.core.server.error.ServerException;
+import cc.kune.core.server.manager.ParticipantEntityManager;
+import cc.kune.core.server.manager.WaveEntityManager;
 import cc.kune.core.server.mbean.MBeanRegister;
 import cc.kune.core.server.properties.KuneProperties;
 import cc.kune.core.server.rack.dock.Dock;
@@ -49,7 +52,9 @@ import cc.kune.core.server.rack.dock.RequestMatcher;
 import cc.kune.core.server.rack.utils.RackHelper;
 import cc.kune.core.server.scheduler.CustomJobFactory;
 import cc.kune.core.server.searcheable.SearchEngineServletFilter;
+import cc.kune.wave.server.search.CustomPerUserWaveViewHandlerImpl;
 
+import com.google.gwt.logging.server.RemoteLoggingServiceImpl;
 import com.google.inject.Binder;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -91,9 +96,13 @@ public class RackServletFilter implements Filter {
   }
 
   public static final String INJECTOR_ATTRIBUTE = Injector.class.getName() + "Child";
+
   public static final String INJECTOR_PARENT_ATTRIBUTE = ServerRpcProvider.INJECTOR_ATTRIBUTE;
+
   private static final Log LOG = LogFactory.getLog(RackServletFilter.class);
   private static final String MODULE_PARAMETER = RackModule.class.getName();
+  private static final String SYMBOL_MAPS_ON_DEV = "target/kune-0.3.0-SNAPSHOT/WEB-INF/deploy/wse/symbolMaps";
+  private static final String SYMBOL_MAPS_ON_PRODUCTION = "symbolMapsWse";
   private List<Dock> docks;
 
   private List<RequestMatcher> excludes;
@@ -196,6 +205,17 @@ public class RackServletFilter implements Filter {
     // Register some mbeans objects
     kuneChildInjector.getInstance(MBeanRegister.class);
 
+    // Search init
+    final CustomPerUserWaveViewHandlerImpl searcher = kuneChildInjector.getInstance(CustomPerUserWaveViewHandlerImpl.class);
+    searcher.init(kuneChildInjector.getInstance(WaveEntityManager.class),
+        kuneChildInjector.getInstance(ParticipantEntityManager.class));
+
+    final String dir = FileUtils.isDirExistsAndNonEmpty(SYMBOL_MAPS_ON_PRODUCTION) ? "symbolMapsWse/"
+        : FileUtils.isDirExistsAndNonEmpty(SYMBOL_MAPS_ON_DEV) ? SYMBOL_MAPS_ON_DEV : null;
+    if (dir != null) {
+      kuneChildInjector.getInstance(RemoteLoggingServiceImpl.class).setSymbolMapsDirectory(dir);
+    }
+
     // Uncomment to generate the graph
     // graph("docs/wave-guice-graph.dot", injector);
     // graph("docs/kune-guice-graph.dot", kuneChildInjector);
@@ -233,5 +253,4 @@ public class RackServletFilter implements Filter {
       listener.stop();
     }
   }
-
 }

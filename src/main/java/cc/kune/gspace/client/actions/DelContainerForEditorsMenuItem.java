@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,14 +37,14 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class DelContainerForEditorsMenuItem.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class DelContainerForEditorsMenuItem extends MenuItemDescriptor {
 
   /**
    * The Class DelContainerForEditorAction.
-   *
+   * 
    * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
    */
   public static class DelContainerForEditorAction extends RolAction {
@@ -54,8 +54,9 @@ public class DelContainerForEditorsMenuItem extends MenuItemDescriptor {
 
     /**
      * Instantiates a new del container for editor action.
-     *
-     * @param contentService the content service
+     * 
+     * @param contentService
+     *          the content service
      */
     @Inject
     public DelContainerForEditorAction(final ContentServiceHelper contentService) {
@@ -63,8 +64,12 @@ public class DelContainerForEditorsMenuItem extends MenuItemDescriptor {
       this.contentService = contentService;
     }
 
-    /* (non-Javadoc)
-     * @see cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common.client.actions.ActionEvent)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.
+     * common.client.actions.ActionEvent)
      */
     @Override
     public void actionPerformed(final ActionEvent event) {
@@ -76,10 +81,13 @@ public class DelContainerForEditorsMenuItem extends MenuItemDescriptor {
 
   /**
    * Instantiates a new del container for editors menu item.
-   *
-   * @param i18n the i18n
-   * @param action the action
-   * @param res the res
+   * 
+   * @param i18n
+   *          the i18n
+   * @param action
+   *          the action
+   * @param res
+   *          the res
    */
   public DelContainerForEditorsMenuItem(final I18nTranslationService i18n,
       final DelContainerForEditorAction action, final IconicResources res) {

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -22,6 +22,7 @@
  */
 package cc.kune.gspace.client.actions;
 
+import cc.kune.common.client.actions.ActionStyles;
 import cc.kune.common.client.actions.ui.descrip.MenuDescriptor;
 import cc.kune.common.shared.i18n.I18n;
 import cc.kune.core.client.resources.CoreResources;
@@ -33,7 +34,7 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ContentViewerOptionsMenu.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
@@ -44,9 +45,11 @@ public class ContentViewerOptionsMenu extends MenuDescriptor {
 
   /**
    * Instantiates a new content viewer options menu.
-   *
-   * @param res the res
-   * @param session the session
+   * 
+   * @param res
+   *          the res
+   * @param session
+   *          the session
    */
   @Inject
   public ContentViewerOptionsMenu(final CoreResources res, final Session session) {
@@ -54,9 +57,9 @@ public class ContentViewerOptionsMenu extends MenuDescriptor {
     this.withIcon(res.arrowdownsitebar()).withId(ID);
     if (session.isNewbie()) {
       this.withText(I18n.t("More"));
-      this.withStyles(SNActionStyles.MENU_BTN_STYLE_RIGHT);
+      this.withStyles(ActionStyles.MENU_BTN_STYLE_RIGHT);
     } else {
-      this.withStyles(SNActionStyles.MENU_BTN_STYLE_NO_BORDER_RIGHT);
+      this.withStyles(ActionStyles.OPTIONS_MENU_BTN_STYLE_NO_BORDER_RIGHT);
     }
   }
 

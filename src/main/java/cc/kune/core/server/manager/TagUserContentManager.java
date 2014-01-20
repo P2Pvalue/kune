@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,42 +31,50 @@ import cc.kune.domain.User;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface TagUserContentManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface TagUserContentManager extends Manager<TagUserContent, Long> {
 
   /**
    * Gets the tag cloud result by group.
-   *
-   * @param group the group
+   * 
+   * @param group
+   *          the group
    * @return the tag cloud result by group
    */
   TagCloudResult getTagCloudResultByGroup(Group group);
 
   /**
    * Gets the tags as string.
-   *
-   * @param user the user
-   * @param content the content
+   * 
+   * @param user
+   *          the user
+   * @param content
+   *          the content
    * @return the tags as string
    */
   String getTagsAsString(User user, Content content);
 
   /**
    * Removes the.
-   *
-   * @param user the user
-   * @param content the content
+   * 
+   * @param user
+   *          the user
+   * @param content
+   *          the content
    */
   void remove(User user, Content content);
 
   /**
    * Sets the tags.
-   *
-   * @param user the user
-   * @param content the content
-   * @param tags the tags
+   * 
+   * @param user
+   *          the user
+   * @param content
+   *          the content
+   * @param tags
+   *          the tags
    */
   void setTags(User user, Content content, String tags);
 

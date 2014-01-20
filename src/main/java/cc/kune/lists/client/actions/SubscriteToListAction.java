@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -46,7 +46,7 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class SubscriteToListAction.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class SubscriteToListAction extends RolAction {
@@ -56,31 +56,37 @@ public class SubscriteToListAction extends RolAction {
 
   /** The event bus. */
   private final EventBus eventBus;
-  
+
   /** The i18n. */
   private final I18nTranslationService i18n;
-  
+
   /** The list service. */
   private final Provider<ListsServiceAsync> listService;
-  
+
   /** The session. */
   private final Session session;
-  
+
   /** The sign in. */
   private final Provider<SignIn> signIn;
-  
+
   /** The state manager. */
   private final StateManager stateManager;
 
   /**
    * Instantiates a new subscrite to list action.
-   *
-   * @param signIn the sign in
-   * @param i18n the i18n
-   * @param stateManager the state manager
-   * @param session the session
-   * @param listService the list service
-   * @param eventBus the event bus
+   * 
+   * @param signIn
+   *          the sign in
+   * @param i18n
+   *          the i18n
+   * @param stateManager
+   *          the state manager
+   * @param session
+   *          the session
+   * @param listService
+   *          the list service
+   * @param eventBus
+   *          the event bus
    */
   @Inject
   public SubscriteToListAction(final Provider<SignIn> signIn, final I18nTranslationService i18n,
@@ -95,8 +101,12 @@ public class SubscriteToListAction extends RolAction {
     this.eventBus = eventBus;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common.client.actions.ActionEvent)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common
+   * .client.actions.ActionEvent)
    */
   @Override
   public void actionPerformed(final ActionEvent event) {
@@ -122,7 +132,7 @@ public class SubscriteToListAction extends RolAction {
 
   /**
    * Checks if is member.
-   *
+   * 
    * @return the boolean
    */
   private Boolean isMember() {
@@ -135,7 +145,7 @@ public class SubscriteToListAction extends RolAction {
   private void performAction() {
     NotifyUser.showProgress();
     final boolean subcribe = !isMember();
-    listService.get().subscribeToList(session.getUserHash(), session.getCurrentStateToken(),
+    listService.get().subscribeMyselfToList(session.getUserHash(), session.getCurrentStateToken(),
         Boolean.valueOf(subcribe), new AsyncCallbackSimple<StateContainerDTO>() {
           @Override
           public void onSuccess(final StateContainerDTO result) {

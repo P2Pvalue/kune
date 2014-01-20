@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,29 +34,32 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class StatsServiceDefault.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class StatsServiceDefault implements StatsService {
 
   /** The Constant LIMIT. */
   private static final int LIMIT = 20; // Before 6
-  
+
   /** The content finder. */
   private final ContentFinder contentFinder;
-  
+
   /** The group finder. */
   private final GroupFinder groupFinder;
-  
+
   /** The user finder. */
   private final UserFinder userFinder;
 
   /**
    * Instantiates a new stats service default.
-   *
-   * @param userFinder the user finder
-   * @param groupFinder the group finder
-   * @param contentFinder the content finder
+   * 
+   * @param userFinder
+   *          the user finder
+   * @param groupFinder
+   *          the group finder
+   * @param contentFinder
+   *          the content finder
    */
   @Inject
   public StatsServiceDefault(final UserFinder userFinder, final GroupFinder groupFinder,
@@ -66,7 +69,9 @@ public class StatsServiceDefault implements StatsService {
     this.contentFinder = contentFinder;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.stats.StatsService#getHomeStats()
    */
   @Override
@@ -74,8 +79,11 @@ public class StatsServiceDefault implements StatsService {
     return getHomeStats(Group.NO_GROUP);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.stats.StatsService#getHomeStats(cc.kune.domain.Group)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.stats.StatsService#getHomeStats(cc.kune.domain.Group)
    */
   @Override
   public HomeStats getHomeStats(final Group userGroup) {

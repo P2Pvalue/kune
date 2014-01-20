@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,15 +34,16 @@ import com.google.inject.persist.finder.Finder;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface ContainerFinder.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface ContainerFinder {
-  
+
   /**
    * All containers in user group.
-   *
-   * @param groupId the group id
+   * 
+   * @param groupId
+   *          the group id
    * @return the list
    */
   @Finder(query = "FROM Container c WHERE " + "((:groupid IN (SELECT ed.id FROM "
@@ -52,9 +53,11 @@ public interface ContainerFinder {
 
   /**
    * Find if exists title.
-   *
-   * @param container the container
-   * @param title the title
+   * 
+   * @param container
+   *          the container
+   * @param title
+   *          the title
    * @return the long
    */
   @Finder(query = "SELECT COUNT(*) FROM Container c WHERE c.parent = :container AND c.name LIKE :title")
@@ -63,9 +66,11 @@ public interface ContainerFinder {
 
   /**
    * Find if exists type id.
-   *
-   * @param group the group
-   * @param typeId the type id
+   * 
+   * @param group
+   *          the group
+   * @param typeId
+   *          the type id
    * @return the long
    */
   @Finder(query = "SELECT COUNT(*) FROM Container c WHERE c.typeId = :typeId AND c.owner = :owner")
@@ -73,9 +78,11 @@ public interface ContainerFinder {
 
   /**
    * Find type id.
-   *
-   * @param group the group
-   * @param typeId the type id
+   * 
+   * @param group
+   *          the group
+   * @param typeId
+   *          the type id
    * @return the container
    */
   @Finder(query = "FROM Container c WHERE c.typeId = :typeId AND c.owner = :owner")

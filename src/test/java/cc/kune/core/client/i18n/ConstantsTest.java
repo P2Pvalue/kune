@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -35,14 +35,14 @@ import org.junit.Test;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ConstantsTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ConstantsTest {
-  
+
   /** The english. */
   private ResourceBundle english;
-  
+
   /** The spanish. */
   private ResourceBundle spanish;
 
@@ -61,7 +61,6 @@ public class ConstantsTest {
   public void startingWithNumbersShouldAddUnderscore() {
     assertEquals("_1day", I18nUtils.convertMethodName("1day"));
   }
-
 
   /**
    * Basic english found with note for translators.

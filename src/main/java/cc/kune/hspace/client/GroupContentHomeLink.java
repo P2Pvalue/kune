@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,14 +37,14 @@ import com.google.gwt.user.client.ui.Widget;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GroupContentHomeLink.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GroupContentHomeLink extends Composite {
 
   /**
    * The Interface GroupContentHomeLinkUiBinder.
-   *
+   * 
    * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
    */
   interface GroupContentHomeLinkUiBinder extends UiBinder<Widget, GroupContentHomeLink> {
@@ -70,10 +70,13 @@ public class GroupContentHomeLink extends Composite {
 
   /**
    * Sets the values.
-   *
-   * @param logoImageUrl the logo image url
-   * @param text the text
-   * @param historyToken the history token
+   * 
+   * @param logoImageUrl
+   *          the logo image url
+   * @param text
+   *          the text
+   * @param historyToken
+   *          the history token
    */
   public void setValues(final String logoImageUrl, final String text, final String historyToken) {
     Scheduler.get().scheduleDeferred(new ScheduledCommand() {

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -38,33 +38,37 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserSNVisibilityAction.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class UserSNVisibilityAction extends AbstractExtendedAction {
-  
+
   /** The i18n. */
   private final I18nTranslationService i18n;
-  
+
   /** The session. */
   private final Session session;
-  
+
   /** The state manager. */
   private final StateManager stateManager;
-  
+
   /** The user service async. */
   private final Provider<UserServiceAsync> userServiceAsync;
-  
+
   /** The visibility. */
   private UserSNetVisibility visibility;
 
   /**
    * Instantiates a new user sn visibility action.
-   *
-   * @param session the session
-   * @param stateManager the state manager
-   * @param i18n the i18n
-   * @param userServiceProvider the user service provider
+   * 
+   * @param session
+   *          the session
+   * @param stateManager
+   *          the state manager
+   * @param i18n
+   *          the i18n
+   * @param userServiceProvider
+   *          the user service provider
    */
   @Inject
   public UserSNVisibilityAction(final Session session, final StateManager stateManager,
@@ -75,8 +79,12 @@ public class UserSNVisibilityAction extends AbstractExtendedAction {
     this.userServiceAsync = userServiceProvider;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common.client.actions.ActionEvent)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common
+   * .client.actions.ActionEvent)
    */
   @Override
   public void actionPerformed(final ActionEvent event) {
@@ -96,8 +104,9 @@ public class UserSNVisibilityAction extends AbstractExtendedAction {
 
   /**
    * Sets the visibility.
-   *
-   * @param visibility the new visibility
+   * 
+   * @param visibility
+   *          the new visibility
    */
   public void setVisibility(final UserSNetVisibility visibility) {
     this.visibility = visibility;

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -41,27 +41,34 @@ import com.google.inject.Inject;
  * This is a RolAction (a Action that store which permissions are needed to
  * permit its execution) but that auto refresh its status depending on the state
  * of the application (if we are authenticated, and so on).
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public abstract class RolActionAutoUpdated extends AbstractExtendedAction {
-  
+
   /** The session. */
   protected final Session session;
-  
+
   /** The state manager. */
   protected final StateManager stateManager;
 
   /**
    * Instantiates a new rol action auto updated.
-   *
-   * @param stateManager the state manager
-   * @param session the session
-   * @param rightsManager the rights manager
-   * @param rolRequired the rol required
-   * @param authNeed the auth need
-   * @param visibleForNonMemb the visible for non memb
-   * @param visibleForMembers the visible for members
+   * 
+   * @param stateManager
+   *          the state manager
+   * @param session
+   *          the session
+   * @param rightsManager
+   *          the rights manager
+   * @param rolRequired
+   *          the rol required
+   * @param authNeed
+   *          the auth need
+   * @param visibleForNonMemb
+   *          the visible for non memb
+   * @param visibleForMembers
+   *          the visible for members
    */
   @Inject
   public RolActionAutoUpdated(final StateManager stateManager, final Session session,
@@ -89,25 +96,33 @@ public abstract class RolActionAutoUpdated extends AbstractExtendedAction {
 
   /**
    * Refresh status.
-   *
-   * @param rolRequired the rol required
-   * @param authNeed the auth need
-   * @param isLogged the is logged
-   * @param visibleForMembers the visible for members
-   * @param visibleForNonMemb the visible for non memb
-   * @param newRights the new rights
+   * 
+   * @param rolRequired
+   *          the rol required
+   * @param authNeed
+   *          the auth need
+   * @param isLogged
+   *          the is logged
+   * @param visibleForMembers
+   *          the visible for members
+   * @param visibleForNonMemb
+   *          the visible for non memb
+   * @param newRights
+   *          the new rights
    */
   public void refreshStatus(final AccessRolDTO rolRequired, final boolean authNeed,
       final boolean isLogged, final boolean visibleForMembers, final boolean visibleForNonMemb,
       final AccessRights newRights) {
+
+    // TODO move this to {link @RolActionHelper}
     boolean newEnabled = false;
     if (authNeed && !isLogged) {
       newEnabled = false;
     } else {
       // Auth ok
-      newEnabled = RolComparator.isEnabled(rolRequired, newRights);
+      newEnabled = RolActionHelper.isAuthorized(rolRequired, newRights);
       if (newEnabled) {
-        final boolean isMember = RolComparator.isMember(newRights);
+        final boolean isMember = RolActionHelper.isMember(newRights);
         newEnabled = isMember && visibleForMembers || !isMember && visibleForNonMemb;
       }
     }

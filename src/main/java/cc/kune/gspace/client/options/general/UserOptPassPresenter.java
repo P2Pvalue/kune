@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -39,35 +39,41 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserOptPassPresenter.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class UserOptPassPresenter implements UserOptPass {
 
   /** The entity options. */
   private final UserOptions entityOptions;
-  
+
   /** The i18n. */
   private final I18nTranslationService i18n;
-  
+
   /** The session. */
   private final Session session;
-  
+
   /** The user service. */
   private final Provider<UserServiceAsync> userService;
-  
+
   /** The view. */
   private UserOptPassView view;
 
   /**
    * Instantiates a new user opt pass presenter.
-   *
-   * @param session the session
-   * @param eventBus the event bus
-   * @param i18n the i18n
-   * @param entityOptions the entity options
-   * @param userService the user service
-   * @param view the view
+   * 
+   * @param session
+   *          the session
+   * @param eventBus
+   *          the event bus
+   * @param i18n
+   *          the i18n
+   * @param entityOptions
+   *          the entity options
+   * @param userService
+   *          the user service
+   * @param view
+   *          the view
    */
   @Inject
   public UserOptPassPresenter(final Session session, final EventBus eventBus,
@@ -82,8 +88,9 @@ public class UserOptPassPresenter implements UserOptPass {
 
   /**
    * Inits the.
-   *
-   * @param view the view
+   * 
+   * @param view
+   *          the view
    */
   public void init(final UserOptPassView view) {
     this.view = view;

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,14 +34,14 @@ import cc.kune.core.server.utils.AbsoluteFileDownloadUtils;
 // TODO: Auto-generated Javadoc
 /**
  * The Class NotificationHtmlHelperTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class NotificationHtmlHelperTest {
-  
+
   /** The Constant GROUP_NAME. */
   private static final String GROUP_NAME = "groupShortName";
-  
+
   /** The Constant MESSAGE. */
   private static final String MESSAGE = "some message";
 

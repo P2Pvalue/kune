@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,23 +31,23 @@ import org.mockito.Mockito;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AbstractGuiActionDescripTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class AbstractGuiActionDescripTest {
 
   /** The add false cond. */
   private GuiAddCondition addFalseCond;
-  
+
   /** The add true cond1. */
   private GuiAddCondition addTrueCond1;
-  
+
   /** The add true cond2. */
   private GuiAddCondition addTrueCond2;
-  
+
   /** The add true cond3. */
   private GuiAddCondition addTrueCond3;
-  
+
   /** The descriptor. */
   private MenuDescriptor descriptor;
 

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -35,18 +35,19 @@ import cc.kune.wave.server.kspecific.ParticipantUtils;
 // TODO: Auto-generated Javadoc
 /**
  * The Class WikiServerToolTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class WikiServerToolTest { // extends PersistenceTest {
 
   /** The server tool. */
- private WikiServerTool serverTool;
+  private WikiServerTool serverTool;
 
   /**
    * Before.
-   *
-   * @throws InvalidParticipantAddress the invalid participant address
+   * 
+   * @throws InvalidParticipantAddress
+   *           the invalid participant address
    */
   @Before
   public void before() throws InvalidParticipantAddress {

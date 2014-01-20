@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -157,6 +157,12 @@ public class GwtSubMenuGui extends AbstractGwtMenuGui implements HasMenuItem {
   public void setVisible(final boolean visible) {
     item.setVisible(visible);
     iconLabel.setVisible(visible);
+    // FIXME the ">" still visible when hidden
+    // This does not works:
+    // item.getElement().getStyle().setVisibility(
+    // visible ? Visibility.VISIBLE : Visibility.HIDDEN);
+    // item.getElement().getParentElement().getStyle().setVisibility(
+    // visible ? Visibility.VISIBLE : Visibility.HIDDEN);
     layout();
   }
 

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -101,84 +101,103 @@ import com.google.inject.name.Named;
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserManagerDefault.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
-public class UserManagerDefault extends DefaultManager<User, Long> implements UserManager, UserManagerDefaultMBean {
+public class UserManagerDefault extends DefaultManager<User, Long> implements UserManager,
+    UserManagerDefaultMBean {
 
   /** The Constant LOG. */
   public static final Log LOG = LogFactory.getLog(UserManagerDefault.class);
-  
+
   /** The chat properties. */
   private final ChatProperties chatProperties;
-  
+
   /** The country manager. */
   private final I18nCountryManager countryManager;
-  
+
   /** The domain. */
   private final String domain;
-  
+
   /** The group manager. */
   private final GroupManager groupManager;
-  
+
   /** The i18n. */
   private final I18nTranslationServiceMultiLang i18n;
-  
+
   /** The kune wave manager. */
   private final KuneWaveService kuneWaveManager;
-  
+
   /** The language manager. */
   private final I18nLanguageManager languageManager;
-  
+
   /** The notify service. */
   private final NotificationService notifyService;
-  
+
   /** The participant utils. */
   private final ParticipantUtils participantUtils;
-  
+
   /** The properties. */
   private final KuneBasicProperties properties;
-  
+
   /** The sn cache. */
   private final SocialNetworkCache snCache;
-  
+
   /** The user finder. */
   private final UserFinder userFinder;
-  
+
   /** The wave account store. */
   private final AccountStore waveAccountStore;
-  
+
   /** The xmpp manager. */
   private final XmppManager xmppManager;
-  
+
   /** The xmpp roster. */
   private final XmppRosterProvider xmppRoster;
-  
+
   /** The xmpp roster presence. */
   private final XmppRosterPresenceProvider xmppRosterPresence;
 
   /**
    * Instantiates a new user manager default.
-   *
-   * @param provider the provider
-   * @param finder the finder
-   * @param languageManager the language manager
-   * @param countryManager the country manager
-   * @param xmppManager the xmpp manager
-   * @param chatProperties the chat properties
-   * @param i18n the i18n
-   * @param waveAccountStore the wave account store
-   * @param kuneWaveManager the kune wave manager
-   * @param participantUtils the participant utils
-   * @param properties the properties
-   * @param groupManager the group manager
-   * @param notifyService the notify service
-   * @param xmppRoster the xmpp roster
-   * @param xmppRosterPresence the xmpp roster presence
-   * @param snCache the sn cache
-   * @param domain the domain
-   * @param mBeanRegistry the m bean registry
+   * 
+   * @param provider
+   *          the provider
+   * @param finder
+   *          the finder
+   * @param languageManager
+   *          the language manager
+   * @param countryManager
+   *          the country manager
+   * @param xmppManager
+   *          the xmpp manager
+   * @param chatProperties
+   *          the chat properties
+   * @param i18n
+   *          the i18n
+   * @param waveAccountStore
+   *          the wave account store
+   * @param kuneWaveManager
+   *          the kune wave manager
+   * @param participantUtils
+   *          the participant utils
+   * @param properties
+   *          the properties
+   * @param groupManager
+   *          the group manager
+   * @param notifyService
+   *          the notify service
+   * @param xmppRoster
+   *          the xmpp roster
+   * @param xmppRosterPresence
+   *          the xmpp roster presence
+   * @param snCache
+   *          the sn cache
+   * @param domain
+   *          the domain
+   * @param mBeanRegistry
+   *          the m bean registry
    */
   @Inject
   public UserManagerDefault(@DataSourceKune final Provider<EntityManager> provider,
@@ -189,7 +208,8 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
       final ParticipantUtils participantUtils, final KuneBasicProperties properties,
       final GroupManager groupManager, final NotificationService notifyService,
       final XmppRosterProvider xmppRoster, final XmppRosterPresenceProvider xmppRosterPresence,
-      final SocialNetworkCache snCache, @Named(CoreSettings.WAVE_SERVER_DOMAIN) final String domain, MBeanRegistry mBeanRegistry) {
+      final SocialNetworkCache snCache, @Named(CoreSettings.WAVE_SERVER_DOMAIN) final String domain,
+      final MBeanRegistry mBeanRegistry) {
     super(provider, User.class);
     mBeanRegistry.registerAsMBean(this, UserManagerDefaultMBean.MBEAN_OBJECT_NAME);
     this.userFinder = finder;
@@ -212,11 +232,11 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /*
    * (non-Javadoc)
-   *
+   * 
    * @see
    * cc.kune.core.server.manager.UserManager#askForEmailConfirmation(cc.kune
    * .domain.User, cc.kune.core.server.manager.impl.EmailConfirmationType)
-   *
+   * 
    * More info: http://en.wikipedia.org/wiki/Self-service_password_reset
    * http://en.wikipedia.org/wiki/Password_notification_e-mail
    * http://stackoverflow
@@ -249,8 +269,11 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     }
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#changePasswd(java.lang.Long, java.lang.String, java.lang.String, boolean)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.manager.UserManager#changePasswd(java.lang.Long,
+   * java.lang.String, java.lang.String, boolean)
    */
   @Override
   public User changePasswd(final Long userId, final String oldPassword, final String newPassword,
@@ -287,8 +310,9 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /**
    * Check if email are in use.
-   *
-   * @param email the email
+   * 
+   * @param email
+   *          the email
    */
   private void checkIfEmailAreInUse(final String email) {
     if (userFinder.countByEmail(email) != 0) {
@@ -298,8 +322,9 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /**
    * Check if long name are in use.
-   *
-   * @param longName the long name
+   * 
+   * @param longName
+   *          the long name
    */
   private void checkIfLongNameAreInUse(final String longName) {
     if (userFinder.countByLongName(longName) != 0) {
@@ -310,10 +335,13 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /**
    * Check if names are in use.
-   *
-   * @param shortName the short name
-   * @param longName the long name
-   * @param email the email
+   * 
+   * @param shortName
+   *          the short name
+   * @param longName
+   *          the long name
+   * @param email
+   *          the email
    */
   private void checkIfNamesAreInUse(final String shortName, final String longName, final String email) {
     checkIfShortNameAreInUse(shortName);
@@ -323,8 +351,9 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /**
    * Check if short name are in use.
-   *
-   * @param shortName the short name
+   * 
+   * @param shortName
+   *          the short name
    */
   private void checkIfShortNameAreInUse(final String shortName) {
     if (userFinder.countByShortName(shortName) != 0) {
@@ -333,8 +362,12 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     groupManager.checkIfShortNameAreInUse(shortName);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#clearPasswordHash(cc.kune.domain.User)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.manager.UserManager#clearPasswordHash(cc.kune.domain
+   * .User)
    */
   @Override
   public void clearPasswordHash(final User user) {
@@ -343,8 +376,12 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     user.setEmailConfirmHash(null);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#createUser(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, boolean)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.manager.UserManager#createUser(java.lang.String,
+   * java.lang.String, java.lang.String, java.lang.String, java.lang.String,
+   * java.lang.String, java.lang.String, boolean)
    */
   @Override
   public User createUser(final String shortName, final String longName, final String email,
@@ -413,8 +450,12 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     }
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#createWaveAccount(java.lang.String, org.waveprotocol.box.server.authentication.PasswordDigest)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.manager.UserManager#createWaveAccount(java.lang.String,
+   * org.waveprotocol.box.server.authentication.PasswordDigest)
    */
   @Override
   public void createWaveAccount(final String shortName, final PasswordDigest passwdDigest) {
@@ -439,7 +480,9 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.manager.impl.DefaultManager#find(java.lang.Object)
    */
   @Override
@@ -451,8 +494,11 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     }
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#findByShortname(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.manager.UserManager#findByShortname(java.lang.String)
    */
   @Override
   public User findByShortname(final String shortName) {
@@ -461,8 +507,9 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /**
    * Find language.
-   *
-   * @param langCode the lang code
+   * 
+   * @param langCode
+   *          the lang code
    * @return the i18n language
    */
   private I18nLanguage findLanguage(final String langCode) {
@@ -471,15 +518,19 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /**
    * Gets the all.
-   *
+   * 
    * @return the all
    */
   public List<User> getAll() {
     return userFinder.getAll();
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#getBuddiesPresence(cc.kune.domain.User)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.manager.UserManager#getBuddiesPresence(cc.kune.domain
+   * .User)
    */
   @Override
   public UserBuddiesPresenceDataDTO getBuddiesPresence(final User user) {
@@ -508,15 +559,18 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /**
    * Gets the domain.
-   *
+   * 
    * @return the domain
    */
   private String getDomain() {
     return "@" + chatProperties.getDomain();
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#getUserBuddies(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.manager.UserManager#getUserBuddies(java.lang.String)
    */
   @Override
   public UserBuddiesData getUserBuddies(final String shortName) {
@@ -554,8 +608,11 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     return buddiesData;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#login(java.lang.String, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.manager.UserManager#login(java.lang.String,
+   * java.lang.String)
    */
   @Override
   public User login(final String nickOrEmail, final String passwd) {
@@ -596,7 +653,9 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.manager.UserManager#search(java.lang.String)
    */
   @Override
@@ -604,8 +663,11 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     return this.search(search, null, null);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#search(java.lang.String, java.lang.Integer, java.lang.Integer)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.manager.UserManager#search(java.lang.String,
+   * java.lang.Integer, java.lang.Integer)
    */
   @Override
   public SearchResult<User> search(final String search, final Integer firstResult,
@@ -615,8 +677,12 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
         new String[] { "name", "shortName" }, firstResult, maxResults);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#setSNetVisibility(cc.kune.domain.User, cc.kune.core.shared.domain.UserSNetVisibility)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.manager.UserManager#setSNetVisibility(cc.kune.domain
+   * .User, cc.kune.core.shared.domain.UserSNetVisibility)
    */
   @Override
   public void setSNetVisibility(final User user, final UserSNetVisibility visibility) {
@@ -627,15 +693,20 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
 
   /**
    * Thow exception changing passwd.
-   *
-   * @param e the e
+   * 
+   * @param e
+   *          the e
    */
   private void thowExceptionChangingPasswd(final Exception e) {
     throw new DefaultException("Error changing user passwd", e);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#update(java.lang.Long, cc.kune.core.shared.dto.UserDTO, cc.kune.core.shared.dto.I18nLanguageSimpleDTO)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.manager.UserManager#update(java.lang.Long,
+   * cc.kune.core.shared.dto.UserDTO,
+   * cc.kune.core.shared.dto.I18nLanguageSimpleDTO)
    */
   @Override
   public User update(final Long userId, final UserDTO userDTO, final I18nLanguageSimpleDTO lang) {
@@ -669,8 +740,12 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
     return user;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.UserManager#verifyPasswordHash(java.lang.Long, java.lang.String, long)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.manager.UserManager#verifyPasswordHash(java.lang.Long,
+   * java.lang.String, long)
    */
   @Override
   public void verifyPasswordHash(final Long userId, final String emailReceivedHash, final long period)
@@ -691,4 +766,5 @@ public class UserManagerDefault extends DefaultManager<User, Long> implements Us
       throw new EmailHashInvalidException();
     }
   }
+
 }

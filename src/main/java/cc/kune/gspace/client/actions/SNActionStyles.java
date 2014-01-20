@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,14 +27,14 @@ import cc.kune.common.client.actions.ActionStyles;
 // TODO: Auto-generated Javadoc
 /**
  * The Class SNActionStyles.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class SNActionStyles extends ActionStyles {
 
   /** The Constant SN_OPTIONS_STYLES. */
   public static final String SN_OPTIONS_STYLES = "k-sn-options-menu, k-noborder, k-optionsborder, k-no-backimage, k-nobackcolor, k-btn-min";
-  
+
   /** The Constant SN_OPTIONS_STYLES_NEWBIE. */
   public static final String SN_OPTIONS_STYLES_NEWBIE = MENU_BTN_STYLE_LEFT
       + ", k-sn-options-newbie-btn";

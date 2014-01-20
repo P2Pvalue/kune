@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,29 +29,29 @@ import cc.kune.domain.User;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AbstractPendingNotificationTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public abstract class AbstractPendingNotificationTest {
 
   /** The diferent provider. */
   protected LocalUserDestinationProvider diferentProvider;
-  
+
   /** The other diferent user. */
   protected User otherDiferentUser;
-  
+
   /** The same user. */
   protected User sameUser;
-  
+
   /** The some similar user provider. */
   protected LocalUserDestinationProvider someSimilarUserProvider;
-  
+
   /** The some similar user provider2. */
   protected LocalUserDestinationProvider someSimilarUserProvider2;
-  
+
   /** The some user provider. */
   protected LocalUserDestinationProvider someUserProvider;
-  
+
   /** The user. */
   protected User user;
 

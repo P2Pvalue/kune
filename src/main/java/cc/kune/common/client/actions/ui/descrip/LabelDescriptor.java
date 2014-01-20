@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -22,6 +22,8 @@
  */
 package cc.kune.common.client.actions.ui.descrip;
 
+import cc.kune.common.client.actions.AbstractAction;
+import cc.kune.common.client.actions.Action;
 import cc.kune.common.client.actions.BaseAction;
 
 // TODO: Auto-generated Javadoc
@@ -36,7 +38,7 @@ public class LabelDescriptor extends AbstractGuiActionDescrip {
    * Instantiates a new label descriptor.
    */
   public LabelDescriptor() {
-    super(new BaseAction("", null));
+    this("", "");
   }
 
   /**
@@ -45,7 +47,11 @@ public class LabelDescriptor extends AbstractGuiActionDescrip {
    * @param text the text
    */
   public LabelDescriptor(final String text) {
-    super(new BaseAction(text, null));
+    this(text, "");
+  }
+
+  public LabelDescriptor(final String text, final AbstractAction action) {
+    this(text, null, action);
   }
 
   /**
@@ -56,6 +62,14 @@ public class LabelDescriptor extends AbstractGuiActionDescrip {
    */
   public LabelDescriptor(final String text, final String tooltip) {
     super(new BaseAction(text, tooltip));
+    putValue(Action.NAME, text);
+    putValue(Action.TOOLTIP, tooltip);
+  }
+
+  public LabelDescriptor(final String text, final String tooltip, final AbstractAction action) {
+    super(action);
+    putValue(Action.NAME, text);
+    putValue(Action.TOOLTIP, tooltip);
   }
 
   /* (non-Javadoc)

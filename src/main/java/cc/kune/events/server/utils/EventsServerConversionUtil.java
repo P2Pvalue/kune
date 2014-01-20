@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -61,7 +61,7 @@ import com.google.wave.api.Gadget;
 /**
  * The Class EventsConversionUtil is used to convert Appointments to Gadgets
  * properties and viceversa.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class EventsServerConversionUtil {
@@ -83,8 +83,9 @@ public class EventsServerConversionUtil {
 
   /**
    * Gets the appointments.
-   *
-   * @param container the container
+   * 
+   * @param container
+   *          the container
    * @return the appointments
    */
   public static List<Map<String, String>> getAppointments(final Container container) {
@@ -123,8 +124,9 @@ public class EventsServerConversionUtil {
 
   /**
    * Gets the appointments using cache.
-   *
-   * @param container the container
+   * 
+   * @param container
+   *          the container
    * @return the appointments using cache
    */
   public static List<Map<String, String>> getAppointmentsUsingCache(final Container container) {
@@ -137,11 +139,14 @@ public class EventsServerConversionUtil {
 
   /**
    * To v event.
-   *
-   * @param properties the properties
+   * 
+   * @param properties
+   *          the properties
    * @return the v event
-   * @throws URISyntaxException the uRI syntax exception
-   * @throws ParseException the parse exception
+   * @throws URISyntaxException
+   *           the uRI syntax exception
+   * @throws ParseException
+   *           the parse exception
    */
   public static VEvent toVEvent(final Map<String, String> properties) throws URISyntaxException,
       ParseException {

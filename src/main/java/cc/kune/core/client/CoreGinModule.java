@@ -1,6 +1,6 @@
 /*
  *
-x * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+x * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -76,6 +76,7 @@ import cc.kune.core.client.registry.NewMenusForTypeIdsRegistry;
 import cc.kune.core.client.rpcservices.AsyncCallbackSimple;
 import cc.kune.core.client.rpcservices.ContentServiceHelper;
 import cc.kune.core.client.rpcservices.SocialNetServiceHelper;
+import cc.kune.core.client.services.ClientFileDownloadUtils;
 import cc.kune.core.client.sitebar.AbstractSignInAction;
 import cc.kune.core.client.sitebar.AbstractSignOutAction;
 import cc.kune.core.client.sitebar.ErrorsDialog;
@@ -132,6 +133,7 @@ import cc.kune.core.client.ws.entheader.EntityHeader;
 import cc.kune.core.client.ws.entheader.EntityHeaderPanel;
 import cc.kune.core.client.ws.entheader.EntityHeaderPresenter;
 import cc.kune.core.shared.dto.ReservedWordsRegistryDTO;
+import cc.kune.lists.client.rpc.ListsServiceHelper;
 
 import com.google.gwt.event.shared.EventBus;
 import com.google.inject.Singleton;
@@ -269,6 +271,7 @@ public class CoreGinModule extends ExtendedGinModule {
     eagle(CoreParts.class);
 
     // SN
+    s(ClientFileDownloadUtils.class);
     s(GroupSNAdminsMenuItemsRegistry.class);
     s(GroupSNCollabsMenuItemsRegistry.class);
     s(GroupSNPendingsMenuItemsRegistry.class);
@@ -280,6 +283,7 @@ public class CoreGinModule extends ExtendedGinModule {
 
     s(ContentServiceHelper.class);
     s(SocialNetServiceHelper.class);
+    s(ListsServiceHelper.class);
 
     s(MyGroupsMenu.class);
     s(SiteUserOptionsPresenter.class);

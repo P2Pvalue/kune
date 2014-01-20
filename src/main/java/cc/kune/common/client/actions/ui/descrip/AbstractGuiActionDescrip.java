@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -80,6 +80,28 @@ public abstract class AbstractGuiActionDescrip extends ChangeableObject implemen
     addConditions = new ArrayList<GuiAddCondition>();
   }
 
+ /**
+   * Creates a action descriptor from a previous created descriptor cloning its
+   * values
+   * 
+   * @param descr
+   *          the other descriptor
+   */
+  public AbstractGuiActionDescrip(final AbstractGuiActionDescrip descr) {
+    this.action = descr.getAction();
+    putValue(Action.ENABLED, descr.getValue(Action.ENABLED));
+    putValue(VISIBLE, descr.getValue(VISIBLE));
+    position = descr.getPosition();
+    parent = descr.getParent();
+    isRTL = descr.isRTL();
+    location = descr.getLocation();
+    addConditions = descr.getAddConditions();
+    for (final Object keyO : descr.getKeys()) {
+      final String key = (String) keyO;
+      super.putValue(key, descr.getValue(key));
+    }
+  }
+
   /*
    * (non-Javadoc)
    * 
@@ -116,6 +138,10 @@ public abstract class AbstractGuiActionDescrip extends ChangeableObject implemen
   @Override
   public AbstractAction getAction() {
     return action;
+  }
+
+  public List<GuiAddCondition> getAddConditions() {
+    return addConditions;
   }
 
   /*
@@ -266,7 +292,7 @@ public abstract class AbstractGuiActionDescrip extends ChangeableObject implemen
   @Override
   public boolean mustBeAdded() {
     final boolean result = true;
-    for (final GuiAddCondition addCondition : addConditions) {
+    for (final GuiAddCondition addCondition : getAddConditions()) {
       if (!addCondition.mustBeAdded(this)) {
         return false;
       }

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,7 +32,7 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class DataSourceOpenfireSessionProvider.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class DataSourceOpenfireSessionProvider implements Provider<Session> {
@@ -43,9 +43,9 @@ public class DataSourceOpenfireSessionProvider implements Provider<Session> {
 
   /**
    * Gets the.
-   *
+   * 
    * @return the Hibernate session, being the delegate of the entity manager
-   * provided by the injected entity manager provider.
+   *         provided by the injected entity manager provider.
    */
   @Override
   public Session get() {

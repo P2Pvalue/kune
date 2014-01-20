@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -73,7 +73,7 @@ public class EmbedSignInAction extends AbstractSignInAction {
   public void actionPerformed(final ActionEvent event) {
     // If we want to go to the document it self: (String) event.getTarget()
     final String redirect = EmbedHelper.getServer() + "#!"
-        + TokenUtils.addRedirect(SiteTokens.SIGN_IN, WindowUtils.getLocation().getHref());
+        + TokenUtils.addRedirect(SiteTokens.SIGN_IN, WindowUtils.getHref());
     Log.info("Redirecting to: " + redirect);
     KuneWindowUtils.open(redirect);
   }

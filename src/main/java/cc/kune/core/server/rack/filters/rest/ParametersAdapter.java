@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,11 +31,12 @@ import javax.servlet.ServletRequest;
 public class ParametersAdapter implements Parameters {
   private final ServletRequest request;
 
-  public ParametersAdapter(ServletRequest request) {
+  public ParametersAdapter(final ServletRequest request) {
     this.request = request;
   }
 
-  public String get(String name) {
+  @Override
+  public String get(final String name) {
     return request.getParameter(name);
   }
 

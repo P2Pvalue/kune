@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -41,17 +41,17 @@ import com.google.inject.persist.Transactional;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AuthorizatedMethodInterceptorTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class AuthorizatedMethodInterceptorTest extends IntegrationTest {
 
   /** The auth. */
   private AuthorizatedMethodInterceptor auth;
-  
+
   /** The auth annotation. */
   private Authorizated authAnnotation;
-  
+
   /** The invocation. */
   private MethodInvocation invocation;
 
@@ -74,8 +74,9 @@ public class AuthorizatedMethodInterceptorTest extends IntegrationTest {
 
   /**
    * Tes hash null container.
-   *
-   * @throws Throwable the throwable
+   * 
+   * @throws Throwable
+   *           the throwable
    */
   @Test(expected = ContentNotFoundException.class)
   public void tesHashNullContainer() throws Throwable {
@@ -88,8 +89,9 @@ public class AuthorizatedMethodInterceptorTest extends IntegrationTest {
 
   /**
    * Test hash null content.
-   *
-   * @throws Throwable the throwable
+   * 
+   * @throws Throwable
+   *           the throwable
    */
   @Test(expected = ContentNotFoundException.class)
   public void testHashNullContent() throws Throwable {
@@ -101,8 +103,9 @@ public class AuthorizatedMethodInterceptorTest extends IntegrationTest {
 
   /**
    * Wrong group name throws excep.
-   *
-   * @throws Throwable the throwable
+   * 
+   * @throws Throwable
+   *           the throwable
    */
   @Test(expected = AccessViolationException.class)
   public void wrongGroupNameThrowsExcep() throws Throwable {

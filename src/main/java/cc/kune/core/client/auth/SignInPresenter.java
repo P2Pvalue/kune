@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -360,7 +360,7 @@ public class SignInPresenter extends SignInAbstractPresenter<SignInView, SignInP
     if (getView().isSignInFormValid()) {
       getView().maskProcessing();
 
-      final String nickOrEmail = getView().getNickOrEmail();
+      final String nickOrEmail = getView().getNickOrEmail().toLowerCase();
       final String passwd = getView().getLoginPassword();
       doSignIn(nickOrEmail, passwd, false, new AsyncCallback<Void>() {
 

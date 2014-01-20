@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -47,7 +47,7 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AuthorizatedMethodInterceptor.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
@@ -56,17 +56,21 @@ public class AuthorizatedMethodInterceptor implements MethodInterceptor {
   /** The access service provider. */
   @Inject
   private Provider<AccessService> accessServiceProvider;
-  
+
   /** The group manager provider. */
   @Inject
   private Provider<GroupManager> groupManagerProvider;
-  
+
   /** The user session provider. */
   @Inject
   private Provider<UserSessionManager> userSessionProvider;
 
-  /* (non-Javadoc)
-   * @see org.aopalliance.intercept.MethodInterceptor#invoke(org.aopalliance.intercept.MethodInvocation)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.aopalliance.intercept.MethodInterceptor#invoke(org.aopalliance.intercept
+   * .MethodInvocation)
    */
   @Override
   public Object invoke(final MethodInvocation invocation) throws Throwable {

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,19 +27,19 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 // TODO: Auto-generated Javadoc
 /**
  * The Enum ContentStatus.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public enum ContentStatus implements IsSerializable {
-  
+
   /** The editing in progress. */
-  editingInProgress, 
- /** The submitted for evaluation. */
- submittedForEvaluation, 
- /** The published online. */
- publishedOnline, 
- /** The rejected. */
- rejected, 
- /** The in the dustbin. */
- inTheDustbin
+  editingInProgress,
+  /** The in the dustbin. */
+  inTheDustbin,
+  /** The published online. */
+  publishedOnline,
+  /** The rejected. */
+  rejected,
+  /** The submitted for evaluation. */
+  submittedForEvaluation
 }

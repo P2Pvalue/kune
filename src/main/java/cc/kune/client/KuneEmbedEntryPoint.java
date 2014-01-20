@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,6 +27,7 @@ import cc.kune.core.client.embed.EmbedJsActions;
 import cc.kune.gspace.client.viewers.EmbedPresenter;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.Element;
 import com.gwtplatform.mvp.client.DelayedBindRegistry;
 
 /**
@@ -36,6 +37,10 @@ import com.gwtplatform.mvp.client.DelayedBindRegistry;
  */
 public class KuneEmbedEntryPoint extends AbstractKuneEntryPoint {
 
+  private static native Element window() /*-{
+		return $wnd;
+  }-*/;
+
   /** The ginjector. */
   private KuneEmbedGinjector ginjector;
 
@@ -44,13 +49,22 @@ public class KuneEmbedEntryPoint extends AbstractKuneEntryPoint {
    */
   @Override
   protected void onContinueModuleLoad() {
-    ginjector.getSpinerPresenter();
     ginjector.getEventBusWithLogger();
     ginjector.getGwtGuiProvider();
     final EmbedPresenter embedPresenter = ginjector.getEmbedPresenter().get();
     embedPresenter.forceReveal();
+    ginjector.getSpinerPresenter();
     com.google.gwt.user.client.History.addValueChangeHandler(embedPresenter);
+
+    // Inspired in:
+    // http://code.google.com/p/gwt-exporter/wiki/GettingStarted#Quick_start_guide
+    onLoad();
   }
+
+  private native void onLoad() /*-{
+		if ($wnd.kuneEmbedInit)
+			$wnd.kuneEmbedInit();
+  }-*/;
 
   /**
    * On start module load.

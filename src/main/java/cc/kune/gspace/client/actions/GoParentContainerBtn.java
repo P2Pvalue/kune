@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -41,29 +41,31 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GoParentContainerBtn.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GoParentContainerBtn extends ButtonDescriptor {
 
   /**
    * The Class GoParentContainerAction.
-   *
+   * 
    * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
    */
   public static class GoParentContainerAction extends AbstractExtendedAction {
 
     /** The session. */
     private final Session session;
-    
+
     /** The state manager. */
     private final StateManager stateManager;
 
     /**
      * Instantiates a new go parent container action.
-     *
-     * @param session the session
-     * @param stateManager the state manager
+     * 
+     * @param session
+     *          the session
+     * @param stateManager
+     *          the state manager
      */
     @Inject
     public GoParentContainerAction(final Session session, final StateManager stateManager) {
@@ -71,8 +73,12 @@ public class GoParentContainerBtn extends ButtonDescriptor {
       this.stateManager = stateManager;
     }
 
-    /* (non-Javadoc)
-     * @see cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common.client.actions.ActionEvent)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.
+     * common.client.actions.ActionEvent)
      */
     @Override
     public void actionPerformed(final ActionEvent event) {
@@ -96,12 +102,17 @@ public class GoParentContainerBtn extends ButtonDescriptor {
 
   /**
    * Instantiates a new go parent container btn.
-   *
-   * @param i18n the i18n
-   * @param action the action
-   * @param res the res
-   * @param session the session
-   * @param typeRoot the type root
+   * 
+   * @param i18n
+   *          the i18n
+   * @param action
+   *          the action
+   * @param res
+   *          the res
+   * @param session
+   *          the session
+   * @param typeRoot
+   *          the type root
    */
   public GoParentContainerBtn(final I18nTranslationService i18n, final GoParentContainerAction action,
       final IconicResources res, final Session session, final String typeRoot) {

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -25,11 +25,11 @@ package cc.kune.core.server;
 // TODO: Auto-generated Javadoc
 /**
  * The Class TestConstants.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public final class TestConstants {
-  
+
   /** The Constant PERSISTENCE_MYSQL_UNIT. */
   public static final String PERSISTENCE_MYSQL_UNIT = "test_db";
   // test: use memory
@@ -38,7 +38,7 @@ public final class TestConstants {
   // FIXME: for some reason with test_db now the database is not initialized
   /** The Constant PERSISTENCE_UNIT. */
   public static final String PERSISTENCE_UNIT = "test";
-  
+
   /** The Constant WAVE_TEST_PROPFILE. */
   public static final String WAVE_TEST_PROPFILE = "wave-server-testing.properties";
 

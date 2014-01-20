@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,17 +27,17 @@ import cc.kune.core.client.ui.dialogs.tabbed.AbstractTabbedDialogPresenter.Abstr
 // TODO: Auto-generated Javadoc
 /**
  * The Interface EntityOptionsView.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface EntityOptionsView extends AbstractTabbedDialogView {
 
   /** The height. */
   int HEIGHT = 270;
-  
+
   /** The width. */
   int WIDTH = 500;
-  
+
   /** The width wout margin. */
   int WIDTH_WOUT_MARGIN = 480;
 }

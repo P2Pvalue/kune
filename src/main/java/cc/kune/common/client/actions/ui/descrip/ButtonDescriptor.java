@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -42,12 +42,10 @@ public class ButtonDescriptor extends AbstractGuiActionDescrip {
     super(action);
   }
 
-  /**
-   * Instantiates a new button descriptor.
-   *
-   * @param text the text
-   * @param action the action
-   */
+  public ButtonDescriptor(final AbstractGuiActionDescrip descr) {
+    super(descr);
+  }
+
   public ButtonDescriptor(final String text, final AbstractAction action) {
     this(action);
     putValue(Action.NAME, text);

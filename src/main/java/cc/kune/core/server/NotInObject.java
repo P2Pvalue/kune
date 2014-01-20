@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,7 +31,7 @@ import com.google.inject.matcher.AbstractMatcher;
 // TODO: Auto-generated Javadoc
 /**
  * The Class NotInObject.
- *
+ * 
  * @author danigb@gmail.com
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
@@ -50,7 +50,9 @@ public class NotInObject extends AbstractMatcher<Method> {
         "equals" });
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see com.google.inject.matcher.Matcher#matches(java.lang.Object)
    */
   @Override

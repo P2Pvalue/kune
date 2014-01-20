@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,30 +37,34 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GroupInvitationAction.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GroupInvitationAction extends AbstractInvitateAction {
 
   /** The Constant CANCEL_ID. */
   public static final String CANCEL_ID = "k-group-inv-cancel-id";
-  
+
   /** The Constant DIALOG_ID. */
   public static final String DIALOG_ID = "k-group-inv-diag-id";
-  
+
   /** The Constant INVITE_ID. */
   public static final String INVITE_ID = "k-group-inv-invite-id";
-  
+
   /** The Constant TEXTBOX_ID. */
   public static final String TEXTBOX_ID = "k-group-inv-textbox-id";
 
   /**
    * Instantiates a new group invitation action.
-   *
-   * @param stateManager the state manager
-   * @param session the session
-   * @param rightsManager the rights manager
-   * @param invitationService the invitation service
+   * 
+   * @param stateManager
+   *          the state manager
+   * @param session
+   *          the session
+   * @param rightsManager
+   *          the rights manager
+   * @param invitationService
+   *          the invitation service
    */
   @Inject
   public GroupInvitationAction(final StateManager stateManager, final Session session,

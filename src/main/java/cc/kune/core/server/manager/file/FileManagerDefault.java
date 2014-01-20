@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,14 +32,18 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class FileManagerDefault.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
 public class FileManagerDefault implements FileManager {
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.FileManager#createFileWithSequentialName(java.lang.String, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.manager.FileManager#createFileWithSequentialName(java
+   * .lang.String, java.lang.String)
    */
   @Override
   public File createFileWithSequentialName(final String dir, final String fileName) throws IOException {
@@ -58,7 +62,9 @@ public class FileManagerDefault implements FileManager {
     }
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.manager.FileManager#exists(java.lang.String)
    */
   @Override
@@ -66,7 +72,9 @@ public class FileManagerDefault implements FileManager {
     return new File(file).exists();
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.manager.FileManager#mkdir(java.lang.String)
    */
   @Override
@@ -74,8 +82,11 @@ public class FileManagerDefault implements FileManager {
     return new File(dir).mkdirs();
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.FileManager#mv(java.lang.String, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.manager.FileManager#mv(java.lang.String,
+   * java.lang.String)
    */
   @Override
   public boolean mv(final String oldPath, final String newPath) {
@@ -83,8 +94,11 @@ public class FileManagerDefault implements FileManager {
     return oldFile.renameTo(new File(newPath));
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.FileManager#rm(java.lang.String, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.manager.FileManager#rm(java.lang.String,
+   * java.lang.String)
    */
   @Override
   public boolean rm(final String dir, final String fileName) {
@@ -92,7 +106,9 @@ public class FileManagerDefault implements FileManager {
     return file.delete();
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.manager.FileManager#rmdir(java.lang.String)
    */
   @Override

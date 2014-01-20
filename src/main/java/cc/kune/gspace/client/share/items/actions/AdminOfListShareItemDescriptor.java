@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -20,38 +20,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package cc.kune.gspace.client.actions.share;
+package cc.kune.gspace.client.share.items.actions;
 
-import cc.kune.common.client.actions.ui.descrip.SubMenuDescriptor;
-import cc.kune.common.shared.i18n.I18nTranslationService;
+import cc.kune.common.shared.i18n.I18n;
 import cc.kune.core.client.resources.iconic.IconicResources;
-import cc.kune.gspace.client.actions.ContentViewerOptionsMenu;
+import cc.kune.core.client.services.ClientFileDownloadUtils;
 
 import com.google.inject.Inject;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class ContentViewerOptionsShareSubMenu (not used yet).
- *
- * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
- */
-public class ContentViewerOptionsShareSubMenu extends SubMenuDescriptor {
+public class AdminOfListShareItemDescriptor extends GroupShareItemDescriptor {
 
-  /** The Constant ID. */
-  public static final String ID = "k-cnt-viewer-share-opt-submenu";
-
-  /**
-   * Instantiates a new content viewer options share sub menu.
-   *
-   * @param i18n the i18n
-   * @param res the res
-   * @param parent the parent
-   */
   @Inject
-  public ContentViewerOptionsShareSubMenu(final I18nTranslationService i18n, final IconicResources res,
-      final ContentViewerOptionsMenu parent) {
-    super();
-    this.withText(i18n.t("Share")).withIcon(res.add()).withId(ID).withParent(parent, false);
+  public AdminOfListShareItemDescriptor(final IconicResources icons,
+      final ClientFileDownloadUtils downloadUtils, final ChangeToEditorForListsMenuItem changeToEditor,
+      final RemoveShareItemMenuItem remove) {
+    super(downloadUtils, I18n.tWithNT("is admin", "someone is administrator"), changeToEditor, remove);
   }
 
 }

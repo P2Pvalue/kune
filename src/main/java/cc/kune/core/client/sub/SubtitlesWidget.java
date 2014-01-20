@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -47,14 +47,14 @@ import com.gwtplatform.mvp.client.ViewImpl;
 // TODO: Auto-generated Javadoc
 /**
  * The Class SubtitlesWidget.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class SubtitlesWidget extends ViewImpl implements SubtitlesView {
 
   /**
    * The Interface SubtitlesWidgetUiBinder.
-   *
+   * 
    * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
    */
   interface SubtitlesWidgetUiBinder extends UiBinder<Widget, SubtitlesWidget> {
@@ -68,17 +68,17 @@ public class SubtitlesWidget extends ViewImpl implements SubtitlesView {
 
   /** The callback. */
   private SimpleCallback callback;
-  
+
   /** The description. */
   @UiField
   InlineLabel description;
-  
+
   /** The popup. */
   private final PopupPanel popup;
-  
+
   /** The showing. */
   private boolean showing;
-  
+
   /** The title. */
   @UiField
   InlineLabel title;
@@ -123,7 +123,9 @@ public class SubtitlesWidget extends ViewImpl implements SubtitlesView {
     });
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see com.gwtplatform.mvp.client.View#asWidget()
    */
   @Override
@@ -131,8 +133,12 @@ public class SubtitlesWidget extends ViewImpl implements SubtitlesView {
     return popup;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.client.sub.SubtitlesManager.SubtitlesView#setDescription(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.client.sub.SubtitlesManager.SubtitlesView#setDescription(java
+   * .lang.String)
    */
   @Override
   public void setDescription(final String descr) {
@@ -141,24 +147,34 @@ public class SubtitlesWidget extends ViewImpl implements SubtitlesView {
 
   /**
    * Sets the size.
-   *
-   * @param width the width
-   * @param height the height
+   * 
+   * @param width
+   *          the width
+   * @param height
+   *          the height
    */
   private void setSize(final int width, final int height) {
     popup.setSize(width + "px", height + "px");
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.client.sub.SubtitlesManager.SubtitlesView#setTitleText(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.client.sub.SubtitlesManager.SubtitlesView#setTitleText(java
+   * .lang.String)
    */
   @Override
   public void setTitleText(final String text) {
     title.setText(text);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.client.sub.SubtitlesManager.SubtitlesView#show(cc.kune.common.shared.utils.SimpleCallback)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.client.sub.SubtitlesManager.SubtitlesView#show(cc.kune.common
+   * .shared.utils.SimpleCallback)
    */
   @Override
   public void show(final SimpleCallback callback) {

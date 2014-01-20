@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -43,8 +43,11 @@ public class CustomJobFactory implements JobFactory {
   /** The injector. */
   private Injector injector;
 
-  /* (non-Javadoc)
-   * @see org.quartz.spi.JobFactory#newJob(org.quartz.spi.TriggerFiredBundle, org.quartz.Scheduler)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.quartz.spi.JobFactory#newJob(org.quartz.spi.TriggerFiredBundle,
+   * org.quartz.Scheduler)
    */
   @Override
   public Job newJob(final TriggerFiredBundle bundle, final Scheduler scheduler)
@@ -54,8 +57,9 @@ public class CustomJobFactory implements JobFactory {
 
   /**
    * Sets the injector.
-   *
-   * @param injector the new injector
+   * 
+   * @param injector
+   *          the new injector
    */
   public void setInjector(final Injector injector) {
     this.injector = injector;

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,35 +28,35 @@ import cc.kune.core.shared.ToolConstants;
 // TODO: Auto-generated Javadoc
 /**
  * The Class WikiToolConstants.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public final class WikiToolConstants {
 
   /** The Constant ICON_TYPE_FOLDER. */
   public static final KuneIcon ICON_TYPE_FOLDER = new KuneIcon('n');
-  
+
   /** The Constant ICON_TYPE_ROOT. */
   public static final KuneIcon ICON_TYPE_ROOT = new KuneIcon('e');
-  
+
   /** The Constant ICON_TYPE_WIKIPAGE. */
   public static final KuneIcon ICON_TYPE_WIKIPAGE = new KuneIcon('e');
-  
+
   /** The Constant ROOT_NAME. */
   public static final String ROOT_NAME = "wiki";
-  
+
   /** The Constant TOOL_NAME. */
   public static final String TOOL_NAME = "wiki";
-  
+
   /** The Constant TYPE_FOLDER. */
   public static final String TYPE_FOLDER = TOOL_NAME + "." + "folder";
-  
+
   /** The Constant TYPE_ROOT. */
   public static final String TYPE_ROOT = TOOL_NAME + "." + "root";
-  
+
   /** The Constant TYPE_UPLOADEDFILE. */
   public static final String TYPE_UPLOADEDFILE = TOOL_NAME + "." + ToolConstants.UPLOADEDFILE_SUFFIX;
-  
+
   /** The Constant TYPE_WIKIPAGE. */
   public static final String TYPE_WIKIPAGE = TOOL_NAME + "." + "wikipage";
 

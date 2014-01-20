@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,16 +30,18 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GroupOptDefLicensePanel.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GroupOptDefLicensePanel extends EntityOptDefLicensePanel implements GroupOptDefLicenseView {
 
   /**
    * Instantiates a new group opt def license panel.
-   *
-   * @param i18n the i18n
-   * @param res the res
+   * 
+   * @param i18n
+   *          the i18n
+   * @param res
+   *          the res
    */
   @Inject
   public GroupOptDefLicensePanel(final I18nTranslationService i18n, final IconicResources res) {

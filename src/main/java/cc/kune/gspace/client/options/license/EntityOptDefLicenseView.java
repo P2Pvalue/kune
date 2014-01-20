@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,36 +30,38 @@ import com.google.gwt.event.dom.client.HasClickHandlers;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface EntityOptDefLicenseView.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface EntityOptDefLicenseView extends EntityOptionsTabView {
 
   /**
    * Gets the change.
-   *
+   * 
    * @return the change
    */
   HasClickHandlers getChange();
 
   /**
    * Gets the license image.
-   *
+   * 
    * @return the license image
    */
   HasClickHandlers getLicenseImage();
 
   /**
    * Open window.
-   *
-   * @param url the url
+   * 
+   * @param url
+   *          the url
    */
   void openWindow(String url);
 
   /**
    * Sets the license.
-   *
-   * @param defaultLicense the new license
+   * 
+   * @param defaultLicense
+   *          the new license
    */
   void setLicense(LicenseDTO defaultLicense);
 

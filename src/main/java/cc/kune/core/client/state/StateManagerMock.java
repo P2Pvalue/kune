@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -25,7 +25,6 @@ package cc.kune.core.client.state;
 
 import cc.kune.common.client.actions.BeforeActionListener;
 import cc.kune.common.client.ui.KuneWindowUtils;
-import cc.kune.common.client.utils.Location;
 import cc.kune.common.client.utils.WindowUtils;
 import cc.kune.core.client.events.GroupChangedEvent.GroupChangedHandler;
 import cc.kune.core.client.events.SocialNetworkChangedEvent.SocialNetworkChangedHandler;
@@ -63,9 +62,8 @@ public class StateManagerMock implements StateManager {
   @Override
   public void gotoHistoryToken(final String newToken) {
     if ((SiteTokens.REGISTER.equals(newToken))) {
-      final Location location = WindowUtils.getLocation();
-      final String protocol = location.getProtocol();
-      KuneWindowUtils.open(protocol + "//" + location.getHost() + "#!" + SiteTokens.REGISTER);
+      final String protocol = WindowUtils.getProtocol();
+      KuneWindowUtils.open(protocol + "//" + WindowUtils.getHost() + "#!" + SiteTokens.REGISTER);
     }
   }
 

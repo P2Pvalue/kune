@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -40,23 +40,24 @@ import com.google.inject.persist.Transactional;
 // TODO: Auto-generated Javadoc
 /**
  * The Class StatsServiceTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class StatsServiceTest extends IntegrationTest {
-  
+
   /** The group finder. */
   @Inject
   GroupFinder groupFinder;
-  
+
   /** The stats service. */
   @Inject
   StatsService statsService;
 
   /**
    * Check stats.
-   *
-   * @param homeStats the home stats
+   * 
+   * @param homeStats
+   *          the home stats
    */
   private void checkStats(final HomeStats homeStats) {
     assertTrue(homeStats.getTotalGroups() > 0);

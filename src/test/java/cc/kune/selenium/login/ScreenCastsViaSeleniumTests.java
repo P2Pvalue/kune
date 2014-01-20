@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -36,18 +36,22 @@ import com.calclab.emite.core.client.xmpp.stanzas.XmppURI;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ScreenCastsViaSeleniumTests.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ScreenCastsViaSeleniumTests extends KuneSeleniumTest {
 
   /**
    * Global screencast.
-   *
-   * @param shortNameUntrans the short name untrans
-   * @param longNameUntrans the long name untrans
-   * @param passwd the passwd
-   * @param emailUntrans the email untrans
+   * 
+   * @param shortNameUntrans
+   *          the short name untrans
+   * @param longNameUntrans
+   *          the long name untrans
+   * @param passwd
+   *          the passwd
+   * @param emailUntrans
+   *          the email untrans
    */
   @Test(dataProvider = "correctregister")
   public void globalScreencast(final String shortNameUntrans, final String longNameUntrans,

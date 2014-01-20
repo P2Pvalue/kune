@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,7 +28,7 @@ import java.util.Collection;
 /**
  * The Interface XmppRosterProvider should allow to get users's roster
  * information from different providers (initially openfire).
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface XmppRosterProvider {
@@ -42,8 +42,9 @@ public interface XmppRosterProvider {
 
   /**
    * Gets the roster.
-   *
-   * @param user the user
+   * 
+   * @param user
+   *          the user
    * @return the roster
    */
   Collection<RosterItem> getRoster(String user);

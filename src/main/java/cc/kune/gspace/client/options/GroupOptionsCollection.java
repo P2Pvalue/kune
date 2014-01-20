@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -36,21 +36,31 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GroupOptionsCollection.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @SuppressWarnings("serial")
 @Singleton
 public class GroupOptionsCollection extends ProvidersCollection {
-  
+
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+
   /**
    * Instantiates a new group options collection.
-   *
-   * @param gg the gg
-   * @param gtc the gtc
-   * @param gl the gl
-   * @param gps the gps
-   * @param gdl the gdl
+   * 
+   * @param gg
+   *          the gg
+   * @param gtc
+   *          the gtc
+   * @param gl
+   *          the gl
+   * @param gps
+   *          the gps
+   * @param gdl
+   *          the gdl
    */
   @Inject
   public GroupOptionsCollection(final Provider<GroupOptGeneral> gg, final Provider<GroupOptTools> gtc,

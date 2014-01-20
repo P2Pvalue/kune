@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -25,29 +25,32 @@ package cc.kune.core.client.contacts;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface SimpleContactManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface SimpleContactManager {
 
   /**
    * Adds the new buddy.
-   *
-   * @param shortName the short name
+   * 
+   * @param shortName
+   *          the short name
    */
   void addNewBuddy(String shortName);
 
   /**
    * Chat.
-   *
-   * @param shortName the short name
+   * 
+   * @param shortName
+   *          the short name
    */
   void chat(String shortName);
 
   /**
    * Checks if is buddy.
-   *
-   * @param shortName the short name
+   * 
+   * @param shortName
+   *          the short name
    * @return true, if is buddy
    */
   boolean isBuddy(String shortName);

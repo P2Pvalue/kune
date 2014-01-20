@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -33,7 +33,7 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AccessRightsUtils.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
@@ -45,10 +45,13 @@ public class AccessRightsUtils {
 
   /**
    * Correct member.
-   *
-   * @param user the user
-   * @param group the group
-   * @param memberType the member type
+   * 
+   * @param user
+   *          the user
+   * @param group
+   *          the group
+   * @param memberType
+   *          the member type
    * @return true, if successful
    */
   public static boolean correctMember(final User user, final Group group, final AccessRol memberType) {

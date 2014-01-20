@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -36,42 +36,42 @@ public class UserInfoDTOJs extends JavaScriptObject {
 
   /** The chat name. */
   public final native String getchatName() /*-{
-		return this.chatName;
-  }-*/;
+                                           return this.chatName;
+                                           }-*/;
 
   /** The client flags. */
   public final native String getClientFlags() /*-{
-		return this.clientFlags;
-  }-*/;
+                                              return this.clientFlags;
+                                              }-*/;
 
   /** The home page. */
   public final native String gethomePage() /*-{
-		return this.homePage;
-  }-*/;
+                                           return this.homePage;
+                                           }-*/;
 
   /** The session json. */
   public final native String getSessionJSON() /*-{
-		return this.sessionJSON;
-  }-*/;
+                                              return this.sessionJSON;
+                                              }-*/;
 
   /** The show deleted content. */
   public final native boolean getshowDeletedContent() /*-{
-		return this.showDeletedContent;
-  }-*/;
+                                                      return this.showDeletedContent;
+                                                      }-*/;
 
   /** The sign in count. */
   public final native Long getsignInCount() /*-{
-		return this.signInCount;
-  }-*/;
+                                            return this.signInCount;
+                                            }-*/;
 
   /** The user hash. */
   public final native String getUserHash() /*-{
-		return this.userHash;
-  }-*/;
+                                           return this.userHash;
+                                           }-*/;
 
   /** The websocket address. */
   public final native String getWebsocketAddress() /*-{
-		return this.websocketAddress;
-  }-*/;
+                                                   return this.websocketAddress;
+                                                   }-*/;
 
 }

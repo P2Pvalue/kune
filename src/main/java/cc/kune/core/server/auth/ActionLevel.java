@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -25,17 +25,17 @@ package cc.kune.core.server.auth;
 // TODO: Auto-generated Javadoc
 /**
  * The Enum ActionLevel.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public enum ActionLevel {
-  
+
+  /** The container. */
+  container,
+  /** The content. */
+  content,
   /** The group. */
-  group, 
- /** The tool. */
- tool, 
- /** The container. */
- container, 
- /** The content. */
- content
+  group,
+  /** The tool. */
+  tool
 }

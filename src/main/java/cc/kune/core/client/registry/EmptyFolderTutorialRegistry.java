@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,11 +28,11 @@ import java.util.List;
 // TODO: Auto-generated Javadoc
 /**
  * The Class EmptyFolderTutorialRegistry.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class EmptyFolderTutorialRegistry {
-  
+
   /** The registry. */
   private final List<String> registry;
 
@@ -45,8 +45,9 @@ public class EmptyFolderTutorialRegistry {
 
   /**
    * Checks for tutorial.
-   *
-   * @param typeId the type id
+   * 
+   * @param typeId
+   *          the type id
    * @return true, if successful
    */
   public boolean hasTutorial(final String typeId) {
@@ -55,8 +56,9 @@ public class EmptyFolderTutorialRegistry {
 
   /**
    * Register.
-   *
-   * @param contentTypeId the content type id
+   * 
+   * @param contentTypeId
+   *          the content type id
    */
   public void register(final String contentTypeId) {
     registry.add(contentTypeId);

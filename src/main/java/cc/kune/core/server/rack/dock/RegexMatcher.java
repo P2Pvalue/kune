@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,15 +27,16 @@ import java.util.regex.Pattern;
 public class RegexMatcher implements RequestMatcher {
   private final Pattern pattern;
 
-  public RegexMatcher(String stringPattern) {
-    this(Pattern.compile(stringPattern));
-  }
-
-  public RegexMatcher(Pattern pattern) {
+  public RegexMatcher(final Pattern pattern) {
     this.pattern = pattern;
   }
 
-  public boolean matches(String url) {
+  public RegexMatcher(final String stringPattern) {
+    this(Pattern.compile(stringPattern));
+  }
+
+  @Override
+  public boolean matches(final String url) {
     return pattern.matcher(url).matches();
   }
 

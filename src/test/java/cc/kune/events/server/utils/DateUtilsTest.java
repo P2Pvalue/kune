@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,21 +31,22 @@ import org.junit.Test;
 // TODO: Auto-generated Javadoc
 /**
  * The Class DateUtilsTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class DateUtilsTest {
 
   /** The Constant SAMPLE. */
   private static final String SAMPLE = "2012-03-05T00:00:00.000+0100";
-  
+
   /** The Constant SAMPLE2. */
   private static final String SAMPLE2 = "2012-03-05T00:00:00.000+01:00";
 
   /**
    * Basic test.
-   *
-   * @throws ParseException the parse exception
+   * 
+   * @throws ParseException
+   *           the parse exception
    */
   @Test
   public void basicTest() throws ParseException {

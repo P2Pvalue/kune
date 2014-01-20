@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -396,7 +396,7 @@ public class ChatClientDefault implements ChatClient {
    * @param chatDomain the chat domain
    */
   private void checkChatDomain(final String chatDomain) {
-    final String httpDomain = WindowUtils.getLocation().getHostName();
+    final String httpDomain = WindowUtils.getHostName();
     if (!chatDomain.equals(httpDomain)) {
       Log.error("Your http domain (" + httpDomain + ") is different from the chat domain (" + chatDomain
           + "). This will cause problems with the chat functionality. "

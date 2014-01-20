@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,23 +32,26 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GroupOptLogoPanel.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GroupOptLogoPanel extends EntityOptLogoPanel implements GroupOptLogoView {
-  
+
   /** The Constant BUTTON_ID. */
   public static final String BUTTON_ID = "k-golp-sendb";
-  
+
   /** The Constant PANEL_ID. */
   public static final String PANEL_ID = "k-golp-pan";
 
   /**
    * Instantiates a new group opt logo panel.
-   *
-   * @param eventBus the event bus
-   * @param i18n the i18n
-   * @param res the res
+   * 
+   * @param eventBus
+   *          the event bus
+   * @param i18n
+   *          the i18n
+   * @param res
+   *          the res
    */
   @Inject
   public GroupOptLogoPanel(final EventBus eventBus, final I18nTranslationService i18n,

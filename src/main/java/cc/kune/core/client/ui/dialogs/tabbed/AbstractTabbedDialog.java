@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,23 +29,26 @@ import com.google.gwt.user.client.ui.IsWidget;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface AbstractTabbedDialog.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface AbstractTabbedDialog {
 
   /**
    * Activate tab.
-   *
-   * @param index the index
+   * 
+   * @param index
+   *          the index
    */
   void activateTab(int index);
 
   /**
    * Adds the tab.
-   *
-   * @param tab the tab
-   * @param tabTitle the tab title
+   * 
+   * @param tab
+   *          the tab
+   * @param tabTitle
+   *          the tab title
    */
   void addTab(IsWidget tab, IsWidget tabTitle);
 
@@ -61,18 +64,23 @@ public interface AbstractTabbedDialog {
 
   /**
    * Insert tab.
-   *
-   * @param tab the tab
-   * @param tabTitle the tab title
-   * @param position the position
+   * 
+   * @param tab
+   *          the tab
+   * @param tabTitle
+   *          the tab title
+   * @param position
+   *          the position
    */
   void insertTab(IsWidget tab, IsWidget tabTitle, int position);
 
   /**
    * Sets the error message.
-   *
-   * @param message the message
-   * @param level the level
+   * 
+   * @param message
+   *          the message
+   * @param level
+   *          the level
    */
   public void setErrorMessage(String message, NotifyLevel level);
 

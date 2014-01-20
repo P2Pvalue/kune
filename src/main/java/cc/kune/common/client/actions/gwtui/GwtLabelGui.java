@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -22,11 +22,17 @@
  */
 package cc.kune.common.client.actions.gwtui;
 
+import cc.kune.common.client.actions.AbstractAction;
+import cc.kune.common.client.actions.ActionEvent;
 import cc.kune.common.client.actions.ui.AbstractGuiItem;
 import cc.kune.common.client.actions.ui.ParentWidget;
 import cc.kune.common.client.actions.ui.descrip.GuiActionDescrip;
+import cc.kune.common.client.tooltip.Tooltip;
 import cc.kune.common.shared.res.KuneIcon;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Label;
 
 // TODO: Auto-generated Javadoc
@@ -69,6 +75,16 @@ public class GwtLabelGui extends AbstractGuiItem {
       label.ensureDebugId(id);
     }
     initWidget(label);
+    label.addClickHandler(new ClickHandler() {
+      @Override
+      public void onClick(final ClickEvent event) {
+        final AbstractAction action = descriptor.getAction();
+        if (action != null) {
+          action.actionPerformed(new ActionEvent(label, getTargetObjectOfAction(descriptor),
+              Event.as(event.getNativeEvent())));
+        }
+      }
+    });
     configureItemFromProperties();
     return this;
   }
@@ -120,6 +136,16 @@ public class GwtLabelGui extends AbstractGuiItem {
   /* (non-Javadoc)
    * @see cc.kune.common.client.actions.ui.AbstractGuiItem#shouldBeAdded()
    */
+  @Override
+  public void setToolTipText(final String tooltipText) {
+    Tooltip.to(label, tooltipText);
+  }
+
+  @Override
+  public void setVisible(final boolean visible) {
+    super.setVisible(visible);
+  }
+
   @Override
   public boolean shouldBeAdded() {
     return true;

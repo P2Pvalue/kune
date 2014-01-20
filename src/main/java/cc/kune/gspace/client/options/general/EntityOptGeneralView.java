@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,7 +29,7 @@ import com.google.gwt.event.dom.client.ChangeHandler;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface EntityOptGeneralView.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface EntityOptGeneralView extends EntityOptionsTabView {
@@ -41,14 +41,14 @@ public interface EntityOptGeneralView extends EntityOptionsTabView {
 
   /**
    * Checks if is rendered.
-   *
+   * 
    * @return true, if is rendered
    */
   boolean isRendered();
 
   /**
    * Checks if is valid.
-   *
+   * 
    * @return true, if is valid
    */
   boolean isValid();
@@ -59,9 +59,15 @@ public interface EntityOptGeneralView extends EntityOptionsTabView {
   void mask();
 
   /**
+   * Reset.
+   */
+  void reset();
+
+  /**
    * Sets the change handler.
-   *
-   * @param changeHandler the new change handler
+   * 
+   * @param changeHandler
+   *          the new change handler
    */
   void setChangeHandler(ChangeHandler changeHandler);
 
@@ -69,9 +75,4 @@ public interface EntityOptGeneralView extends EntityOptionsTabView {
    * Unmask.
    */
   void unmask();
-
-  /**
-   * Reset.
-   */
-  void reset();
 }

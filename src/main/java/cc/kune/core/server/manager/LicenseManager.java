@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,59 +30,62 @@ import cc.kune.domain.finders.LicenseFinder;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface LicenseManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface LicenseManager {
 
   /**
    * Find by short name.
-   *
-   * @param licenseDef the license def
+   * 
+   * @param licenseDef
+   *          the license def
    * @return the license
    */
   License findByShortName(String licenseDef);
 
   /**
    * Gets the all.
-   *
+   * 
    * @return the all
    */
   List<License> getAll();
 
   /**
    * Gets the cc.
-   *
+   * 
    * @return the cc
    */
   List<License> getCC();
 
   /**
    * Gets the def license.
-   *
+   * 
    * @return the def license
    */
   License getDefLicense();
 
   /**
    * Gets the not cc.
-   *
+   * 
    * @return the not cc
    */
   List<License> getNotCC();
 
   /**
    * Persist.
-   *
-   * @param license the license
+   * 
+   * @param license
+   *          the license
    * @return the license
    */
   License persist(final License license);
 
   /**
    * Sets the license finder.
-   *
-   * @param licenseFinder the new license finder
+   * 
+   * @param licenseFinder
+   *          the new license finder
    */
   void setLicenseFinder(final LicenseFinder licenseFinder);
 

@@ -1,3 +1,25 @@
+/*
+ *
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under 
+ * one or more contributor license agreements (see COPYRIGHT for details).
+ * The CA licenses this file to you under the GNU Affero General Public 
+ * License version 3, (the "License"); you may not use this file except in 
+ * compliance with the License. This file is part of kune.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 package cc.kune.core.server.rack.filters.rest;
 
 import java.io.IOException;
@@ -65,8 +87,8 @@ public abstract class AbstractCustomCORSFilter implements Filter {
    */
   private CORSRequestHandler handler;
 
-  protected abstract void customDoFilter(HttpServletRequest request, HttpServletResponse response)
-      throws IOException;
+  protected abstract void customDoFilter(HttpServletRequest request, HttpServletResponse response,
+      final FilterChain chain) throws IOException, ServletException;
 
   /**
    * Called by the web container to indicate to a filter that it is being taken
@@ -107,7 +129,7 @@ public abstract class AbstractCustomCORSFilter implements Filter {
 
         // Simple / actual CORS request
         handler.handleActualRequest(request, response);
-        customDoFilter(request, response);
+        customDoFilter(request, response, chain);
 
       } else if (type.equals(CORSRequestType.PREFLIGHT)) {
 
@@ -119,7 +141,7 @@ public abstract class AbstractCustomCORSFilter implements Filter {
 
         // Not a CORS request, but allow it through
         request.setAttribute("cors.isCorsRequest", false); // tag
-        customDoFilter(request, response);
+        customDoFilter(request, response, chain);
 
       } else {
 
@@ -251,7 +273,7 @@ public abstract class AbstractCustomCORSFilter implements Filter {
    * @throws ServletException
    *           On a general request processing exception.
    */
-  private void printMessage(final HttpServletResponse response, final int sc, final String msg)
+  protected void printMessage(final HttpServletResponse response, final int sc, final String msg)
       throws IOException, ServletException {
 
     // Set the status code

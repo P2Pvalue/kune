@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,7 +31,7 @@ import cc.kune.domain.User;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface AccessService.
- *
+ * 
  * @author danigb@gmail.com
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
@@ -39,43 +39,57 @@ public interface AccessService {
 
   /**
    * Access to container.
-   *
-   * @param container the container
-   * @param user the user
-   * @param accessRol the access rol
+   * 
+   * @param container
+   *          the container
+   * @param user
+   *          the user
+   * @param accessRol
+   *          the access rol
    * @return the container
    */
   Container accessToContainer(Container container, User user, AccessRol accessRol);
 
   /**
    * Access to container.
-   *
-   * @param folderId the folder id
-   * @param user the user
-   * @param accessRol the access rol
+   * 
+   * @param folderId
+   *          the folder id
+   * @param user
+   *          the user
+   * @param accessRol
+   *          the access rol
    * @return the container
-   * @throws DefaultException the default exception
+   * @throws DefaultException
+   *           the default exception
    */
   Container accessToContainer(Long folderId, User user, AccessRol accessRol) throws DefaultException;
 
   /**
    * Access to content.
-   *
-   * @param content the content
-   * @param user the user
-   * @param accessRol the access rol
+   * 
+   * @param content
+   *          the content
+   * @param user
+   *          the user
+   * @param accessRol
+   *          the access rol
    * @return the content
    */
   Content accessToContent(Content content, User user, AccessRol accessRol);
 
   /**
    * Access to content.
-   *
-   * @param contentId the content id
-   * @param user the user
-   * @param accessRol the access rol
+   * 
+   * @param contentId
+   *          the content id
+   * @param user
+   *          the user
+   * @param accessRol
+   *          the access rol
    * @return the content
-   * @throws DefaultException the default exception
+   * @throws DefaultException
+   *           the default exception
    */
   Content accessToContent(Long contentId, User user, AccessRol accessRol) throws DefaultException;
 

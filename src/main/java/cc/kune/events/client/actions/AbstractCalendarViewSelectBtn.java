@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,18 +30,22 @@ import com.bradrydzewski.gwt.calendar.client.CalendarViews;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AbstractCalendarViewSelectBtn.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class AbstractCalendarViewSelectBtn extends ButtonDescriptor {
 
   /**
    * Instantiates a new abstract calendar view select btn.
-   *
-   * @param action the action
-   * @param text the text
-   * @param days the days
-   * @param view the view
+   * 
+   * @param action
+   *          the action
+   * @param text
+   *          the text
+   * @param days
+   *          the days
+   * @param view
+   *          the view
    */
   public AbstractCalendarViewSelectBtn(final CalendarViewSelectAction action, final String text,
       final int days, final CalendarViews view) {

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -33,18 +33,22 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GoParentFolderBtn.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GoParentFolderBtn extends GoParentContainerBtn {
 
   /**
    * Instantiates a new go parent folder btn.
-   *
-   * @param i18n the i18n
-   * @param action the action
-   * @param res the res
-   * @param session the session
+   * 
+   * @param i18n
+   *          the i18n
+   * @param action
+   *          the action
+   * @param res
+   *          the res
+   * @param session
+   *          the session
    */
   @Inject
   public GoParentFolderBtn(final I18nTranslationService i18n, final GoParentContainerAction action,

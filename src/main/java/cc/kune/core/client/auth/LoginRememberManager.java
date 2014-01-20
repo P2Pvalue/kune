@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -25,7 +25,7 @@ package cc.kune.core.client.auth;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface LoginRememberManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface LoginRememberManager {
@@ -37,29 +37,31 @@ public interface LoginRememberManager {
 
   /**
    * Gets the nick or email.
-   *
+   * 
    * @return the nick or email
    */
   String getNickOrEmail();
 
   /**
    * Gets the password.
-   *
+   * 
    * @return the password
    */
   String getPassword();
 
   /**
    * Sets the nick or email.
-   *
-   * @param username the new nick or email
+   * 
+   * @param username
+   *          the new nick or email
    */
   void setNickOrEmail(String username);
 
   /**
    * Sets the password.
-   *
-   * @param password the new password
+   * 
+   * @param password
+   *          the new password
    */
   void setPassword(String password);
 

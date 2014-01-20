@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,23 +37,23 @@ import cc.kune.domain.Content;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ContentManagerDefaultTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ContentManagerDefaultTest extends PersistencePreLoadedDataTest {
 
   /** The Constant BODY. */
   private static final String BODY = "body";
-  
+
   /** The Constant MIMETYPE. */
   private static final String MIMETYPE = "image";
-  
+
   /** The Constant TITLE. */
   private static final String TITLE = "title";
 
   /**
    * Creates the content.
-   *
+   * 
    * @return the content
    */
   private Content createContent() {
@@ -66,8 +66,9 @@ public class ContentManagerDefaultTest extends PersistencePreLoadedDataTest {
 
   /**
    * Creates the content with mime and check.
-   *
-   * @param mimetype the mimetype
+   * 
+   * @param mimetype
+   *          the mimetype
    */
   private void createContentWithMimeAndCheck(final String mimetype) {
     final Content cnt = creationService.createContent(TITLE, BODY, user, container, TYPE_UPLOADEDFILE);

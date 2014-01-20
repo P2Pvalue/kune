@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,15 +28,16 @@ import com.calclab.emite.core.client.packet.IPacket;
 // TODO: Auto-generated Javadoc
 /**
  * The Class XMLTypeId.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class XMLTypeId extends DelegatedPacket {
 
   /**
    * Instantiates a new xML type id.
-   *
-   * @param delegate the delegate
+   * 
+   * @param delegate
+   *          the delegate
    */
   public XMLTypeId(final IPacket delegate) {
     super(delegate);
@@ -44,7 +45,7 @@ public class XMLTypeId extends DelegatedPacket {
 
   /**
    * Gets the dest type id.
-   *
+   * 
    * @return the dest type id
    */
   public String getDestTypeId() {
@@ -53,7 +54,7 @@ public class XMLTypeId extends DelegatedPacket {
 
   /**
    * Gets the orig type id.
-   *
+   * 
    * @return the orig type id
    */
   public String getOrigTypeId() {

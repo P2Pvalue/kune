@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,18 +30,22 @@ import com.google.gwt.event.dom.client.ClickHandler;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface EntityOptToolsView.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface EntityOptToolsView extends EntityOptionsTabView {
 
   /**
    * Adds the.
-   *
-   * @param tool the tool
-   * @param enabled the enabled
-   * @param checked the checked
-   * @param clickHandler the click handler
+   * 
+   * @param tool
+   *          the tool
+   * @param enabled
+   *          the enabled
+   * @param checked
+   *          the checked
+   * @param clickHandler
+   *          the click handler
    */
   void add(ToolSimpleDTO tool, boolean enabled, boolean checked, ClickHandler clickHandler);
 
@@ -52,8 +56,9 @@ public interface EntityOptToolsView extends EntityOptionsTabView {
 
   /**
    * Checks if is checked.
-   *
-   * @param tool the tool
+   * 
+   * @param tool
+   *          the tool
    * @return true, if is checked
    */
   boolean isChecked(String tool);
@@ -65,25 +70,31 @@ public interface EntityOptToolsView extends EntityOptionsTabView {
 
   /**
    * Sets the checked.
-   *
-   * @param tool the tool
-   * @param checked the checked
+   * 
+   * @param tool
+   *          the tool
+   * @param checked
+   *          the checked
    */
   void setChecked(String tool, boolean checked);
 
   /**
    * Sets the enabled.
-   *
-   * @param tool the tool
-   * @param enabled the enabled
+   * 
+   * @param tool
+   *          the tool
+   * @param enabled
+   *          the enabled
    */
   void setEnabled(String tool, boolean enabled);
 
   /**
    * Sets the tooltip.
-   *
-   * @param tool the tool
-   * @param tip the tip
+   * 
+   * @param tool
+   *          the tool
+   * @param tip
+   *          the tip
    */
   void setTooltip(String tool, String tip);
 

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -35,21 +35,24 @@ import javax.servlet.http.HttpServletResponse;
 public class RedirectFilter implements Filter {
   private final String redirect;
 
-  public RedirectFilter(String redirect) {
+  public RedirectFilter(final String redirect) {
     this.redirect = redirect;
   }
 
-  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-      throws IOException, ServletException {
+  @Override
+  public void destroy() {
+  }
 
-    HttpServletResponse httpResponse = (HttpServletResponse) response;
+  @Override
+  public void doFilter(final ServletRequest request, final ServletResponse response,
+      final FilterChain chain) throws IOException, ServletException {
+
+    final HttpServletResponse httpResponse = (HttpServletResponse) response;
     httpResponse.sendRedirect(redirect);
   }
 
-  public void init(FilterConfig filterConfig) throws ServletException {
-  }
-
-  public void destroy() {
+  @Override
+  public void init(final FilterConfig filterConfig) throws ServletException {
   }
 
 }

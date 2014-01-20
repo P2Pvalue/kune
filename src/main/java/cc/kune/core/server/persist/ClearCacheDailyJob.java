@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,7 +34,7 @@ import org.quartz.SchedulerException;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ClearCacheDailyJob.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @SuppressWarnings("rawtypes")
@@ -42,22 +42,27 @@ public abstract class ClearCacheDailyJob implements Job {
 
   /** The Constant LOG. */
   public static final Log LOG = LogFactory.getLog(ClearCacheDailyJob.class);
-  
+
   /** The cache. */
   private final CachedCollection cache;
 
   /**
    * Instantiates a new clear cache daily job.
-   *
-   * @param cache the cache
-   * @throws ParseException the parse exception
-   * @throws SchedulerException the scheduler exception
+   * 
+   * @param cache
+   *          the cache
+   * @throws ParseException
+   *           the parse exception
+   * @throws SchedulerException
+   *           the scheduler exception
    */
   public ClearCacheDailyJob(final CachedCollection cache) throws ParseException, SchedulerException {
     this.cache = cache;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.quartz.Job#execute(org.quartz.JobExecutionContext)
    */
   @Override

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -43,8 +43,9 @@ public class UserFieldFactory {
 
   /**
    * Creates a new UserField object.
-   *
-   * @param fieldId the field id
+   * 
+   * @param fieldId
+   *          the field id
    * @return the text field< string>
    */
   public static TextField<String> createUserEmail(final String fieldId) {
@@ -63,8 +64,9 @@ public class UserFieldFactory {
 
   /**
    * Creates a new UserField object.
-   *
-   * @param fieldId the field id
+   * 
+   * @param fieldId
+   *          the field id
    * @return the text field< string>
    */
   public static TextField<String> createUserLongName(final String fieldId) {
@@ -87,9 +89,11 @@ public class UserFieldFactory {
 
   /**
    * Creates a new UserField object.
-   *
-   * @param fieldId the field id
-   * @param fieldText the field text
+   * 
+   * @param fieldId
+   *          the field id
+   * @param fieldText
+   *          the field text
    * @return the text field< string>
    */
   public static TextField<String> createUserPasswd(final String fieldId, final String fieldText) {
@@ -110,8 +114,9 @@ public class UserFieldFactory {
 
   /**
    * Creates a new UserField object.
-   *
-   * @param fieldId the field id
+   * 
+   * @param fieldId
+   *          the field id
    * @return the text field< string>
    */
   public static TextField<String> createUserShortName(final String fieldId) {
@@ -138,7 +143,7 @@ public class UserFieldFactory {
 
   /**
    * Gets the register link.
-   *
+   * 
    * @return the register link
    */
   public static String getRegisterLink() {
@@ -147,9 +152,11 @@ public class UserFieldFactory {
 
   /**
    * Gets the register link.
-   *
-   * @param withText the with text
-   * @param redirect the redirect
+   * 
+   * @param withText
+   *          the with text
+   * @param redirect
+   *          the redirect
    * @return the register link
    */
   public static String getRegisterLink(final String withText, final String redirect) {
@@ -162,7 +169,7 @@ public class UserFieldFactory {
 
   /**
    * Gets the sign in link.
-   *
+   * 
    * @return the sign in link
    */
   public static String getSignInLink() {
@@ -171,8 +178,9 @@ public class UserFieldFactory {
 
   /**
    * Gets the sign in link.
-   *
-   * @param redirect the redirect
+   * 
+   * @param redirect
+   *          the redirect
    * @return the sign in link
    */
   public static String getSignInLink(final String redirect) {

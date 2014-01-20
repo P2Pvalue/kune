@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,14 +30,14 @@ import com.google.gwt.event.shared.SimpleEventBus;
 // TODO: Auto-generated Javadoc
 /**
  * The Class EventBusTester.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class EventBusTester extends SimpleEventBus {
-  
+
   /** The all. */
   private final ArrayList<GwtEvent<?>> all;
-  
+
   /** The last event. */
   private GwtEvent<?> lastEvent;
 
@@ -48,8 +48,12 @@ public class EventBusTester extends SimpleEventBus {
     all = new ArrayList<GwtEvent<?>>();
   }
 
-  /* (non-Javadoc)
-   * @see com.google.gwt.event.shared.SimpleEventBus#fireEvent(com.google.gwt.event.shared.GwtEvent)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * com.google.gwt.event.shared.SimpleEventBus#fireEvent(com.google.gwt.event
+   * .shared.GwtEvent)
    */
   @Override
   public void fireEvent(final GwtEvent<?> event) {
@@ -60,7 +64,7 @@ public class EventBusTester extends SimpleEventBus {
 
   /**
    * Gets the last event.
-   *
+   * 
    * @return the last event
    */
   public GwtEvent<?> getLastEvent() {
@@ -69,8 +73,9 @@ public class EventBusTester extends SimpleEventBus {
 
   /**
    * Gets the last event class.
-   *
-   * @param <T> the generic type
+   * 
+   * @param <T>
+   *          the generic type
    * @return the last event class
    */
   @SuppressWarnings("unchecked")
@@ -80,8 +85,9 @@ public class EventBusTester extends SimpleEventBus {
 
   /**
    * Received event of class.
-   *
-   * @param eventClass the event class
+   * 
+   * @param eventClass
+   *          the event class
    * @return true, if successful
    */
   public boolean receivedEventOfClass(final Class<? extends GwtEvent<?>> eventClass) {

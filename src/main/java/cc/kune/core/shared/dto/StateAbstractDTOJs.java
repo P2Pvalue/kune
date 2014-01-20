@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -35,22 +35,22 @@ public class StateAbstractDTOJs extends JavaScriptObject {
   }
 
   public final native String getContent() /*-{
-		return this.content;
-  }-*/;
+                                          return this.content;
+                                          }-*/;
 
   public final native JavaScriptObject getStateToken() /*-{
-		return this.stateToken;
-  }-*/;
+                                                       return this.stateToken;
+                                                       }-*/;
 
   public final native String getTitle() /*-{
-		return this.title;
-  }-*/;
+                                        return this.title;
+                                        }-*/;
 
   public final native String getWaveRef() /*-{
-		return this.waveRef;
-  }-*/;
+                                          return this.waveRef;
+                                          }-*/;
 
   public final native boolean isParticipant() /*-{
-		return this.isParticipant;
-  }-*/;
+                                              return this.isParticipant;
+                                              }-*/;
 }

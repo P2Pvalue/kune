@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,14 +29,14 @@ import cc.kune.core.client.auth.UserFieldFactory;
 // TODO: Auto-generated Javadoc
 /**
  * The Class SiteInvitationConfirmDialog.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class SiteInvitationConfirmDialog extends AbstractInvitationConfirmDialog {
-  
+
   /**
    * The Class Builder.
-   *
+   * 
    * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
    */
   public static class Builder extends AbstractInvitationConfirmDialog.Builder {
@@ -46,13 +46,15 @@ public class SiteInvitationConfirmDialog extends AbstractInvitationConfirmDialog
 
     /**
      * Instantiates a new builder.
-     *
-     * @param redirect the redirect
-     * @param i18n the i18n
-     * @param userWhoInvites the user who invites
+     * 
+     * @param redirect
+     *          the redirect
+     * @param i18n
+     *          the i18n
+     * @param userWhoInvites
+     *          the user who invites
      */
-    public Builder(final String redirect, final I18nTranslationService i18n,
-        final String userWhoInvites) {
+    public Builder(final String redirect, final I18nTranslationService i18n, final String userWhoInvites) {
       super(
           DIALOG_ID,
           i18n.t("Invitation to join this site"),
@@ -67,8 +69,9 @@ public class SiteInvitationConfirmDialog extends AbstractInvitationConfirmDialog
 
   /**
    * Instantiates a new site invitation confirm dialog.
-   *
-   * @param builder the builder
+   * 
+   * @param builder
+   *          the builder
    */
   protected SiteInvitationConfirmDialog(final SiteInvitationConfirmDialog.Builder builder) {
     super(builder);

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -25,17 +25,17 @@ package cc.kune.core.client.sitebar.spaces;
 // TODO: Auto-generated Javadoc
 /**
  * The Enum Space.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public enum Space {
-  
+
+  /** The group space. */
+  groupSpace,
   /** The home space. */
-  homeSpace, 
- /** The user space. */
- userSpace, 
- /** The group space. */
- groupSpace, 
- /** The public space. */
- publicSpace
+  homeSpace,
+  /** The public space. */
+  publicSpace,
+  /** The user space. */
+  userSpace
 }

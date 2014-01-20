@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,38 +30,48 @@ import cc.kune.core.shared.dto.SearchResultDTO;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface KuneMapper.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface KuneMapper {
 
   /**
    * Map.
-   *
-   * @param <T> the generic type
-   * @param source the source
-   * @param type the type
+   * 
+   * @param <T>
+   *          the generic type
+   * @param source
+   *          the source
+   * @param type
+   *          the type
    * @return the t
    */
   <T> T map(Object source, Class<T> type);
 
   /**
    * Map list.
-   *
-   * @param <T> the generic type
-   * @param list the list
-   * @param type the type
+   * 
+   * @param <T>
+   *          the generic type
+   * @param list
+   *          the list
+   * @param type
+   *          the type
    * @return the list
    */
   <T> List<T> mapList(List<?> list, Class<T> type);
 
   /**
    * Map search result.
-   *
-   * @param <K> the key type
-   * @param <T> the generic type
-   * @param result the result
-   * @param type the type
+   * 
+   * @param <K>
+   *          the key type
+   * @param <T>
+   *          the generic type
+   * @param result
+   *          the result
+   * @param type
+   *          the type
    * @return the search result dto
    */
   <K, T> SearchResultDTO<T> mapSearchResult(SearchResult<K> result, Class<T> type);

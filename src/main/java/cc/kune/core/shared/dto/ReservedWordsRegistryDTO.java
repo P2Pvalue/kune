@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,7 +30,7 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ReservedWordsRegistryDTO.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ReservedWordsRegistryDTO extends ArrayList<String> implements IsSerializable {
@@ -46,8 +46,9 @@ public class ReservedWordsRegistryDTO extends ArrayList<String> implements IsSer
 
   /**
    * Instantiates a new reserved words registry dto.
-   *
-   * @param list the list
+   * 
+   * @param list
+   *          the list
    */
   public ReservedWordsRegistryDTO(final List<String> list) {
     super(list);

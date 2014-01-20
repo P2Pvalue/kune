@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,12 +28,14 @@ import java.util.Collections;
 // TODO: Auto-generated Javadoc
 /**
  * The Class XmppRosterProviderMock.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class XmppRosterProviderMock implements XmppRosterProvider {
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.server.xmpp.XmppRosterProvider#count()
    */
   @Override
@@ -41,8 +43,11 @@ public class XmppRosterProviderMock implements XmppRosterProvider {
     return 0l;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.xmpp.XmppRosterProvider#getRoster(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.xmpp.XmppRosterProvider#getRoster(java.lang.String)
    */
   @Override
   public Collection<RosterItem> getRoster(final String user) {

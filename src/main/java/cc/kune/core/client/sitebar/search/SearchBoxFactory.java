@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -39,23 +39,24 @@ public class SearchBoxFactory {
 
   /**
    * Creates the.
-   *
-   * @param i18n the i18n
-   * @param searchOnlyUsers the search only users
-   * @param showNoResult the show no result
-   * @param id the id
-   * @param callback the callback
+   * 
+   * @param i18n
+   *          the i18n
+   * @param searchOnlyUsers
+   *          the search only users
+   * @param showNoResult
+   *          the show no result
+   * @param id
+   *          the id
+   * @param callback
+   *          the callback
    * @return the multivalue suggest box
    */
   public static MultivalueSuggestBox create(final I18nTranslationService i18n,
       final boolean searchOnlyUsers, final boolean showNoResult, final String id,
       final OnEntitySelectedInSearch callback) {
-    final MultivalueSuggestBox multivalueSBox = new MultivalueSuggestBox(
-        i18n,
-        showNoResult,
-        searchOnlyUsers ? SearcherConstants.USER_DATA_PROXY_URL : SearcherConstants.GROUP_DATA_PROXY_URL,
-        false, new OnExactMatch() {
-
+    final MultivalueSuggestBox multivalueSBox = new MultivalueSuggestBox(i18n, showNoResult,
+        getSearchUrl(searchOnlyUsers), false, new OnExactMatch() {
           @Override
           public void onExactMatch(final String match) {
             // NotifyUser.info(match);
@@ -89,6 +90,11 @@ public class SearchBoxFactory {
     textBox.setDirection(i18n.isRTL() ? Direction.RTL : Direction.LTR);
     textBox.ensureDebugId(id);
     return multivalueSBox;
+  }
+
+  public static String getSearchUrl(final boolean searchOnlyUsers) {
+    return searchOnlyUsers ? SearcherConstants.USER_DATA_PROXY_URL
+        : SearcherConstants.GROUP_DATA_PROXY_URL;
   }
 
 }

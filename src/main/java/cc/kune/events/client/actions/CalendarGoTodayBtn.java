@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,16 +31,18 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class CalendarGoTodayBtn.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class CalendarGoTodayBtn extends ButtonDescriptor {
 
   /**
    * Instantiates a new calendar go today btn.
-   *
-   * @param action the action
-   * @param i18n the i18n
+   * 
+   * @param action
+   *          the action
+   * @param i18n
+   *          the i18n
    */
   @Inject
   public CalendarGoTodayBtn(final CalendarGoTodayAction action, final I18nTranslationService i18n) {

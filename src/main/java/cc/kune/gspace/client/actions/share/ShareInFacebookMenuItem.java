@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,6 +28,7 @@ import cc.kune.common.shared.i18n.I18nTranslationService;
 import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.services.ClientFileDownloadUtils;
 import cc.kune.core.client.state.Session;
+import cc.kune.core.shared.dto.AccessRolDTO;
 
 import com.google.gwt.http.client.URL;
 import com.google.inject.Inject;
@@ -35,11 +36,11 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ShareInFacebookMenuItem.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ShareInFacebookMenuItem extends AbstractShareInSocialNetMenuItem {
-  
+
   /** The Constant URL_TEMPLATE. */
   private static final String URL_TEMPLATE = "https://www.facebook.com/dialog/feed?"
       + "app_id=SOMETHINGHERE&" +
@@ -58,13 +59,19 @@ public class ShareInFacebookMenuItem extends AbstractShareInSocialNetMenuItem {
 
   /**
    * Instantiates a new share in facebook menu item.
-   *
-   * @param action the action
-   * @param iconic the iconic
-   * @param session the session
-   * @param menu the menu
-   * @param i18n the i18n
-   * @param downUtils the down utils
+   * 
+   * @param action
+   *          the action
+   * @param iconic
+   *          the iconic
+   * @param session
+   *          the session
+   * @param menu
+   *          the menu
+   * @param i18n
+   *          the i18n
+   * @param downUtils
+   *          the down utils
    */
   @Inject
   public ShareInFacebookMenuItem(final AbstractShareInSocialNetAction action,
@@ -75,10 +82,12 @@ public class ShareInFacebookMenuItem extends AbstractShareInSocialNetMenuItem {
         ClientFormattedString.build(
             false,
             URL_TEMPLATE,
-            URL.encode(getCurrentUrl(session)),
+            URL.encode(ShareInSocialNetUtils.getCurrentUrl(session)),
             URL.encodeQueryString(downUtils.getGroupLogo(session.getCurrentState().getGroup())),
-            URL.encode(getTitle(session)),
+            URL.encode(ShareInSocialNetUtils.getTitle(session)),
             URL.encode(i18n.tWithNT("via [%s]", "used in references 'something via @someone'",
-                i18n.getSiteCommonName())), getCurrentUrl(session)));
+                i18n.getSiteCommonName())), ShareInSocialNetUtils.getCurrentUrl(session)));
+    action.setHigherRol(AccessRolDTO.Editor);
+    menu.setVisible(session.getCurrentState().getGroupRights().isVisible());
   }
 }

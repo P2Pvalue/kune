@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -20,36 +20,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package cc.kune.gspace.client.actions.share;
+package cc.kune.gspace.client.share.items.actions;
 
-import cc.kune.common.shared.i18n.I18nTranslationService;
+import cc.kune.common.shared.i18n.I18n;
 import cc.kune.core.client.resources.iconic.IconicResources;
-import cc.kune.core.shared.dto.SocialNetworkSubGroup;
-import cc.kune.gspace.client.actions.AddMembersToContentAction;
+import cc.kune.core.client.services.ClientFileDownloadUtils;
 
 import com.google.inject.Inject;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class AddPublicToContentMenuItem.
- *
- * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
- */
-public class AddPublicToContentMenuItem extends AddMembersToContentMenuItem {
+public class AdminOfContentShareItemDescriptor extends GroupShareItemDescriptor {
 
-  /**
-   * Instantiates a new adds the public to content menu item.
-   *
-   * @param i18n the i18n
-   * @param action the action
-   * @param menu the menu
-   * @param res the res
-   */
   @Inject
-  public AddPublicToContentMenuItem(final I18nTranslationService i18n,
-      final AddMembersToContentAction action, final ContentViewerShareMenu menu,
-      final IconicResources res) {
-    super(i18n.t("Allow any person to edit this"), SocialNetworkSubGroup.PUBLIC, action, menu, res);
-    this.withIcon(res.world());
+  public AdminOfContentShareItemDescriptor(final IconicResources icons,
+      final ClientFileDownloadUtils downloadUtils, final ChangeToEditorForContentsMenuItem changeToEditor,
+      final RemoveShareItemMenuItem remove) {
+    super(downloadUtils, I18n.tWithNT("is admin", "someone is administrator"), changeToEditor, remove);
   }
+
 }

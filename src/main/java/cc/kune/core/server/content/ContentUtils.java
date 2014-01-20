@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,7 +27,7 @@ import cc.kune.core.client.errors.ContentNotFoundException;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ContentUtils.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public final class ContentUtils {
@@ -35,10 +35,12 @@ public final class ContentUtils {
   // @PMD:REVIEWED:ShortVariable: by vjrj on 21/05/09 14:05
   /**
    * Parses the id.
-   *
-   * @param id the id
+   * 
+   * @param id
+   *          the id
    * @return the long
-   * @throws ContentNotFoundException the content not found exception
+   * @throws ContentNotFoundException
+   *           the content not found exception
    */
   public static Long parseId(final String id) throws ContentNotFoundException {
     try {

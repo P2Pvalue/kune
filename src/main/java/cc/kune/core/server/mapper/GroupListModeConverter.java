@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -33,14 +33,14 @@ import cc.kune.core.shared.domain.GroupListMode;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GroupListModeConverter.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GroupListModeConverter implements CustomConverter {
-  
+
   /** The enum to string. */
   private final HashMap<GroupListMode, String> enumToString;
-  
+
   /** The string to enum. */
   private final HashMap<String, GroupListMode> stringToEnum;
 
@@ -57,16 +57,20 @@ public class GroupListModeConverter implements CustomConverter {
 
   /**
    * Adds the.
-   *
-   * @param mode the mode
+   * 
+   * @param mode
+   *          the mode
    */
   private void add(final GroupListMode mode) {
     enumToString.put(mode, mode.toString());
     stringToEnum.put(mode.toString(), mode);
   }
 
-  /* (non-Javadoc)
-   * @see org.dozer.CustomConverter#convert(java.lang.Object, java.lang.Object, java.lang.Class, java.lang.Class)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.dozer.CustomConverter#convert(java.lang.Object, java.lang.Object,
+   * java.lang.Class, java.lang.Class)
    */
   @Override
   @SuppressWarnings("rawtypes")

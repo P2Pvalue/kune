@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,6 +31,7 @@ import cc.kune.core.client.sitebar.SitebarSignInLink;
 import cc.kune.core.client.sitebar.SitebarSignOutLink;
 import cc.kune.core.client.state.Session;
 import cc.kune.core.shared.dto.InitDataDTO;
+import cc.kune.gspace.client.viewers.EmbedHelper;
 
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
@@ -64,19 +65,14 @@ public class EmbedSitebar {
     }
     popup = new PopupPanel(false, false);
     popup.setWidget(toolbar);
-    popup.setPopupPositionAndShow(new PopupPanel.PositionCallback() {
-      @Override
-      public void setPosition(final int offsetWidth, final int offsetHeight) {
-        setPopupPosition();
-      }
-    });
+    centerAndShow();
     popup.setAnimationEnabled(false);
     popup.setStyleName("oc-user-msg-popup");
     popup.addStyleName("k-embed-sitebar");
     Window.addResizeHandler(new ResizeHandler() {
       @Override
       public void onResize(final ResizeEvent event) {
-        setPopupPosition();
+        centerAndShow();
       }
     });
 
@@ -85,7 +81,19 @@ public class EmbedSitebar {
       public void onUserSignInOrSignOut(final UserSignInOrSignOutEvent event) {
         // This is needed because the panel has different sinces depending on
         // the session
-        setPopupPosition();
+        centerAndShow();
+      }
+    });
+  }
+
+  private void centerAndShow() {
+    popup.setPopupPositionAndShow(new PopupPanel.PositionCallback() {
+      @Override
+      public void setPosition(final int offsetWidth, final int offsetHeight) {
+        final Integer rightMargin = EmbedConfiguration.get().getSitebarRightMargin();
+        final int left = Window.getClientWidth() - toolbar.getOffsetWidth() - rightMargin;
+        final int top = EmbedConfiguration.get().getSitebarTopMargin();
+        popup.setPopupPosition(left, top);
       }
     });
   }
@@ -95,14 +103,9 @@ public class EmbedSitebar {
     final InitDataDTO initData = session.getInitData();
     if (initData != null) {
       @SuppressWarnings("deprecation")
-      final String sitelogo = initData.getSiteLogoUrl();
+      final String sitelogo = EmbedHelper.getServer() + initData.getSiteLogoUrl();
       signInLink.withIcon(new Url(sitelogo));
       signOutLink.withIcon(new Url(sitelogo));
     }
-  }
-
-  private void setPopupPosition() {
-    final Integer position = EmbedConfiguration.get().getSitebarPosition();
-    popup.setPopupPosition(Window.getClientWidth() - toolbar.getOffsetWidth() - position, 0);
   }
 }

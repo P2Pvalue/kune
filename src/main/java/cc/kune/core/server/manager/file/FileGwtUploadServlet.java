@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,29 +34,35 @@ import cc.kune.core.shared.domain.utils.StateToken;
 // TODO: Auto-generated Javadoc
 /**
  * The Class FileGwtUploadServlet.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class FileGwtUploadServlet extends FileGwtUploadAbstractServlet {
 
   /** The Constant LOG. */
   public static final Log LOG = LogFactory.getLog(FileGwtUploadServlet.class);
-  
+
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
   /**
    * Instantiates a new file gwt upload servlet.
-   *
-   * @param kuneProperties the kune properties
+   * 
+   * @param kuneProperties
+   *          the kune properties
    */
   @Inject
   public FileGwtUploadServlet(final KuneProperties kuneProperties) {
     super(kuneProperties);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.manager.file.FileGwtUploadAbstractServlet#createUploadedFile(java.lang.String, cc.kune.core.shared.domain.utils.StateToken, java.lang.String, org.apache.commons.fileupload.FileItem, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.manager.file.FileGwtUploadAbstractServlet#
+   * createUploadedFile(java.lang.String,
+   * cc.kune.core.shared.domain.utils.StateToken, java.lang.String,
+   * org.apache.commons.fileupload.FileItem, java.lang.String)
    */
   @Override
   protected String createUploadedFile(final String userHash, final StateToken stateToken,

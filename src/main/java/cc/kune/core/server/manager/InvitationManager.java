@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,7 +34,7 @@ import cc.kune.domain.User;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface InvitationManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface InvitationManager extends Manager<Invitation, Long> {
@@ -78,8 +78,9 @@ public interface InvitationManager extends Manager<Invitation, Long> {
 
   /**
    * Gets the invitation via the hash.
-   *
-   * @param invitationHash the invitation hash
+   * 
+   * @param invitationHash
+   *          the invitation hash
    * @return the invitation
    */
   Invitation get(String invitationHash);

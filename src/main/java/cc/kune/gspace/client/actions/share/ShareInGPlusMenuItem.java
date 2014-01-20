@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -35,7 +35,7 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ShareInGPlusMenuItem.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ShareInGPlusMenuItem extends AbstractShareInSocialNetMenuItem {
@@ -45,12 +45,17 @@ public class ShareInGPlusMenuItem extends AbstractShareInSocialNetMenuItem {
 
   /**
    * Instantiates a new share in g plus menu item.
-   *
-   * @param action the action
-   * @param iconic the iconic
-   * @param session the session
-   * @param menu the menu
-   * @param i18n the i18n
+   * 
+   * @param action
+   *          the action
+   * @param iconic
+   *          the iconic
+   * @param session
+   *          the session
+   * @param menu
+   *          the menu
+   * @param i18n
+   *          the i18n
    */
   @Inject
   public ShareInGPlusMenuItem(final AbstractShareInSocialNetAction action, final IconicResources iconic,

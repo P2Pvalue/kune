@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,7 +32,7 @@ import cc.kune.wave.server.kspecific.KuneWaveServerUtils;
 /**
  * The Class WaveDestinationProvider. A WaveRef is used to get the participants
  * and to send notifications to them
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class WaveDestinationProvider implements DestinationProvider {
@@ -48,9 +48,11 @@ public class WaveDestinationProvider implements DestinationProvider {
 
   /**
    * Instantiates a new wave destination provider.
-   *
-   * @param ref the ref
-   * @param author the author
+   * 
+   * @param ref
+   *          the ref
+   * @param author
+   *          the author
    */
   public WaveDestinationProvider(final WaveRef ref, final String author) {
     this.ref = ref;

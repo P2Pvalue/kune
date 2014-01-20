@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,24 +31,25 @@ import com.google.gwt.user.client.DOM;
  * >based in this</a> and <a href=
  * "http://www.sencha.com/forum/showthread.php?72027-Auto-complete-login-form"
  * >this</a>.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class LoginRememberManagerImpl implements LoginRememberManager {
 
   /** The login forms are in ws.html **/
   private static final String PASSWORD = "password";
-  
+
   /** The Constant USERNAME. */
   private static final String USERNAME = "username";
-  
+
   /** The Constant VALUE. */
   private static final String VALUE = "value";
 
   /**
    * Gets the element value.
-   *
-   * @param domId the dom id
+   * 
+   * @param domId
+   *          the dom id
    * @return the element value
    */
   public static native String getElementValue(String domId) /*-{
@@ -68,7 +69,9 @@ public class LoginRememberManagerImpl implements LoginRememberManager {
 
   // $doc.getElementById("loginsubmit").click();
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.client.auth.LoginRememberManager#getNickOrEmail()
    */
   @Override
@@ -76,7 +79,9 @@ public class LoginRememberManagerImpl implements LoginRememberManager {
     return getElementValue(USERNAME);
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.core.client.auth.LoginRememberManager#getPassword()
    */
   @Override
@@ -84,16 +89,23 @@ public class LoginRememberManagerImpl implements LoginRememberManager {
     return getElementValue(PASSWORD);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.client.auth.LoginRememberManager#setNickOrEmail(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.client.auth.LoginRememberManager#setNickOrEmail(java.lang.
+   * String)
    */
   @Override
   public void setNickOrEmail(final String username) {
     DOM.getElementById(USERNAME).setAttribute(VALUE, username);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.client.auth.LoginRememberManager#setPassword(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.client.auth.LoginRememberManager#setPassword(java.lang.String)
    */
   @Override
   public void setPassword(final String password) {

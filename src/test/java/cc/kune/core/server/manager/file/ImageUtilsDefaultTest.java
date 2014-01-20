@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -45,20 +45,20 @@ import org.junit.Test;
  * See the output of:
  * System.out.println(System.getProperty("java.library.path")); to see when is
  * expecting the .so/.dll
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ImageUtilsDefaultTest {
 
   /** The image dest. */
   private static String imageDest;
-  
+
   /** The images. */
   private static String[] images = { "orig.png", "orig.gif", "orig.jpg", "orig.tiff", "orig.pdf" };
-  
+
   /** The Constant IMG_PATH. */
   private static final String IMG_PATH = "src/test/java/cc/kune/core/server/manager/file/";
-  
+
   /** The pdf. */
   private static String pdf = "orig.pdf";
 
@@ -81,8 +81,9 @@ public class ImageUtilsDefaultTest {
 
   /**
    * Convert pdf to png.
-   *
-   * @throws MagickException the magick exception
+   * 
+   * @throws MagickException
+   *           the magick exception
    */
   @Ignore
   @Test
@@ -92,9 +93,11 @@ public class ImageUtilsDefaultTest {
 
   /**
    * Generate icon.
-   *
-   * @throws MagickException the magick exception
-   * @throws FileNotFoundException the file not found exception
+   * 
+   * @throws MagickException
+   *           the magick exception
+   * @throws FileNotFoundException
+   *           the file not found exception
    */
   @Ignore
   @Test
@@ -109,9 +112,11 @@ public class ImageUtilsDefaultTest {
 
   /**
    * Generate thumb.
-   *
-   * @throws MagickException the magick exception
-   * @throws FileNotFoundException the file not found exception
+   * 
+   * @throws MagickException
+   *           the magick exception
+   * @throws FileNotFoundException
+   *           the file not found exception
    */
   @Ignore
   @Test
@@ -250,9 +255,11 @@ public class ImageUtilsDefaultTest {
 
   /**
    * Test resize.
-   *
-   * @throws MagickException the magick exception
-   * @throws FileNotFoundException the file not found exception
+   * 
+   * @throws MagickException
+   *           the magick exception
+   * @throws FileNotFoundException
+   *           the file not found exception
    */
   @Ignore
   @Test
@@ -267,8 +274,9 @@ public class ImageUtilsDefaultTest {
 
   /**
    * Test size.
-   *
-   * @throws MagickException the magick exception
+   * 
+   * @throws MagickException
+   *           the magick exception
    */
   @Test
   public void testSize() throws MagickException {
@@ -283,9 +291,11 @@ public class ImageUtilsDefaultTest {
 
   /**
    * Thumb smaller than crop must fail.
-   *
-   * @throws MagickException the magick exception
-   * @throws FileNotFoundException the file not found exception
+   * 
+   * @throws MagickException
+   *           the magick exception
+   * @throws FileNotFoundException
+   *           the file not found exception
    */
   @Test(expected = IndexOutOfBoundsException.class)
   public void thumbSmallerThanCropMustFail() throws MagickException, FileNotFoundException {

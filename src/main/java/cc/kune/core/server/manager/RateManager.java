@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,32 +29,36 @@ import cc.kune.domain.User;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface RateManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface RateManager extends Manager<Rate, Long> {
 
   /**
    * Find.
-   *
-   * @param user the user
-   * @param content the content
+   * 
+   * @param user
+   *          the user
+   * @param content
+   *          the content
    * @return the rate
    */
   Rate find(User user, Content content);
 
   /**
    * Gets the rate avg.
-   *
-   * @param content the content
+   * 
+   * @param content
+   *          the content
    * @return the rate avg
    */
   Double getRateAvg(Content content);
 
   /**
    * Gets the rate by users.
-   *
-   * @param content the content
+   * 
+   * @param content
+   *          the content
    * @return the rate by users
    */
   Long getRateByUsers(Content content);

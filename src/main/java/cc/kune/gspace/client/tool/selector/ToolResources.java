@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,14 +28,14 @@ import com.google.gwt.resources.client.ImageResource;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface ToolResources.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface ToolResources extends ClientBundle {
 
   /**
    * Arrow down def.
-   *
+   * 
    * @return the image resource
    */
   @Source("tool-arrowdown-def.png")
@@ -43,7 +43,7 @@ public interface ToolResources extends ClientBundle {
 
   /**
    * Arrow left def.
-   *
+   * 
    * @return the image resource
    */
   @Source("tool-arrowleft-def.png")
@@ -51,7 +51,7 @@ public interface ToolResources extends ClientBundle {
 
   /**
    * Arrow right def.
-   *
+   * 
    * @return the image resource
    */
   @Source("tool-arrowright-def.png")
@@ -59,7 +59,7 @@ public interface ToolResources extends ClientBundle {
 
   /**
    * Arrow up def.
-   *
+   * 
    * @return the image resource
    */
   @Source("tool-arrowup-def.png")

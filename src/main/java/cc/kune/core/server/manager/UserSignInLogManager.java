@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,18 +28,22 @@ import cc.kune.domain.User;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface UserSignInLogManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface UserSignInLogManager {
 
   /**
    * Log a new user session signin.
-   *
-   * @param user the user
-   * @param ipAddress the ip address of the client
-   * @param userAgent the user agent of the client
-   * @param hash the session hash
+   * 
+   * @param user
+   *          the user
+   * @param ipAddress
+   *          the ip address of the client
+   * @param userAgent
+   *          the user agent of the client
+   * @param hash
+   *          the session hash
    */
   void log(User user, String ipAddress, String userAgent, String hash);
 

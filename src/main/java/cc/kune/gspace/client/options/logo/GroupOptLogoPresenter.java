@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,21 +37,28 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GroupOptLogoPresenter.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GroupOptLogoPresenter extends EntityOptLogoPresenter {
 
   /**
    * Instantiates a new group opt logo presenter.
-   *
-   * @param eventBus the event bus
-   * @param session the session
-   * @param entityOptions the entity options
-   * @param stateManager the state manager
-   * @param userService the user service
-   * @param view the view
-   * @param i18n the i18n
+   * 
+   * @param eventBus
+   *          the event bus
+   * @param session
+   *          the session
+   * @param entityOptions
+   *          the entity options
+   * @param stateManager
+   *          the state manager
+   * @param userService
+   *          the user service
+   * @param view
+   *          the view
+   * @param i18n
+   *          the i18n
    */
   @Inject
   public GroupOptLogoPresenter(final EventBus eventBus, final Session session,
@@ -70,15 +77,18 @@ public class GroupOptLogoPresenter extends EntityOptLogoPresenter {
 
   /**
    * Inits the.
-   *
-   * @param view the view
+   * 
+   * @param view
+   *          the view
    */
   private void init(final GroupOptLogoView view) {
     super.init(view);
     view.setNormalGroupsLabels();
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see cc.kune.gspace.client.options.logo.EntityOptLogoPresenter#setState()
    */
   @Override

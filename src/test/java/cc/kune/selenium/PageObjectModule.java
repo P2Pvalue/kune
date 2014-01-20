@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,18 +30,22 @@ import com.google.inject.AbstractModule;
 // TODO: Auto-generated Javadoc
 /**
  * The Class PageObjectModule.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public abstract class PageObjectModule extends AbstractModule {
-  
+
   /**
    * Register page object.
-   *
-   * @param <T> the generic type
-   * @param componentType the component type
-   * @param object the object
-   * @param locator the locator
+   * 
+   * @param <T>
+   *          the generic type
+   * @param componentType
+   *          the component type
+   * @param object
+   *          the object
+   * @param locator
+   *          the locator
    */
   protected <T> void registerPageObject(final Class<T> componentType, final T object,
       final ElementLocatorFactory locator) {

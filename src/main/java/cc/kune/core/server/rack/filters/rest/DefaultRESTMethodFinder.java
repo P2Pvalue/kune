@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -38,30 +38,31 @@ public class DefaultRESTMethodFinder implements RESTMethodFinder {
     this.definitionCache = new HashMap<Class<?>, RESTServiceDefinition>();
   }
 
+  private boolean checkParams(final REST methodAnnotation, final Parameters parameters) {
+    for (final String name : methodAnnotation.params()) {
+      if (parameters.get(name) == null) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  @Override
   public RESTMethod findMethod(final String methodName, final Parameters parameters,
       final Class<?> serviceType) {
-    RESTServiceDefinition serviceDefinition = getServiceDefinition(serviceType);
-    Method[] serviceMethods = serviceDefinition.getMethods();
+    final RESTServiceDefinition serviceDefinition = getServiceDefinition(serviceType);
+    final Method[] serviceMethods = serviceDefinition.getMethods();
     LOG.debug("SERVICE METHODS: " + Arrays.toString(serviceMethods));
-    for (Method method : serviceMethods) {
+    for (final Method method : serviceMethods) {
       LOG.debug("CHECKING: " + method.toString());
       if (method.getName().equals(methodName)) {
-        REST methodAnnotation = method.getAnnotation(REST.class);
+        final REST methodAnnotation = method.getAnnotation(REST.class);
         if (checkParams(methodAnnotation, parameters)) {
           return new RESTMethod(method, methodAnnotation.params(), parameters, methodAnnotation.format());
         }
       }
     }
     return null;
-  }
-
-  private boolean checkParams(final REST methodAnnotation, final Parameters parameters) {
-    for (String name : methodAnnotation.params()) {
-      if (parameters.get(name) == null) {
-        return false;
-      }
-    }
-    return true;
   }
 
   private RESTServiceDefinition getServiceDefinition(final Class<?> serviceType) {

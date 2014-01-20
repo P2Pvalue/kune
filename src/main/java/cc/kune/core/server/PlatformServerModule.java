@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -66,6 +66,7 @@ import cc.kune.core.server.manager.I18nTranslationManager;
 import cc.kune.core.server.manager.InvitationManager;
 import cc.kune.core.server.manager.KuneWaveManager;
 import cc.kune.core.server.manager.LicenseManager;
+import cc.kune.core.server.manager.ParticipantEntityManager;
 import cc.kune.core.server.manager.RateManager;
 import cc.kune.core.server.manager.SiteManager;
 import cc.kune.core.server.manager.SocialNetworkManager;
@@ -74,6 +75,7 @@ import cc.kune.core.server.manager.TagUserContentManager;
 import cc.kune.core.server.manager.ToolConfigurationManager;
 import cc.kune.core.server.manager.UserManager;
 import cc.kune.core.server.manager.UserSignInLogManager;
+import cc.kune.core.server.manager.WaveEntityManager;
 import cc.kune.core.server.manager.file.EntityLogoDownloadManager;
 import cc.kune.core.server.manager.file.EntityLogoUploadManager;
 import cc.kune.core.server.manager.file.FileDownloadManager;
@@ -87,6 +89,7 @@ import cc.kune.core.server.manager.impl.I18nTranslationManagerDefault;
 import cc.kune.core.server.manager.impl.InvitationManagerDefault;
 import cc.kune.core.server.manager.impl.KuneWaveManagerDefault;
 import cc.kune.core.server.manager.impl.LicenseManagerDefault;
+import cc.kune.core.server.manager.impl.ParticipantEntityManagerDefault;
 import cc.kune.core.server.manager.impl.RateManagerDefault;
 import cc.kune.core.server.manager.impl.SiteManagerDefault;
 import cc.kune.core.server.manager.impl.SocialNetworkManagerDefault;
@@ -95,6 +98,7 @@ import cc.kune.core.server.manager.impl.TagUserContentManagerDefault;
 import cc.kune.core.server.manager.impl.ToolConfigurationManagerDefault;
 import cc.kune.core.server.manager.impl.UserManagerDefault;
 import cc.kune.core.server.manager.impl.UserSignInLogManagerDefault;
+import cc.kune.core.server.manager.impl.WaveEntityManagerDefault;
 import cc.kune.core.server.mapper.KuneMapper;
 import cc.kune.core.server.mapper.KuneMapperDefault;
 import cc.kune.core.server.notifier.NotificationSender;
@@ -166,6 +170,8 @@ public class PlatformServerModule extends AbstractExtendedModule {
     bind(KuneWaveManager.class).to(KuneWaveManagerDefault.class);
     bind(UserSignInLogManager.class).to(UserSignInLogManagerDefault.class);
     bind(InvitationManager.class).to(InvitationManagerDefault.class);
+    bind(WaveEntityManager.class).to(WaveEntityManagerDefault.class);
+    bind(ParticipantEntityManager.class).to(ParticipantEntityManagerDefault.class);
   }
 
   /**

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,27 +34,31 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserOptionsPanel.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class UserOptionsPanel extends AbstractTabbedDialogPanel implements UserOptionsView {
 
   /** The Constant USER_OP_PANEL_ID. */
   public static final String USER_OP_PANEL_ID = "k-uop-diagpan";
-  
+
   /** The Constant USER_OP_PANEL_ID_CLOSE. */
   public static final String USER_OP_PANEL_ID_CLOSE = USER_OP_PANEL_ID + "-close";
-  
+
   /** The Constant USER_OPTIONS_ERROR_ID. */
   public static final String USER_OPTIONS_ERROR_ID = "k-uop-err-mess";
 
   /**
    * Instantiates a new user options panel.
-   *
-   * @param entityHeader the entity header
-   * @param i18n the i18n
-   * @param images the images
-   * @param userOptionsGroup the user options group
+   * 
+   * @param entityHeader
+   *          the entity header
+   * @param i18n
+   *          the i18n
+   * @param images
+   *          the images
+   * @param userOptionsGroup
+   *          the user options group
    */
   @Inject
   public UserOptionsPanel(final EntityHeader entityHeader, final I18nTranslationService i18n,

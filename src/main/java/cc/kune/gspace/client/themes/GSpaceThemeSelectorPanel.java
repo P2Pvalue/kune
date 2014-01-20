@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -32,16 +32,18 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class GSpaceThemeSelectorPanel.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class GSpaceThemeSelectorPanel extends ActionFlowPanel implements ActionExtensibleView {
 
   /**
    * Instantiates a new g space theme selector panel.
-   *
-   * @param guiProvider the gui provider
-   * @param i18n the i18n
+   * 
+   * @param guiProvider
+   *          the gui provider
+   * @param i18n
+   *          the i18n
    */
   @Inject
   public GSpaceThemeSelectorPanel(final GuiProvider guiProvider, final I18nTranslationService i18n) {

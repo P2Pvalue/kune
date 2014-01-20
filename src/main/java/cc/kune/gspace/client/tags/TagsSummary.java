@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,15 +27,16 @@ import cc.kune.core.shared.domain.TagCloudResult;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface TagsSummary.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface TagsSummary {
 
   /**
    * Sets the group tags.
-   *
-   * @param tagCloud the new group tags
+   * 
+   * @param tagCloud
+   *          the new group tags
    */
   void setGroupTags(TagCloudResult tagCloud);
 

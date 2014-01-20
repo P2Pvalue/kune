@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -22,6 +22,7 @@
  */
 package cc.kune.gspace.client.actions;
 
+import cc.kune.common.client.actions.ActionStyles;
 import cc.kune.common.client.actions.ui.descrip.MenuDescriptor;
 import cc.kune.core.client.events.AccessRightsChangedEvent;
 import cc.kune.core.client.events.AccessRightsChangedEvent.AccessRightsChangedHandler;
@@ -30,18 +31,19 @@ import cc.kune.core.client.state.AccessRightsClientManager;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AbstractEditorsMenu.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class AbstractEditorsMenu extends MenuDescriptor {
 
   /**
    * Instantiates a new abstract editors menu.
-   *
-   * @param rightsManager the rights manager
+   * 
+   * @param rightsManager
+   *          the rights manager
    */
   public AbstractEditorsMenu(final AccessRightsClientManager rightsManager) {
-    this.withStyles(SNActionStyles.MENU_BTN_STYLE_LEFT);
+    this.withStyles(ActionStyles.MENU_BTN_STYLE_LEFT);
     rightsManager.onRightsChanged(true, new AccessRightsChangedHandler() {
       @Override
       public void onAccessRightsChanged(final AccessRightsChangedEvent event) {

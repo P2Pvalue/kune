@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -28,15 +28,16 @@ import com.google.inject.persist.finder.Finder;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface OpenfireXmppRosterPresenceFinder.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface OpenfireXmppRosterPresenceFinder {
 
   /**
    * Gets the last connected time of a username.
-   *
-   * @param username the shortname of the user but without the @domain
+   * 
+   * @param username
+   *          the shortname of the user but without the @domain
    * @return the list
    */
   @Finder(query = "from RosterPresence WHERE username = :username")

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -21,6 +21,9 @@
  *
  */
 package cc.kune.core.server.state;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -45,52 +48,60 @@ import cc.kune.wave.server.kspecific.KuneWaveService;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.wave.api.Participants;
 import com.google.wave.api.Wavelet;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class StateServiceDefault.
- *
+ * 
  * @author danigb@gmail.com
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
 public class StateServiceDefault implements StateService {
-  
+
   /** The Constant LOG. */
   public static final Log LOG = LogFactory.getLog(StateServiceDefault.class);
-  
+
   /** The group manager. */
   private final GroupManager groupManager;
-  
+
   /** The i18n. */
   private final I18nTranslationService i18n;
-  
+
   /** The kune wave service. */
   private final KuneWaveService kuneWaveService;
-  
+
   /** The rendered waves. */
   private final RenderedWavesCache renderedWaves;
-  
+
   /** The rights service. */
   private final AccessRightsService rightsService;
-  
+
   /** The social network manager. */
   private final SocialNetworkManager socialNetworkManager;
-  
+
   /** The tag manager. */
   private final TagUserContentManager tagManager;
 
   /**
    * Instantiates a new state service default.
-   *
-   * @param groupManager the group manager
-   * @param socialNetworkManager the social network manager
-   * @param tagManager the tag manager
-   * @param rightsService the rights service
-   * @param i18n the i18n
-   * @param kuneWaveService the kune wave service
-   * @param renderedWaves the rendered waves
+   * 
+   * @param groupManager
+   *          the group manager
+   * @param socialNetworkManager
+   *          the social network manager
+   * @param tagManager
+   *          the tag manager
+   * @param rightsService
+   *          the rights service
+   * @param i18n
+   *          the i18n
+   * @param kuneWaveService
+   *          the kune wave service
+   * @param renderedWaves
+   *          the rendered waves
    */
   @Inject
   public StateServiceDefault(final GroupManager groupManager,
@@ -108,16 +119,20 @@ public class StateServiceDefault implements StateService {
 
   /**
    * Calculate root container.
-   *
-   * @param container the container
+   * 
+   * @param container
+   *          the container
    * @return the container
    */
   private Container calculateRootContainer(final Container container) {
     return container.isRoot() ? container : container.getAbsolutePath().get(0);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.state.StateService#create(cc.kune.domain.User, cc.kune.domain.Container)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.state.StateService#create(cc.kune.domain.User,
+   * cc.kune.domain.Container)
    */
   @Override
   public StateContainer create(final User userLogged, final Container container) {
@@ -137,8 +152,11 @@ public class StateServiceDefault implements StateService {
     return state;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.state.StateService#create(cc.kune.domain.User, cc.kune.domain.Content)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.state.StateService#create(cc.kune.domain.User,
+   * cc.kune.domain.Content)
    */
   @Override
   public StateContent create(final User userLogged, final Content content) {
@@ -177,6 +195,13 @@ public class StateServiceDefault implements StateService {
         state.setTitle(wavelet.getTitle());
         state.setIsParticipant(userLogged != User.UNKNOWN_USER ? kuneWaveService.isParticipant(wavelet,
             userLogged.getShortName()) : false);
+        // Wave participant list
+        final Participants waveParticipants = wavelet.getParticipants();
+        final List<String> participantList = new ArrayList<String>();
+        for (final String string : waveParticipants) {
+          participantList.add(string);
+        }
+        state.setParticipants(participantList);
       } catch (final Exception e) {
         LOG.error("Error accessing wave " + waveRef, e);
         String waveUrl = null;
@@ -216,8 +241,12 @@ public class StateServiceDefault implements StateService {
     return state;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.state.StateService#createNoHome(cc.kune.domain.User, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.state.StateService#createNoHome(cc.kune.domain.User,
+   * java.lang.String)
    */
   @Override
   public StateNoContent createNoHome(final User userLogged, final String groupShortName) {
@@ -234,11 +263,15 @@ public class StateServiceDefault implements StateService {
 
   /**
    * Sets the common.
-   *
-   * @param state the state
-   * @param userLogged the user logged
-   * @param group the group
-   * @param container the container
+   * 
+   * @param state
+   *          the state
+   * @param userLogged
+   *          the user logged
+   * @param group
+   *          the group
+   * @param container
+   *          the container
    */
   private void setCommon(final StateContainer state, final User userLogged, final Group group,
       final Container container) {
@@ -255,10 +288,13 @@ public class StateServiceDefault implements StateService {
 
   /**
    * Sets the social network.
-   *
-   * @param state the state
-   * @param userLogged the user logged
-   * @param group the group
+   * 
+   * @param state
+   *          the state
+   * @param userLogged
+   *          the user logged
+   * @param group
+   *          the group
    */
   private void setSocialNetwork(final StateAbstract state, final User userLogged, final Group group) {
     state.setSocialNetworkData(socialNetworkManager.getSocialNetworkData(userLogged, group));

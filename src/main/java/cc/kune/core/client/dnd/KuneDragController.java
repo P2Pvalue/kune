@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,7 +37,7 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class KuneDragController.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class KuneDragController extends PickupDragController {
@@ -47,8 +47,9 @@ public class KuneDragController extends PickupDragController {
 
   /**
    * Instantiates a new kune drag controller.
-   *
-   * @param armor the armor
+   * 
+   * @param armor
+   *          the armor
    */
   @Inject
   public KuneDragController(final GSpaceArmor armor) {
@@ -69,7 +70,9 @@ public class KuneDragController extends PickupDragController {
     setRootPanelSize();
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see com.allen_sauer.gwt.dnd.client.PickupDragController#dragEnd()
    */
   @Override

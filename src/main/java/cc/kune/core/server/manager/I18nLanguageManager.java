@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,39 +29,41 @@ import cc.kune.domain.I18nLanguage;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface I18nLanguageManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface I18nLanguageManager extends Manager<I18nLanguage, Long> {
 
   /**
-   * Gets the default language.
-   *
-   * @return the default language
-   */
-  I18nLanguage getDefaultLanguage();
-
-  /**
    * Find by code.
-   *
-   * @param language the language
+   * 
+   * @param language
+   *          the language
    * @return the i18n language
    */
   I18nLanguage findByCode(String language);
 
   /**
    * Find by codes.
-   *
-   * @param langs the langs
+   * 
+   * @param langs
+   *          the langs
    * @return the list
    */
   List<I18nLanguage> findByCodes(List<String> langs);
 
   /**
    * Gets the all.
-   *
+   * 
    * @return the all
    */
   List<I18nLanguage> getAll();
+
+  /**
+   * Gets the default language.
+   * 
+   * @return the default language
+   */
+  I18nLanguage getDefaultLanguage();
 
 }

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -25,14 +25,14 @@ package cc.kune.core.shared.actions.xml;
 // TODO: Auto-generated Javadoc
 /**
  * The Class XMLActionsConstants.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class XMLActionsConstants {
-  
+
   /** The Constant ACTIONS_XML_LOCATION_FILE. */
   private static final String ACTIONS_XML_LOCATION_FILE = "kune-client-actions.xml";
-  
+
   /** The Constant ACTIONS_XML_LOCATION_PATH_ABS. */
   public static final String ACTIONS_XML_LOCATION_PATH_ABS = "/others/" + ACTIONS_XML_LOCATION_FILE;
 }

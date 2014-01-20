@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -22,16 +22,20 @@
  */
 package cc.kune.core.client.rpcservices;
 
+import cc.kune.common.client.log.Log;
 import cc.kune.common.client.notify.ConfirmAskEvent;
 import cc.kune.common.client.notify.NotifyUser;
 import cc.kune.common.client.utils.OnAcceptCallback;
 import cc.kune.common.shared.i18n.I18nTranslationService;
+import cc.kune.common.shared.utils.SimpleCallback;
 import cc.kune.core.client.state.ContentCache;
 import cc.kune.core.client.state.Session;
 import cc.kune.core.client.state.StateManager;
 import cc.kune.core.shared.domain.utils.StateToken;
+import cc.kune.core.shared.dto.AccessRolDTO;
 import cc.kune.core.shared.dto.SocialNetworkSubGroup;
 import cc.kune.core.shared.dto.StateContainerDTO;
+import cc.kune.core.shared.dto.StateContentDTO;
 import cc.kune.gspace.client.viewers.FolderViewerPresenter;
 
 import com.google.gwt.event.shared.EventBus;
@@ -42,45 +46,37 @@ import com.google.inject.Provider;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ContentServiceHelper.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ContentServiceHelper {
 
-  /** The cache. */
   private final ContentCache cache;
-  
-  /** The content service. */
   private final Provider<ContentServiceAsync> contentService;
-  
-  /** The def callback. */
   private final AsyncCallbackSimple<StateContainerDTO> defCallback;
-  
-  /** The event bus. */
   private final EventBus eventBus;
-  
-  /** The folder viewer. */
   private final FolderViewerPresenter folderViewer;
-  
-  /** The i18n. */
   private final I18nTranslationService i18n;
-  
-  /** The session. */
   private final Session session;
-  
-  /** The state manager. */
   private final StateManager stateManager;
 
   /**
    * Instantiates a new content service helper.
-   *
-   * @param session the session
-   * @param i18n the i18n
-   * @param eventBus the event bus
-   * @param contentService the content service
-   * @param cache the cache
-   * @param folderViewer the folder viewer
-   * @param stateManager the state manager
+   * 
+   * @param session
+   *          the session
+   * @param i18n
+   *          the i18n
+   * @param eventBus
+   *          the event bus
+   * @param contentService
+   *          the content service
+   * @param cache
+   *          the cache
+   * @param folderViewer
+   *          the folder viewer
+   * @param stateManager
+   *          the state manager
    */
   @Inject
   public ContentServiceHelper(final Session session, final I18nTranslationService i18n,
@@ -118,9 +114,11 @@ public class ContentServiceHelper {
 
   /**
    * Adds the container.
-   *
-   * @param id the id
-   * @param newName the new name
+   * 
+   * @param id
+   *          the id
+   * @param newName
+   *          the new name
    */
   public void addContainer(final String id, final String newName) {
     NotifyUser.showProgress();
@@ -142,13 +140,28 @@ public class ContentServiceHelper {
     cache.remove(parentToken);
   }
 
-  /**
-   * Adds the participants.
-   *
-   * @param token the token
-   * @param subGroup the sub group
-   */
-  public void addParticipants(final StateToken token, final SocialNetworkSubGroup subGroup) {
+  public void addParticipant(final StateToken token, final String userName, final SimpleCallback onAdd) {
+    contentService.get().addParticipant(session.getUserHash(), token, userName,
+        new AsyncCallbackSimple<Boolean>() {
+          @Override
+          public void onSuccess(final Boolean result) {
+            if (result) {
+              NotifyUser.info(i18n.t("User '[%s]' added as participant", userName));
+              onAdd.onCallback();
+              refreshState();
+            } else {
+              NotifyUser.info(i18n.t("This user is already participating"));
+            }
+          }
+        });
+  }
+
+  public void addParticipants(final SocialNetworkSubGroup subGroup, final SimpleCallback onSuccess) {
+    addParticipants(session.getCurrentStateToken(), subGroup, onSuccess);
+  }
+
+  public void addParticipants(final StateToken token, final SocialNetworkSubGroup subGroup,
+      final SimpleCallback onSuccess) {
     contentService.get().addParticipants(session.getUserHash(), token,
         session.getCurrentGroupShortName(), subGroup, new AsyncCallback<Boolean>() {
           @Override
@@ -158,17 +171,26 @@ public class ContentServiceHelper {
 
           @Override
           public void onSuccess(final Boolean result) {
+            onSuccess.onCallback();
             NotifyUser.info(result ? subGroup.equals(SocialNetworkSubGroup.PUBLIC) ? i18n.t("Shared with general public. Now anyone can participate")
                 : i18n.t("Shared with members")
                 : i18n.t("All these members are already partipating"));
+            if (result) {
+              refreshState();
+            }
           }
         });
   }
 
+  public void addToAcl(final String group, final AccessRolDTO rol, final SimpleCallback onSuccess) {
+    NotifyUser.info("This should add '" + group + "' to list of rol: " + rol);
+  }
+
   /**
    * Del content.
-   *
-   * @param token the token
+   * 
+   * @param token
+   *          the token
    */
   public void delContent(final StateToken token) {
     ConfirmAskEvent.fire(eventBus, i18n.t("Please confirm"), i18n.t("Are you sure?"), i18n.t("Yes"),
@@ -181,11 +203,35 @@ public class ContentServiceHelper {
         });
   }
 
-  /**
-   * Purge all.
-   *
-   * @param token the token
-   */
+  public void delParticipants(final SimpleCallback onSuccess, final String... participants) {
+    contentService.get().delParticipants(session.getUserHash(), session.getCurrentStateToken(),
+        participants, new AsyncCallback<Boolean>() {
+          @Override
+          public void onFailure(final Throwable caught) {
+            Log.error("Error deleting participant", caught);
+            NotifyUser.important(i18n.t("Seems that the list of partipants were deleted partially. Please, retry"));
+          }
+
+          @Override
+          public void onSuccess(final Boolean result) {
+            onSuccess.onCallback();
+            NotifyUser.info(result ? i18n.t("Removed") : i18n.t("All these member are not partipating"));
+          }
+        });
+  }
+
+  public void delPublicParticipant(final SimpleCallback onSuccess) {
+    contentService.get().delPublicParticipant(session.getUserHash(), session.getCurrentStateToken(),
+        new AsyncCallbackSimple<Boolean>() {
+          @Override
+          public void onSuccess(final Boolean result) {
+            onSuccess.onCallback();
+            NotifyUser.info(i18n.t("Not editable by anyone: Now only editors can participate"));
+            refreshState();
+          }
+        });
+  }
+
   public void purgeAll(final StateToken token) {
     ConfirmAskEvent.fire(eventBus, i18n.t("Please confirm"), i18n.t("Are you sure?"), i18n.t("Yes"),
         i18n.t("No"), null, null, new OnAcceptCallback() {
@@ -199,8 +245,9 @@ public class ContentServiceHelper {
 
   /**
    * Purge content.
-   *
-   * @param token the token
+   * 
+   * @param token
+   *          the token
    */
   public void purgeContent(final StateToken token) {
     ConfirmAskEvent.fire(eventBus, i18n.t("Please confirm"), i18n.t("Are you sure?"), i18n.t("Yes"),
@@ -209,6 +256,31 @@ public class ContentServiceHelper {
           public void onSuccess() {
             NotifyUser.showProgress();
             contentService.get().purgeContent(session.getUserHash(), token, defCallback);
+          }
+        });
+  }
+
+  private void refreshState() {
+    stateManager.refreshCurrentStateWithoutCache();
+  }
+
+  public void setEditableByAnyone(final boolean editable, final SimpleCallback onSuccess) {
+    if (editable) {
+      addParticipants(SocialNetworkSubGroup.PUBLIC, onSuccess);
+    } else {
+      delPublicParticipant(onSuccess);
+    }
+  }
+
+  public void setVisible(final boolean visible, final SimpleCallback onSuccess) {
+    contentService.get().setVisible(session.getUserHash(), session.getCurrentStateToken(), visible,
+        new AsyncCallbackSimple<StateContentDTO>() {
+          @Override
+          public void onSuccess(final StateContentDTO result) {
+            onSuccess.onCallback();
+            NotifyUser.info(i18n.t(visible ? "Now, this is visible for everyone"
+                : "Now, this is not visible for everyone"));
+            stateManager.setRetrievedState(result);
           }
         });
   }

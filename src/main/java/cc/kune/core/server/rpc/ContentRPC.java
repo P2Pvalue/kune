@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -462,6 +462,28 @@ public class ContentRPC implements ContentService, RPC {
    * cc.kune.core.shared.domain.utils.StateToken)
    */
   @Override
+  @Authenticated
+  @Authorizated(accessRolRequired = AccessRol.Administrator, mustCheckMembership = true)
+  @KuneTransactional
+  public Boolean delParticipants(final String userHash, final StateToken token,
+      final String[] participants) throws DefaultException {
+    final Long contentId = ContentUtils.parseId(token.getDocument());
+    final User user = getCurrentUser();
+    return contentManager.delParticipants(user, contentId, participants);
+  }
+
+  @Override
+  @Authenticated
+  @Authorizated(accessRolRequired = AccessRol.Administrator, mustCheckMembership = true)
+  @KuneTransactional
+  public Boolean delPublicParticipant(final String userHash, final StateToken token)
+      throws DefaultException {
+    final Long contentId = ContentUtils.parseId(token.getDocument());
+    final User user = getCurrentUser();
+    return contentManager.delPublicParticipant(user, contentId);
+  }
+
+  @Override
   @Authenticated(mandatory = false)
   @KuneTransactional
   public StateAbstractDTO getContent(final String userHash, final StateToken token)
@@ -634,10 +656,6 @@ public class ContentRPC implements ContentService, RPC {
   public TagCloudResult getSummaryTags(final String userHash, final StateToken groupToken) {
     final Group group = groupManager.findByShortName(groupToken.getGroup());
     return getSummaryTags(group);
-  }
-
-  private User getUser() {
-    return userSessionManager.getUser();
   }
 
   /**
@@ -1138,6 +1156,15 @@ public class ContentRPC implements ContentService, RPC {
    */
   @Override
   @Authenticated
+  @Authorizated(actionLevel = ActionLevel.content, accessRolRequired = AccessRol.Administrator, mustCheckMembership = true)
+  @KuneTransactional
+  public StateContentDTO setVisible(final String userHash, final StateToken token, final boolean visible) {
+    final Content content = finderService.getContent(ContentUtils.parseId(token.getDocument()));
+    return mapper.map(contentManager.setVisible(content, visible), StateContentDTO.class);
+  }
+
+  @Override
+  @Authenticated
   @KuneTransactional
   public String writeTo(final String userHash, final StateToken token, final boolean onlyToAdmins)
       throws DefaultException {
@@ -1180,5 +1207,4 @@ public class ContentRPC implements ContentService, RPC {
     return waveManager.writeToParticipants(content.getAuthors().get(0).getShortName(),
         user.getShortName(), content.getWaveId());
   }
-
 }

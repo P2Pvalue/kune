@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -38,20 +38,20 @@ import cc.kune.domain.SocialNetwork;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AccessRightsServiceTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class AccessRightsServiceTest {
-  
+
   /** The access rights manager. */
   private AccessRightsServiceDefault accessRightsManager;
-  
+
   /** The group1. */
   private Group group1;
-  
+
   /** The group2. */
   private Group group2;
-  
+
   /** The group3. */
   private Group group3;
 

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -27,15 +27,16 @@ import cc.kune.domain.Tag;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface TagManager.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface TagManager extends Manager<Tag, Long> {
 
   /**
    * Find by tag name.
-   *
-   * @param tag the tag
+   * 
+   * @param tag
+   *          the tag
    * @return the tag
    */
   Tag findByTagName(String tag);

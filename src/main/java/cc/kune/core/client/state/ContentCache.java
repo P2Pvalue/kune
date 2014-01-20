@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -30,7 +30,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface ContentCache.
- *
+ * 
  * @author danigb@gmail.com
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
@@ -38,34 +38,41 @@ public interface ContentCache {
 
   /**
    * Cache.
-   *
-   * @param token the token
-   * @param content the content
+   * 
+   * @param token
+   *          the token
+   * @param content
+   *          the content
    */
   void cache(StateToken token, StateAbstractDTO content);
 
   /**
-   * Removes the cache of group.
-   *
-   * @param group the group
-   */
-  void removeCacheOfGroup(String group);
-
-  /**
    * Gets the content.
-   *
-   * @param user the user
-   * @param newState the new state
-   * @param callback the callback
+   * 
+   * @param user
+   *          the user
+   * @param newState
+   *          the new state
+   * @param callback
+   *          the callback
    * @return the content
    */
   void getContent(String user, StateToken newState, AsyncCallback<StateAbstractDTO> callback);
 
   /**
    * Removes the.
-   *
-   * @param token the token
+   * 
+   * @param token
+   *          the token
    */
   void remove(StateToken token);
+
+  /**
+   * Removes the cache of group.
+   * 
+   * @param group
+   *          the group
+   */
+  void removeCacheOfGroup(String group);
 
 }

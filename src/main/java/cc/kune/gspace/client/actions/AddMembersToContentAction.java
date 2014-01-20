@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -23,6 +23,7 @@
 package cc.kune.gspace.client.actions;
 
 import cc.kune.common.client.actions.ActionEvent;
+import cc.kune.common.shared.utils.SimpleCallback;
 import cc.kune.core.client.actions.RolAction;
 import cc.kune.core.client.rpcservices.ContentServiceHelper;
 import cc.kune.core.client.state.Session;
@@ -36,25 +37,27 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class AddMembersToContentAction.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class AddMembersToContentAction extends RolAction {
 
   /** The content service. */
   private final ContentServiceHelper contentService;
-  
+
   /** The session. */
   private final Session session;
-  
+
   /** The sub group. */
   private SocialNetworkSubGroup subGroup;
 
   /**
    * Instantiates a new adds the members to content action.
-   *
-   * @param session the session
-   * @param contentService the content service
+   * 
+   * @param session
+   *          the session
+   * @param contentService
+   *          the content service
    */
   @Inject
   public AddMembersToContentAction(final Session session, final ContentServiceHelper contentService) {
@@ -63,20 +66,25 @@ public class AddMembersToContentAction extends RolAction {
     this.contentService = contentService;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common.client.actions.ActionEvent)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common
+   * .client.actions.ActionEvent)
    */
   @Override
   public void actionPerformed(final ActionEvent event) {
     final StateToken token = session.getCurrentStateToken().hasAll() ? session.getCurrentStateToken()
         : ((AbstractContentSimpleDTO) event.getTarget()).getStateToken();
-    contentService.addParticipants(token, subGroup);
+    contentService.addParticipants(token, subGroup, SimpleCallback.DO_NOTHING);
   }
 
   /**
    * Sets the sub group.
-   *
-   * @param subGroup the new sub group
+   * 
+   * @param subGroup
+   *          the new sub group
    */
   public void setSubGroup(final SocialNetworkSubGroup subGroup) {
     this.subGroup = subGroup;

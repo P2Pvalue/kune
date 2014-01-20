@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -49,33 +49,35 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ListsServiceTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ListsServiceTest extends IntegrationTest {
-  
+
   /** The close list. */
   private StateContainerDTO closeList;
-  
+
   /** The content service. */
   @Inject
   ContentService contentService;
-  
+
   /** The lists service. */
   @Inject
   ListsService listsService;
-  
+
   /** The open list. */
   private StateContainerDTO openList;
-  
+
   /** The user group. */
   private GroupDTO userGroup;
 
   /**
    * Inits the.
-   *
-   * @throws DefaultException the default exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * 
+   * @throws DefaultException
+   *           the default exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
    */
   @Before
   public void init() throws DefaultException, IOException {
@@ -90,9 +92,11 @@ public class ListsServiceTest extends IntegrationTest {
 
   /**
    * Post to close should fail test.
-   *
-   * @throws DefaultException the default exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * 
+   * @throws DefaultException
+   *           the default exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
    */
   @Test(expected = AccessViolationException.class)
   public void postToCloseShouldFailTest() throws DefaultException, IOException {
@@ -103,9 +107,11 @@ public class ListsServiceTest extends IntegrationTest {
 
   /**
    * Post to open by others test.
-   *
-   * @throws DefaultException the default exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * 
+   * @throws DefaultException
+   *           the default exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
    */
   @Test
   public void postToOpenByOthersTest() throws DefaultException, IOException {
@@ -118,9 +124,11 @@ public class ListsServiceTest extends IntegrationTest {
 
   /**
    * Post to open close and later open by others test.
-   *
-   * @throws DefaultException the default exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * 
+   * @throws DefaultException
+   *           the default exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
    */
   @Test
   public void postToOpenCloseAndLaterOpenByOthersTest() throws DefaultException, IOException {
@@ -134,9 +142,11 @@ public class ListsServiceTest extends IntegrationTest {
 
   /**
    * Subscribe several to close test.
-   *
-   * @throws DefaultException the default exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * 
+   * @throws DefaultException
+   *           the default exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
    */
   @Test
   public void subscribeSeveralToCloseTest() throws DefaultException, IOException {
@@ -153,52 +163,57 @@ public class ListsServiceTest extends IntegrationTest {
 
   /**
    * Subscribe to close should fail test.
-   *
-   * @throws DefaultException the default exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * 
+   * @throws DefaultException
+   *           the default exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
    */
   @Test(expected = AccessViolationException.class)
   public void subscribeToCloseShouldFailTest() throws DefaultException, IOException {
     doLogout();
     doLoginWithDummyUser();
-    listsService.subscribeToList(getHash(), closeList.getStateToken(), true);
+    listsService.subscribeMyselfToList(getHash(), closeList.getStateToken(), true);
   }
 
   /**
    * Subscribe to open and later close list should fail test.
-   *
-   * @throws DefaultException the default exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * 
+   * @throws DefaultException
+   *           the default exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
    */
   @Test(expected = AccessViolationException.class)
   public void subscribeToOpenAndLaterCloseListShouldFailTest() throws DefaultException, IOException {
     listsService.setPublic(token, openList.getStateToken(), false);
     doLogout();
     doLoginWithDummyUser();
-    listsService.subscribeToList(getHash(), openList.getStateToken(), true);
+    listsService.subscribeMyselfToList(getHash(), openList.getStateToken(), true);
   }
 
   /**
    * Subscribe unsubs several.
-   *
-   * @param list the list
+   * 
+   * @param list
+   *          the list
    */
   private void subscribeUnsubsSeveral(final StateContainerDTO list) {
     final AccessListsDTO initialAcl = list.getAccessLists();
     assertTrue(initialAcl.getAdmins().includes(userGroup));
     assertTrue(initialAcl.getEditors().getList().contains(userGroup));
 
-    StateContainerDTO state = listsService.subscribeToList(getHash(), list.getStateToken(), true);
+    StateContainerDTO state = listsService.subscribeMyselfToList(getHash(), list.getStateToken(), true);
     AccessListsDTO acl = state.getAccessLists();
     assertTrue(acl.getEditors().includes(userGroup));
     assertTrue(acl.getAdmins().includes(userGroup));
 
-    state = listsService.subscribeToList(getHash(), list.getStateToken(), false);
+    state = listsService.subscribeMyselfToList(getHash(), list.getStateToken(), false);
     acl = state.getAccessLists();
     assertFalse(acl.getEditors().includes(userGroup));
     assertTrue(acl.getAdmins().includes(userGroup));
 
-    state = listsService.subscribeToList(getHash(), list.getStateToken(), true);
+    state = listsService.subscribeMyselfToList(getHash(), list.getStateToken(), true);
     acl = state.getAccessLists();
     assertTrue(acl.getEditors().includes(userGroup));
     assertTrue(acl.getEditors().getList().contains(userGroup));

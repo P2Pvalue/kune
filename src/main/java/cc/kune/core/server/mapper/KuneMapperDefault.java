@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -36,12 +36,12 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class KuneMapperDefault.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @Singleton
 public class KuneMapperDefault implements KuneMapper {
-  
+
   /** The mapper. */
   private final Mapper mapper;
 
@@ -52,16 +52,22 @@ public class KuneMapperDefault implements KuneMapper {
     mapper = DozerBeanMapperSingletonWrapper.getInstance();
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.mapper.KuneMapper#map(java.lang.Object, java.lang.Class)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.mapper.KuneMapper#map(java.lang.Object,
+   * java.lang.Class)
    */
   @Override
   public <T> T map(final Object source, final Class<T> type) {
     return mapper.map(source, type);
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.mapper.KuneMapper#mapList(java.util.List, java.lang.Class)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see cc.kune.core.server.mapper.KuneMapper#mapList(java.util.List,
+   * java.lang.Class)
    */
   @Override
   public <T> List<T> mapList(final List<?> list, final Class<T> type) {
@@ -72,8 +78,12 @@ public class KuneMapperDefault implements KuneMapper {
     return dest;
   }
 
-  /* (non-Javadoc)
-   * @see cc.kune.core.server.mapper.KuneMapper#mapSearchResult(cc.kune.core.server.manager.SearchResult, java.lang.Class)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.server.mapper.KuneMapper#mapSearchResult(cc.kune.core.server
+   * .manager.SearchResult, java.lang.Class)
    */
   @Override
   public <K, T> SearchResultDTO<T> mapSearchResult(final SearchResult<K> result, final Class<T> type) {

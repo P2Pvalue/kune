@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -56,8 +56,8 @@ public abstract class ContentServiceIntegrationTest extends IntegrationTest {
    */
   protected StateContentDTO getSiteDefaultContent() throws Exception {
     final StateToken stateToken = new StateToken(getDefSiteShortName());
-    final StateContentDTO content = (StateContentDTO) contentService.getContent(
-        session.getHash(), stateToken);
+    final StateContentDTO content = (StateContentDTO) contentService.getContent(session.getHash(),
+        stateToken);
     return content;
   }
 

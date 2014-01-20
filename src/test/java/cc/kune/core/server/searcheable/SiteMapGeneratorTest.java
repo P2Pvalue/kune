@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under 
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under 
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public 
  * License version 3, (the "License"); you may not use this file except in 
@@ -30,32 +30,31 @@ import cc.kune.core.server.integration.IntegrationTestHelper;
 
 import com.google.inject.Inject;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class SiteMapGeneratorTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class SiteMapGeneratorTest extends IntegrationTest {
 
-    /** The generator. */
-    @Inject
-    SiteMapGenerator generator;
+  /** The generator. */
+  @Inject
+  SiteMapGenerator generator;
 
-    /**
-     * Before.
-     */
-    @Before
-    public void before() {
-        new IntegrationTestHelper(true, this);
-    }
+  /**
+   * Before.
+   */
+  @Before
+  public void before() {
+    new IntegrationTestHelper(true, this);
+  }
 
-    /**
-     * Generate sitemap.
-     */
-    @Test
-    public void generateSitemap() {
-        generator.generate();
-    }
+  /**
+   * Generate sitemap.
+   */
+  @Test
+  public void generateSitemap() {
+    generator.generate();
+  }
 }

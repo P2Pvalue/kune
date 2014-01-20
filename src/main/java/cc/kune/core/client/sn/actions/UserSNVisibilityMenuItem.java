@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -31,7 +31,7 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserSNVisibilityMenuItem.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class UserSNVisibilityMenuItem extends MenuRadioItemDescriptor {
@@ -41,9 +41,11 @@ public class UserSNVisibilityMenuItem extends MenuRadioItemDescriptor {
 
   /**
    * Instantiates a new user sn visibility menu item.
-   *
-   * @param parent the parent
-   * @param action the action
+   * 
+   * @param parent
+   *          the parent
+   * @param action
+   *          the action
    */
   @Inject
   public UserSNVisibilityMenuItem(final MenuDescriptor parent, final UserSNVisibilityAction action) {
@@ -52,8 +54,9 @@ public class UserSNVisibilityMenuItem extends MenuRadioItemDescriptor {
 
   /**
    * With visibility.
-   *
-   * @param visibility the visibility
+   * 
+   * @param visibility
+   *          the visibility
    * @return the menu radio item descriptor
    */
   public MenuRadioItemDescriptor withVisibility(final UserSNetVisibility visibility) {

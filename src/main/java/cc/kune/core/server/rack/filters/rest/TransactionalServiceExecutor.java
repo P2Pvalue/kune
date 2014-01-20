@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -38,13 +38,18 @@ public class TransactionalServiceExecutor {
   }
 
   @KuneTransactional
-  public String doService(final Class<?> serviceClass, final String methodName,
+  public RESTResult doService(final Class<?> serviceClass, final String methodName,
       final ParametersAdapter parameters, final Object serviceInstance) {
     String output = null;
     final RESTMethod rest = methodFinder.findMethod(methodName, parameters, serviceClass);
-    if (rest != null && rest.invoke(serviceInstance)) {
-      output = serializer.serialize(rest.getResponse(), rest.getFormat());
+    RESTResult result = null;
+    if (rest != null) {
+      result = rest.invoke(serviceInstance);
+      if (result.isSuccess()) {
+        output = serializer.serialize(rest.getResponse(), rest.getFormat());
+        result.setOutput(output);
+      }
     }
-    return output;
+    return result;
   }
 }

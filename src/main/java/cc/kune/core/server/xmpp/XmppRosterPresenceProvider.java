@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -22,20 +22,20 @@
  */
 package cc.kune.core.server.xmpp;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Interface XmppRosterPreseneProvider should allow to get users's roster
  * presence information from different providers (initially openfire).
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface XmppRosterPresenceProvider {
 
   /**
    * Gets the last connected.
-   *
-   * @param user the user
+   * 
+   * @param user
+   *          the user
    * @return the last connected
    */
   Long getLastConnected(String user);

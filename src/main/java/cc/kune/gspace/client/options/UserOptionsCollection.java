@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -37,7 +37,7 @@ import com.google.inject.Singleton;
 // TODO: Auto-generated Javadoc
 /**
  * The Class UserOptionsCollection.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 @SuppressWarnings("serial")
@@ -45,14 +45,25 @@ import com.google.inject.Singleton;
 public class UserOptionsCollection extends ProvidersCollection {
 
   /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
    * Instantiates a new user options collection.
-   *
-   * @param ug the ug
-   * @param up the up
-   * @param utc the utc
-   * @param ul the ul
-   * @param ups the ups
-   * @param udl the udl
+   * 
+   * @param ug
+   *          the ug
+   * @param up
+   *          the up
+   * @param utc
+   *          the utc
+   * @param ul
+   *          the ul
+   * @param ups
+   *          the ups
+   * @param udl
+   *          the udl
    */
   @Inject
   public UserOptionsCollection(final Provider<UserOptGeneral> ug, final Provider<UserOptPass> up,

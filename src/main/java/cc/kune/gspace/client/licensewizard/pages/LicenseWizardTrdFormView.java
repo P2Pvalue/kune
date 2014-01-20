@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,36 +29,37 @@ import com.google.gwt.user.client.ui.IsWidget;
 // TODO: Auto-generated Javadoc
 /**
  * The Interface LicenseWizardTrdFormView.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public interface LicenseWizardTrdFormView extends IsWidget {
-  
+
   /**
    * Checks if is allow comercial.
-   *
+   * 
    * @return true, if is allow comercial
    */
   boolean isAllowComercial();
 
   /**
    * Checks if is allow modif.
-   *
+   * 
    * @return true, if is allow modif
    */
   boolean isAllowModif();
 
   /**
    * Checks if is allow modif share alike.
-   *
+   * 
    * @return true, if is allow modif share alike
    */
   boolean isAllowModifShareAlike();
 
   /**
    * On change.
-   *
-   * @param callback the callback
+   * 
+   * @param callback
+   *          the callback
    */
   void onChange(SimpleCallback callback);
 
@@ -69,10 +70,13 @@ public interface LicenseWizardTrdFormView extends IsWidget {
 
   /**
    * Sets the flags.
-   *
-   * @param isCopyleft the is copyleft
-   * @param isAppropiateForCulturalWorks the is appropiate for cultural works
-   * @param isNonComercial the is non comercial
+   * 
+   * @param isCopyleft
+   *          the is copyleft
+   * @param isAppropiateForCulturalWorks
+   *          the is appropiate for cultural works
+   * @param isNonComercial
+   *          the is non comercial
    */
   void setFlags(boolean isCopyleft, boolean isAppropiateForCulturalWorks, boolean isNonComercial);
 }

@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -39,24 +39,28 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class PendingNotificationHourlyJob.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class PendingNotificationHourlyJob implements Job {
 
   /** The Constant LOG. */
   public static final Log LOG = LogFactory.getLog(PendingNotificationHourlyJob.class);
-  
+
   /** The pending manager. */
   private final PendingNotificationSender pendingManager;
 
   /**
    * Instantiates a new pending notification hourly job.
-   *
-   * @param pendingManager the pending manager
-   * @param waveNotifier the wave notifier
-   * @throws ParseException the parse exception
-   * @throws SchedulerException the scheduler exception
+   * 
+   * @param pendingManager
+   *          the pending manager
+   * @param waveNotifier
+   *          the wave notifier
+   * @throws ParseException
+   *           the parse exception
+   * @throws SchedulerException
+   *           the scheduler exception
    */
   @Inject
   public PendingNotificationHourlyJob(final PendingNotificationSender pendingManager,
@@ -64,7 +68,9 @@ public class PendingNotificationHourlyJob implements Job {
     this.pendingManager = pendingManager;
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see org.quartz.Job#execute(org.quartz.JobExecutionContext)
    */
   @Override

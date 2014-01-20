@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,19 +29,21 @@ import com.google.gxp.com.google.common.base.Nullable;
 // TODO: Auto-generated Javadoc
 /**
  * The Class IdGenerator.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class IdGenerator {
-  
+
   /** The Constant SEPARATOR. */
   protected static final String SEPARATOR = "|";
 
   /**
    * Generates a id concatenating two strings.
-   *
-   * @param one String
-   * @param two String
+   * 
+   * @param one
+   *          String
+   * @param two
+   *          String
    * @return the string
    */
   public static String generate(@Nullable final String one, @Nullable final String two) {

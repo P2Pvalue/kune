@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -48,39 +48,39 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class DatabaseInitializerTest.
- *
+ * 
  * @author danigb@gmail.com
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class DatabaseInitializerTest {
-  
+
   /** The container manager. */
   @Inject
   ContainerManager containerManager;
-  
+
   /** The content manager. */
   @Inject
   ContentManager contentManager;
-  
+
   /** The country manager. */
   @Inject
   I18nCountryManager countryManager;
-  
+
   /** The default group. */
   private Group defaultGroup;
-  
+
   /** The group manager. */
   @Inject
   GroupManager groupManager;
-  
+
   /** The language manager. */
   @Inject
   I18nLanguageManager languageManager;
-  
+
   /** The license manager. */
   @Inject
   LicenseManager licenseManager;
-  
+
   /** The trans manager. */
   @Inject
   I18nTranslationManager transManager;

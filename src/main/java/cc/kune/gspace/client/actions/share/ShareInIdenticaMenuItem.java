@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -34,7 +34,7 @@ import com.google.inject.Inject;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ShareInIdenticaMenuItem.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class ShareInIdenticaMenuItem extends AbstractShareInSocialNetMenuItem {
@@ -44,12 +44,17 @@ public class ShareInIdenticaMenuItem extends AbstractShareInSocialNetMenuItem {
 
   /**
    * Instantiates a new share in identica menu item.
-   *
-   * @param action the action
-   * @param iconic the iconic
-   * @param session the session
-   * @param menu the menu
-   * @param i18n the i18n
+   * 
+   * @param action
+   *          the action
+   * @param iconic
+   *          the iconic
+   * @param session
+   *          the session
+   * @param menu
+   *          the menu
+   * @param i18n
+   *          the i18n
    */
   @Inject
   public ShareInIdenticaMenuItem(final AbstractShareInSocialNetAction action,
@@ -60,9 +65,9 @@ public class ShareInIdenticaMenuItem extends AbstractShareInSocialNetMenuItem {
             false,
             URL_TEMPLATE,
             URL.encodeQueryString("#"
-                + getTitle(session)
+                + ShareInSocialNetUtils.getTitle(session)
                 + " "
-                + getCurrentUrl(session)
+                + ShareInSocialNetUtils.getCurrentUrl(session)
                 + " "
                 + i18n.tWithNT("via [%s]", "used in references 'something via @someone'",
                     i18n.getSiteCommonName()))));

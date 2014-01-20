@@ -1,6 +1,6 @@
 /*
  *
- * Copyright (C) 2007-2013 Licensed to the Comunes Association (CA) under
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
  * License version 3, (the "License"); you may not use this file except in
@@ -29,14 +29,14 @@ import org.junit.Test;
 // TODO: Auto-generated Javadoc
 /**
  * The Class FileUtilsTest.
- *
+ * 
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class FileUtilsTest {
 
   /** The Constant SIMPLE_FILE_NAME. */
   private static final String SIMPLE_FILE_NAME = "simple file name";
-  
+
   /** The Constant EXT. */
   private static final String EXT = ".someext";
 
@@ -60,7 +60,7 @@ public class FileUtilsTest {
 
   /**
    * Gets the extension basic.
-   *
+   * 
    * @return the extension basic
    */
   @Test
@@ -70,7 +70,7 @@ public class FileUtilsTest {
 
   /**
    * Gets the extension with dot.
-   *
+   * 
    * @return the extension with dot
    */
   @Test
@@ -80,7 +80,7 @@ public class FileUtilsTest {
 
   /**
    * Gets the extension with dot basic.
-   *
+   * 
    * @return the extension with dot basic
    */
   @Test
@@ -90,7 +90,7 @@ public class FileUtilsTest {
 
   /**
    * Gets the extension with dot with final dot.
-   *
+   * 
    * @return the extension with dot with final dot
    */
   @Test
@@ -100,7 +100,7 @@ public class FileUtilsTest {
 
   /**
    * Gets the extension with dot with initial dot.
-   *
+   * 
    * @return the extension with dot with initial dot
    */
   @Test
@@ -110,7 +110,7 @@ public class FileUtilsTest {
 
   /**
    * Gets the extension with initial dot.
-   *
+   * 
    * @return the extension with initial dot
    */
   @Test
