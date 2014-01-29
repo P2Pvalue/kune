@@ -79,7 +79,6 @@ WARNING: Although using this password ('db4kune') is useful for a quick and dirt
  - bin/i18n-db2gwt.sh
  - src/main/resources/db/liquibase.properties
  - src/main/resources/META-INF/persistence.xml
- - src/main/webapp/WEB-INF/publicspace/config/database.yml
 
 On the other hand, if you want to select the database used (by default "kune_dev") you have to configure it in kune.properties.
 
