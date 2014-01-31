@@ -68,3 +68,4 @@ src/main/webapp/WEB-INF/deploy/
 .apt_generated
 src/main/resources/kune.properties
 **swp
+capistrano.rb
