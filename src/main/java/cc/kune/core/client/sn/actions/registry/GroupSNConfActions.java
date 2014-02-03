@@ -32,6 +32,7 @@ import cc.kune.common.shared.i18n.I18nTranslationService;
 import cc.kune.core.client.events.StateChangedEvent;
 import cc.kune.core.client.events.StateChangedEvent.StateChangedHandler;
 import cc.kune.core.client.invitation.GroupInvitationMenuItem;
+import cc.kune.core.client.invitation.GroupInviteUserMenuItem;
 import cc.kune.core.client.resources.CoreResources;
 import cc.kune.core.client.sn.GroupSNPresenter;
 import cc.kune.core.client.sn.actions.AddEntityToThisGroupAction;
@@ -114,9 +115,9 @@ public class GroupSNConfActions extends AbstractSNActionsRegistry {
       final I18nTranslationService i18n, final Provider<MembersVisibilityMenuItem> membersVisibility,
       final Provider<MembersModerationMenuItem> membersModeration, final CoreResources res,
       final IsLoggedCondition isLoggedCondition, final JoinGroupAction joinGroupAction,
-      final GroupInvitationMenuItem groupInvitation, final WriteToMembers writeToMembers,
-      final WriteToAdmins writeToAdmins, final IsGroupCondition isGroupCondition,
-      final UnJoinFromCurrentGroupAction unJoinGroupAction,
+      final GroupInvitationMenuItem groupInvitation, final GroupInviteUserMenuItem groupUserInvitation,
+      final WriteToMembers writeToMembers, final WriteToAdmins writeToAdmins,
+      final IsGroupCondition isGroupCondition, final UnJoinFromCurrentGroupAction unJoinGroupAction,
       final AddEntityToThisGroupAction addEntityToThisGroupAction, final GroupSNOptionsMenu optionsMenu,
       final GroupSNModerationSubMenu moderationSubMenu, final GroupSNVisibilitySubMenu visibilitySubMenu) {
     final boolean isNewbie = session.isNewbie();
