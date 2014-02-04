@@ -32,9 +32,10 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 /**
- * The class GroupInviteUserMenuItem
+ * The class GroupInviteUserMenuItem. Menu item to invite existing kune users to
+ * a group.
  * 
- * @author antonio
+ * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
  * 
  */
 @Singleton

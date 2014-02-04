@@ -37,7 +37,10 @@ import com.google.inject.Provider;
  */
 
 /**
- * @author antonio
+ * The class ListInviteUserAction. The action of inviting an existing user to a
+ * kune list.
+ * 
+ * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
  * 
  */
 public class ListInviteUserAction extends AbstractInviteUserAction {
@@ -51,11 +54,11 @@ public class ListInviteUserAction extends AbstractInviteUserAction {
    */
   @Inject
   public ListInviteUserAction(StateManager stateManager, Session session,
-      AccessRightsClientManager rightsManager, InviteUserSearchPanel searchPanel, IconicResources res,
-      Provider<InvitationServiceAsync> invitationService) {
+      AccessRightsClientManager rightsManager, ListInviteUserSearchPanel searchPanel,
+      IconicResources res, Provider<InvitationServiceAsync> invitationService) {
     super(stateManager, session, rightsManager, AccessRolDTO.Administrator, true, false, true,
         searchPanel, res, InvitationType.TO_LISTS, invitationService);
-    putValue(NAME, I18n.t("Invite user to this list"));
+    putValue(NAME, I18n.t("Invite [%s] users to this list", I18n.getSiteCommonName()));
     putValue(Action.SMALL_ICON, res.add());
   }
 

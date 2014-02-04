@@ -67,7 +67,8 @@ import cc.kune.core.client.i18n.I18nUITranslationService;
 import cc.kune.core.client.init.AppStarter;
 import cc.kune.core.client.init.AppStarterDefault;
 import cc.kune.core.client.init.PrefetchUtilities;
-import cc.kune.core.client.invitation.InviteUserSearchPanel;
+import cc.kune.core.client.invitation.GroupInviteUserSearchPanel;
+import cc.kune.core.client.invitation.ListInviteUserSearchPanel;
 import cc.kune.core.client.notify.confirm.UserConfirmPanel;
 import cc.kune.core.client.notify.confirm.UserConfirmPresenter;
 import cc.kune.core.client.notify.spiner.SpinerPanel;
@@ -281,7 +282,8 @@ public class CoreGinModule extends ExtendedGinModule {
     s(UserSNConfActions.class);
     s(AddBuddieSearchPanel.class);
     s(AddMemberSearchPanel.class);
-    s(InviteUserSearchPanel.class);
+    s(GroupInviteUserSearchPanel.class);
+    s(ListInviteUserSearchPanel.class);
 
     s(ContentServiceHelper.class);
     s(SocialNetServiceHelper.class);

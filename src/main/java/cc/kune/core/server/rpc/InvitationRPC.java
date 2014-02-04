@@ -242,4 +242,23 @@ public class InvitationRPC implements RPC, InvitationService {
     invitationManager.invite(getUser(), InvitationType.TO_GROUP, NotificationType.email, token,
         invitedEmail);
   }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * cc.kune.core.client.rpcservices.InvitationService#inviteUserToList(java
+   * .lang.String, cc.kune.core.shared.domain.utils.StateToken,
+   * java.lang.String)
+   */
+  @Override
+  @Authenticated
+  @KuneTransactional
+  @Authorizated(accessRolRequired = AccessRol.Administrator, actionLevel = ActionLevel.group)
+  public void inviteUserToList(String userHash, StateToken token, String shortName) {
+    User to = userFinder.findByShortName(shortName);
+    String invitedEmail = Addressee.build(to).getAddress();
+    invitationManager.invite(getUser(), InvitationType.TO_LISTS, NotificationType.email, token,
+        invitedEmail);
+  }
 }
