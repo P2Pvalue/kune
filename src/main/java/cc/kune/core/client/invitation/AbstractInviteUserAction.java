@@ -30,6 +30,7 @@ import cc.kune.common.shared.utils.SimpleResponseCallback;
 import cc.kune.core.client.actions.RolActionAutoUpdated;
 import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.rpcservices.InvitationServiceAsync;
+import cc.kune.core.client.sitebar.search.EntitySearchPanel;
 import cc.kune.core.client.sitebar.search.OnEntitySelectedInSearch;
 import cc.kune.core.client.state.AccessRightsClientManager;
 import cc.kune.core.client.state.Session;
@@ -43,7 +44,10 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Provider;
 
 /**
- * @author antonio
+ * The class AbstractInviteUserAction. Abstracts the invitation of an existing
+ * kune users to groups and lists
+ * 
+ * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
  * 
  */
 public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
@@ -52,10 +56,16 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
   public static final String INVITE_USER_SEARCH_PANEL = "kune-invite-user-search-panel";
 
   /** The search panel */
-  private final InviteUserSearchPanel searchPanel;
+  private final EntitySearchPanel searchPanel;
 
   /** The state token */
   private StateToken token;
+
+  /** the invitation type */
+  private InvitationType type;
+
+  /** the invitation service */
+  private Provider<InvitationServiceAsync> invitationService;
 
   /**
    * @param stateManager
@@ -79,78 +89,21 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
   public AbstractInviteUserAction(final StateManager stateManager, final Session session,
       final AccessRightsClientManager rightsManager, final AccessRolDTO rolRequired,
       final boolean authNeed, final boolean visibleForNonMemb, final boolean visibleForMembers,
-      final InviteUserSearchPanel searchPanel, final IconicResources res, final InvitationType type,
+      final EntitySearchPanel searchPanel, final IconicResources res, final InvitationType type,
       final Provider<InvitationServiceAsync> invitationService) {
     super(stateManager, session, rightsManager, rolRequired, authNeed, visibleForNonMemb,
         visibleForMembers);
     this.searchPanel = searchPanel;
+    this.type = type;
+    this.invitationService = invitationService;
     searchPanel.init(true, INVITE_USER_SEARCH_PANEL, new OnEntitySelectedInSearch() {
       @Override
       public void onSeleted(final String shortName) {
-        String confirmText = I18n.t("Do you want to invite '[%s]'?", shortName);
-        switch (type) {
-        case TO_GROUP:
-          confirmText = I18n.t("Do you want to invite '[%s]' as a member of '[%s]'?", shortName,
-              token.getGroup());
-          break;
-        case TO_LISTS:
-          // TODO: text
-          // confirmText = i18n.t(...);
-          break;
-        case TO_SITE:
-          // It does not make sense to invite an already existing user to the
-          // site
-          break;
-        default:
-          break;
-
-        }
-        NotifyUser.askConfirmation(I18n.t("Are you sure?"), confirmText, new SimpleResponseCallback() {
-          @Override
-          public void onCancel() {
-          }
-
-          @Override
-          public void onSuccess() {
-            AsyncCallback<Void> asyncCallback = new AsyncCallback<Void>() {
-
-              @Override
-              public void onSuccess(Void result) {
-                NotifyUser.info(I18n.t("Invitation sent"));
-              }
-
-              @Override
-              public void onFailure(Throwable caught) {
-
-              }
-            };
-            NotifyUser.showProgress();
-            switch (type) {
-            case TO_GROUP:
-              invitationService.get().inviteUserToGroup(session.getUserHash(), token, shortName,
-                  asyncCallback);
-              break;
-            case TO_LISTS:
-              // TODO: implement invitation service "inviteUserToList"
-              // invitationService.get().inviteUserToList(session.getUserHash(),
-              // token, shortName, asyncCallback);
-              break;
-            case TO_SITE:
-              // It does not make sense to invite an already existing user to
-              // the site
-              break;
-            default:
-              break;
-            }
-            NotifyUser.hideProgress();
-          }
-        });
-
+        confirmSelectedItem(shortName);
       }
-
     });
 
-  }
+  };
 
   /*
    * (non-Javadoc)
@@ -170,5 +123,66 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
     this.token = token;
     searchPanel.show();
     searchPanel.focus();
+  }
+
+  private void confirmSelectedItem(final String shortName) {
+    String confirmText = I18n.t("Do you want to invite '[%s]'?", shortName);
+    switch (type) {
+    case TO_GROUP:
+      confirmText = I18n.t("Do you want to invite '[%s]' as a member of '[%s]'?", shortName,
+          token.getGroup());
+      break;
+    case TO_LISTS:
+      // TODO: Add list name to confirmText
+      confirmText = I18n.t("Do you want to invite '[%s]' to the list?", shortName);
+      break;
+    case TO_SITE:
+      // It does not make sense to invite an already existing user to the
+      // site
+      break;
+    default:
+      break;
+
+    }
+    NotifyUser.askConfirmation(I18n.t("Are you sure?"), confirmText, new SimpleResponseCallback() {
+      @Override
+      public void onCancel() {
+      }
+
+      @Override
+      public void onSuccess() {
+        AsyncCallback<Void> asyncCallback = new AsyncCallback<Void>() {
+
+          @Override
+          public void onSuccess(Void result) {
+            NotifyUser.info(I18n.t("Invitation sent"));
+          }
+
+          @Override
+          public void onFailure(Throwable caught) {
+
+          }
+        };
+        NotifyUser.showProgress();
+        switch (type) {
+        case TO_GROUP:
+          invitationService.get().inviteUserToGroup(session.getUserHash(), token, shortName,
+              asyncCallback);
+          break;
+        case TO_LISTS:
+          invitationService.get().inviteUserToList(session.getUserHash(), token, shortName,
+              asyncCallback);
+          break;
+        case TO_SITE:
+          // It does not make sense to invite an already existing user to
+          // the site
+          break;
+        default:
+          break;
+        }
+        NotifyUser.hideProgress();
+
+      }
+    });
   }
 }

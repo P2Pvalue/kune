@@ -140,4 +140,17 @@ public interface InvitationServiceAsync {
   void inviteUserToGroup(String userHash, StateToken token, String shortName,
       AsyncCallback<Void> callback);
 
+  /**
+   * 
+   * @param userHash
+   *          the user hash
+   * @param token
+   *          the token
+   * @param shortName
+   *          the short name of the invited user
+   * @param callback
+   *          the callback
+   */
+  void inviteUserToList(String userHash, StateToken token, String shortName, AsyncCallback<Void> callback);
+
 }

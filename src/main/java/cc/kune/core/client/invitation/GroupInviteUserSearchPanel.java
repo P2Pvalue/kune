@@ -23,32 +23,34 @@
 
 package cc.kune.core.client.invitation;
 
-import cc.kune.common.client.actions.ui.descrip.MenuItemDescriptor;
-import cc.kune.common.shared.i18n.I18n;
-import cc.kune.core.client.resources.iconic.IconicResources;
-import cc.kune.core.client.sn.actions.GroupSNOptionsMenu;
+import cc.kune.common.shared.i18n.I18nTranslationService;
+import cc.kune.core.client.resources.CoreResources;
+import cc.kune.core.client.sitebar.search.EntitySearchPanel;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 /**
- * The class ListInviteUserMenuItem. A menu item to invite users to a kune list.
+ * The Class InviteUserSearchPanel is an EntitySearchPanel to invite users to a
+ * group
  * 
  * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
  * 
  */
-
 @Singleton
-public class ListInviteUserMenuItem extends MenuItemDescriptor {
+public class GroupInviteUserSearchPanel extends EntitySearchPanel {
 
   /**
-   * @param action
+   * Instantiates a new group invite user search panel
+   * 
+   * @param img
+   *          the image resource
+   * @param i18n
+   *          the i18n translation service
    */
   @Inject
-  public ListInviteUserMenuItem(ListInviteUserAction action, final IconicResources icons,
-      final GroupSNOptionsMenu optionsMenu) {
-    super(action);
-    withText(I18n.t("Invite [%s] users to this list", I18n.getSiteCommonName())).withIcon(icons.add());
+  public GroupInviteUserSearchPanel(CoreResources img, I18nTranslationService i18n) {
+    super(img, i18n);
   }
 
 }

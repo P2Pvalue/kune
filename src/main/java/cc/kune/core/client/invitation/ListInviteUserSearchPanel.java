@@ -32,16 +32,16 @@ import com.google.inject.Singleton;
 
 /**
  * The Class InviteUserSearchPanel is an EntitySearchPanel to invite users to a
- * group/list/document.
+ * list
  * 
- * @author antonio
+ * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
  * 
  */
 @Singleton
-public class InviteUserSearchPanel extends EntitySearchPanel {
+public class ListInviteUserSearchPanel extends EntitySearchPanel {
 
   /**
-   * Instantiates a new invite user search panel
+   * Instantiates a new group invite user search panel
    * 
    * @param img
    *          the image resource
@@ -49,7 +49,7 @@ public class InviteUserSearchPanel extends EntitySearchPanel {
    *          the i18n translation service
    */
   @Inject
-  public InviteUserSearchPanel(CoreResources img, I18nTranslationService i18n) {
+  public ListInviteUserSearchPanel(CoreResources img, I18nTranslationService i18n) {
     super(img, i18n);
   }
 

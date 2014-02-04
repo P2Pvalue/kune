@@ -37,7 +37,10 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 /**
- * @author antonio
+ * The class GroupInviteUserAction. The action of inviting an existing user to a
+ * group
+ * 
+ * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
  * 
  */
 public class GroupInviteUserAction extends AbstractInviteUserAction {
@@ -60,11 +63,11 @@ public class GroupInviteUserAction extends AbstractInviteUserAction {
    */
   @Inject
   public GroupInviteUserAction(StateManager stateManager, Session session,
-      AccessRightsClientManager rightsManager, InviteUserSearchPanel searchPanel, IconicResources res,
-      Provider<InvitationServiceAsync> invitationService) {
+      AccessRightsClientManager rightsManager, GroupInviteUserSearchPanel searchPanel,
+      IconicResources res, Provider<InvitationServiceAsync> invitationService) {
     super(stateManager, session, rightsManager, AccessRolDTO.Administrator, true, true, true,
         searchPanel, res, InvitationType.TO_GROUP, invitationService);
-    putValue(NAME, I18n.t("Invite user to this group"));
+    putValue(NAME, I18n.t("Invite [%s] users to this group", I18n.getSiteCommonName()));
     putValue(Action.SMALL_ICON, res.add());
 
   }

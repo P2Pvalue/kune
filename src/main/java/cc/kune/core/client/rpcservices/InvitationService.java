@@ -140,4 +140,16 @@ public interface InvitationService extends RemoteService {
    */
   void inviteUserToGroup(String userHash, StateToken token, String shortName);
 
+  /**
+   * Invite to list.
+   * 
+   * @param userHash
+   *          the user hash
+   * @param token
+   *          the token
+   * @param emails
+   *          the emails
+   */
+  void inviteUserToList(String userHash, StateToken token, String shortName);
+
 }
