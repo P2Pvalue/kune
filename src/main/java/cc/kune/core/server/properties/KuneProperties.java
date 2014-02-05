@@ -156,6 +156,9 @@ public interface KuneProperties {
   /** The site group regist enabled tools. */
   String SITE_GROUP_REGIST_ENABLED_TOOLS = "kune.tools.groupRegisEnabledTools";
 
+  /** The site issue tracker url. */
+  String SITE_ISSUES_URL = "kune.site.issues";
+
   /** The site logo url. */
   String SITE_LOGO_URL = "kune.sitelogourl";
 

@@ -35,6 +35,7 @@ import cc.kune.common.shared.i18n.I18nTranslationService;
 import cc.kune.core.client.events.AppStartEvent;
 import cc.kune.core.client.resources.CoreResources;
 import cc.kune.core.client.resources.iconic.IconicResources;
+import cc.kune.core.client.state.Session;
 
 import com.google.gwt.event.shared.EventBus;
 import com.google.inject.Inject;
@@ -115,6 +116,9 @@ public class SitebarActionsPresenter extends
   /** The res. */
   private final CoreResources res;
 
+  /** The session. */
+  private final Session session;
+
   /** The sign in link. */
   private final Provider<SitebarSignInLink> signInLink;
 
@@ -144,13 +148,15 @@ public class SitebarActionsPresenter extends
    *          the icons
    * @param myGroupsMenu
    *          the my groups menu
+   * @param session
+   *          the session
    */
   @Inject
   public SitebarActionsPresenter(final EventBus eventBus, final SitebarActionsView view,
       final SitebarActionsProxy proxy, final I18nTranslationService i18n,
       final Provider<SitebarNewGroupLink> newGroupLink, final Provider<SitebarSignOutLink> signOutLink,
       final Provider<SitebarSignInLink> signInLink, final CoreResources res,
-      final IconicResources icons, final Provider<MyGroupsMenu> myGroupsMenu) {
+      final IconicResources icons, final Provider<MyGroupsMenu> myGroupsMenu, final Session session) {
     super(eventBus, view, proxy);
     this.i18n = i18n;
     this.newGroupLink = newGroupLink;
@@ -159,6 +165,7 @@ public class SitebarActionsPresenter extends
     this.icons = icons;
     this.myGroupsMenu = myGroupsMenu;
     this.res = res;
+    this.session = session;
     init();
   }
 
@@ -212,7 +219,7 @@ public class SitebarActionsPresenter extends
     final AbstractExtendedAction bugsAction = new AbstractExtendedAction() {
       @Override
       public void actionPerformed(final ActionEvent event) {
-        KuneWindowUtils.open("http://kune.ourproject.org/issues/");
+        KuneWindowUtils.open(session.getInitData().getIssuesUrl());
       }
     };
     bugsAction.putValue(Action.NAME, i18n.t("Report Kune issues/problems"));

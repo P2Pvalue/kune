@@ -259,6 +259,7 @@ public class SiteManagerDefault implements SiteManager, SiteManagerDefaultMBean 
     data.setDefTutorialLanguage(kuneProperties.get(KuneProperties.KUNE_TUTORIALS_DEFLANG));
     data.setTutorialLanguages(kuneProperties.getList(KuneProperties.KUNE_TUTORIALS_LANGS));
     data.setPublicSpaceVisible(kuneProperties.getBoolean(KuneProperties.PUBLIC_SPACE_VISIBLE));
+    data.setIssuesUrl(kuneProperties.get(KuneProperties.SITE_ISSUES_URL));
     return data;
   }
 
