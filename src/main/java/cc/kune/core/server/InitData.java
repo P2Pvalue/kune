@@ -99,6 +99,9 @@ public class InitData {
   /** The img thumbsize. */
   private int imgThumbsize;
 
+  /** The issue tracker url. */
+  private String issuesUrl;
+
   /** The languages. */
   private List<I18nLanguage> languages;
 
@@ -316,6 +319,15 @@ public class InitData {
    */
   public int getImgThumbsize() {
     return imgThumbsize;
+  }
+
+  /**
+   * Gets the issues url.
+   * 
+   * @return the issuesUrl
+   */
+  public String getIssuesUrl() {
+    return issuesUrl;
   }
 
   /**
@@ -681,6 +693,16 @@ public class InitData {
    */
   public void setImgThumbsize(final int imgThumbsize) {
     this.imgThumbsize = imgThumbsize;
+  }
+
+  /**
+   * Sets the issues url.
+   * 
+   * @param issuesUrl
+   *          the issuesUrl to set
+   */
+  public void setIssuesUrl(final String issuesUrl) {
+    this.issuesUrl = issuesUrl;
   }
 
   /**

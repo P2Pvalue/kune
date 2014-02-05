@@ -93,6 +93,9 @@ public class InitDataDTO implements IsSerializable {
   /** The img thumbsize. */
   private int imgThumbsize;
 
+  /** The issue tracker url */
+  private String issuesUrl;
+
   /** The languages. */
   private List<I18nLanguageSimpleDTO> languages;
 
@@ -313,6 +316,15 @@ public class InitDataDTO implements IsSerializable {
    */
   public int getImgThumbsize() {
     return imgThumbsize;
+  }
+
+  /**
+   * Gets the issues url.
+   * 
+   * @return the issuesUrl
+   */
+  public String getIssuesUrl() {
+    return issuesUrl;
   }
 
   /**
@@ -684,6 +696,16 @@ public class InitDataDTO implements IsSerializable {
    */
   public void setImgThumbsize(final int imgThumbsize) {
     this.imgThumbsize = imgThumbsize;
+  }
+
+  /**
+   * Sets the issues url.
+   * 
+   * @param issuesUrl
+   *          the issuesUrl to set
+   */
+  public void setIssuesUrl(final String issuesUrl) {
+    this.issuesUrl = issuesUrl;
   }
 
   /**
