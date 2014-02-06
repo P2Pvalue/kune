@@ -29,6 +29,6 @@ namespace :deploy do
     
     # Backup database
     run "mkdir #{ current_path }/bck"
-    run "mysqldump -u kune -p #{ db_pwd } kune_prod > #{ current_path }/bck/mysql.dump"
+    run "mysqldump -u kune -p#{ db_pwd } kune_prod > #{ current_path }/bck/mysql.dump"
   end
 end
