@@ -49,7 +49,7 @@ public class GroupInviteUserSearchPanel extends EntitySearchPanel {
    *          the i18n translation service
    */
   @Inject
-  public GroupInviteUserSearchPanel(CoreResources img, I18nTranslationService i18n) {
+  public GroupInviteUserSearchPanel(final CoreResources img, final I18nTranslationService i18n) {
     super(img, i18n);
   }
 

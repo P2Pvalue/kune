@@ -55,6 +55,9 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
   /** The Constant INVITE_USER_TEXTBOX. */
   public static final String INVITE_USER_SEARCH_PANEL = "kune-invite-user-search-panel";
 
+  /** the invitation service */
+  private final Provider<InvitationServiceAsync> invitationService;
+
   /** The search panel */
   private final EntitySearchPanel searchPanel;
 
@@ -62,10 +65,7 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
   private StateToken token;
 
   /** the invitation type */
-  private InvitationType type;
-
-  /** the invitation service */
-  private Provider<InvitationServiceAsync> invitationService;
+  private final InvitationType type;
 
   /**
    * @param stateManager
@@ -151,16 +151,16 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
 
       @Override
       public void onSuccess() {
-        AsyncCallback<Void> asyncCallback = new AsyncCallback<Void>() {
+        final AsyncCallback<Void> asyncCallback = new AsyncCallback<Void>() {
 
           @Override
-          public void onSuccess(Void result) {
-            NotifyUser.info(I18n.t("Invitation sent"));
+          public void onFailure(final Throwable caught) {
+
           }
 
           @Override
-          public void onFailure(Throwable caught) {
-
+          public void onSuccess(final Void result) {
+            NotifyUser.info(I18n.t("Invitation sent"));
           }
         };
         NotifyUser.showProgress();

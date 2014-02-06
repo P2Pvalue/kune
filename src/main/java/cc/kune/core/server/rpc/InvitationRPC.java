@@ -62,14 +62,14 @@ public class InvitationRPC implements RPC, InvitationService {
   /** The group finder. */
   private final GroupFinder groupFinder;
 
-  /** The user finder. */
-  private final UserFinder userFinder;
-
   /** The invitation manager. */
   private final InvitationManager invitationManager;
 
   /** The mapper. */
   private final KuneMapper mapper;
+
+  /** The user finder. */
+  private final UserFinder userFinder;
 
   /** The user session manager. */
   private final UserSessionManager userSessionManager;
@@ -235,10 +235,10 @@ public class InvitationRPC implements RPC, InvitationService {
   @Authenticated
   @KuneTransactional
   @Authorizated(accessRolRequired = AccessRol.Administrator, actionLevel = ActionLevel.group)
-  public void inviteUserToGroup(String userHash, StateToken token, String shortName) {
+  public void inviteUserToGroup(final String userHash, final StateToken token, final String shortName) {
     /** invited user */
-    User to = userFinder.findByShortName(shortName);
-    String invitedEmail = Addressee.build(to).getAddress();
+    final User to = userFinder.findByShortName(shortName);
+    final String invitedEmail = Addressee.build(to).getAddress();
     invitationManager.invite(getUser(), InvitationType.TO_GROUP, NotificationType.email, token,
         invitedEmail);
   }
@@ -255,9 +255,9 @@ public class InvitationRPC implements RPC, InvitationService {
   @Authenticated
   @KuneTransactional
   @Authorizated(accessRolRequired = AccessRol.Administrator, actionLevel = ActionLevel.group)
-  public void inviteUserToList(String userHash, StateToken token, String shortName) {
-    User to = userFinder.findByShortName(shortName);
-    String invitedEmail = Addressee.build(to).getAddress();
+  public void inviteUserToList(final String userHash, final StateToken token, final String shortName) {
+    final User to = userFinder.findByShortName(shortName);
+    final String invitedEmail = Addressee.build(to).getAddress();
     invitationManager.invite(getUser(), InvitationType.TO_LISTS, NotificationType.email, token,
         invitedEmail);
   }

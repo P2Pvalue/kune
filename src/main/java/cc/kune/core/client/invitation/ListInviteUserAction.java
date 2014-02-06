@@ -53,9 +53,9 @@ public class ListInviteUserAction extends AbstractInviteUserAction {
    * @param invitationService
    */
   @Inject
-  public ListInviteUserAction(StateManager stateManager, Session session,
-      AccessRightsClientManager rightsManager, ListInviteUserSearchPanel searchPanel,
-      IconicResources res, Provider<InvitationServiceAsync> invitationService) {
+  public ListInviteUserAction(final StateManager stateManager, final Session session,
+      final AccessRightsClientManager rightsManager, final ListInviteUserSearchPanel searchPanel,
+      final IconicResources res, final Provider<InvitationServiceAsync> invitationService) {
     super(stateManager, session, rightsManager, AccessRolDTO.Administrator, true, false, true,
         searchPanel, res, InvitationType.TO_LISTS, invitationService);
     putValue(NAME, I18n.t("Invite [%s] users to this list", I18n.getSiteCommonName()));

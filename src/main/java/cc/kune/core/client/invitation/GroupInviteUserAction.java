@@ -62,9 +62,9 @@ public class GroupInviteUserAction extends AbstractInviteUserAction {
    *          the invitation service
    */
   @Inject
-  public GroupInviteUserAction(StateManager stateManager, Session session,
-      AccessRightsClientManager rightsManager, GroupInviteUserSearchPanel searchPanel,
-      IconicResources res, Provider<InvitationServiceAsync> invitationService) {
+  public GroupInviteUserAction(final StateManager stateManager, final Session session,
+      final AccessRightsClientManager rightsManager, final GroupInviteUserSearchPanel searchPanel,
+      final IconicResources res, final Provider<InvitationServiceAsync> invitationService) {
     super(stateManager, session, rightsManager, AccessRolDTO.Administrator, true, true, true,
         searchPanel, res, InvitationType.TO_GROUP, invitationService);
     putValue(NAME, I18n.t("Invite [%s] users to this group", I18n.getSiteCommonName()));

@@ -45,7 +45,7 @@ public class ListInviteUserMenuItem extends MenuItemDescriptor {
    * @param action
    */
   @Inject
-  public ListInviteUserMenuItem(ListInviteUserAction action, final IconicResources icons,
+  public ListInviteUserMenuItem(final ListInviteUserAction action, final IconicResources icons,
       final GroupSNOptionsMenu optionsMenu) {
     super(action);
     withText(I18n.t("Invite [%s] users to this list", I18n.getSiteCommonName())).withIcon(icons.add());
