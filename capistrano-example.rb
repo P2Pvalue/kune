@@ -26,6 +26,8 @@ namespace :deploy do
     db_files = %w{pom.xml bin/liquibase-migrate.sh bin/liquibase-rollback.sh bin/i18n-db2gwt.sh src/main/resources/db/liquibase.properties src/main/resources/META-INF/persistence.xml}.map{ |f| "#{ release_path }/#{ f }" }.join(" ")
 
     run "sed -i 's/db4kune/#{ db_pwd }/g' #{ db_files }"
+
+    run "cd #{ release_path } && mvn assembly:assembly -P production"
     
     # Backup database
     run "mkdir #{ current_path }/bck"
