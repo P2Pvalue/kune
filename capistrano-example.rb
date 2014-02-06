@@ -17,6 +17,8 @@ after "deploy:restart", "deploy:cleanup"
 namespace :deploy do
   task :finalize_update do
     run "ln -s #{ shared_path}/src/main/resources/kune.properties #{ release_path }/src/main/resources/"
+    run "rm #{ release_path}/src/main/resources/wave-server.properties"
+    run "ln -s #{ shared_path}/src/main/resources/wave-server.properties #{ release_path }/src/main/resources/"
     run "ln -s #{ shared_path}/kune-data #{ release_path }/"
 
     db_files = %w{pom.xml bin/liquibase-migrate.sh bin/liquibase-rollback.sh bin/i18n-db2gwt.sh src/main/resources/db/liquibase.properties src/main/resources/META-INF/persistence.xml}.map{ |f| "#{ release_path }/#{ f }" }.join(" ")
