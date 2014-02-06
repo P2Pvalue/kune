@@ -30,7 +30,7 @@ namespace :deploy do
     run "cd #{ release_path } && mvn assembly:assembly -P production"
     
     # Backup database
-    run "mkdir #{ current_path }/bck"
+    run "mkdir -p #{ current_path }/bck"
     run "mysqldump -u kune -p#{ db_pwd } kune_prod > #{ current_path }/bck/mysql.dump"
   end
 end
