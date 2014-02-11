@@ -35,4 +35,10 @@ namespace :deploy do
     run "mkdir -p #{ current_path }/bck"
     run "mysqldump -u kune -p#{ db_pwd } kune_prod > #{ current_path }/bck/mysql.dump"
   end
+
+  task :restart, roles: :app, except: { no_release: true } do
+    run "cd #{ release_path } && bin/restart.sh"
+  end
+
 end
+
