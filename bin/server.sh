@@ -9,7 +9,7 @@ usage() {
 Options:
 -j <jar file> : runs jar file generated via mvn assembly:assembly
                 or adding -Dgwt.compiler.skip=true to skip compilation
--a: run as a daemon (only root user)
+-a: run as a daemon
 -l LOGLEVEL : IGNORE|DEBUG|INFO|WARN
 -x: -Xmx memory value
 -m: -Xms memory value
@@ -112,14 +112,6 @@ then
     DEBUG_FLAGS=-Xrunjdwp:transport=dt_socket,server=y,suspend=$SUSPEND$DEBUG_PORT
 fi
 
-USER=`id -u -n`
-if [[ -n $DAEMON && USER -ne "root" ]]
-then 
-    echo "Error: Only root user can run kune as a daemon"
-    usage
-    exit 1
-fi
-
 if [[ -z $JAR ]] 
 then
     # Just run kune using the code and mave
@@ -127,10 +119,8 @@ then
 else
     if [[ -n $DAEMON ]]
     then
-    # FIXME Not sure if this is neccesary (if already configured in "/etc/security/limits.conf"
-        ulimit -n 65000
     # http://stackoverflow.com/questions/534648/how-to-daemonize-a-java-program
-        exec java $DEBUG_FLAGS \
+        nohup java $DEBUG_FLAGS \
             -Dorg.eclipse.jetty.LEVEL=$LOG_LEVEL \
             -Djava.security.auth.login.config=$JAAS_CONFIG \
             -Dlog4j.configuration=$LOGJ4_CONFIG \
@@ -139,7 +129,7 @@ else
             -Djava.awt.headless=true \
             $MS \
 	    $MX \
-	    -jar $JAR >> $LOGFILE 2>> $LOGFILE
+	    -jar $JAR >> $LOGFILE 2>> $LOGFILE &
     else
 	exec java $DEBUG_FLAGS \
       -Dorg.eclipse.jetty.LEVEL=$LOG_LEVEL \
