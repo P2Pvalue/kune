@@ -18,7 +18,7 @@ NOTE: This INSTALL document contains more info besides the installation instruct
 - Install java-jdk (>=6), maven2, mysql (> 5.0) and eclipse (well, this depends on what IDE do you use for development). In Debian and derivatives (such as Ubuntu):
 
 For development environment:
- sudo apt-get install subversion maven2 mercurial openjdk-6-jdk mysql-server libjmagick6-jni
+ sudo apt-get install git maven2 mercurial openjdk-6-jdk mysql-server libjmagick6-jni
 
 For production environment:
  sudo apt-get install openjdk-6-jdk mysql-server libjmagick6-jni
