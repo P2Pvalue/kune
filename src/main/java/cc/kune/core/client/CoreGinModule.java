@@ -147,14 +147,14 @@ import com.gwtplatform.mvp.client.proxy.TokenFormatter;
 // TODO: Auto-generated Javadoc
 /**
  * The Class CoreGinModule.
- * 
+ *
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class CoreGinModule extends ExtendedGinModule {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see com.google.gwt.inject.client.AbstractGinModule#configure()
    */
   @Override

@@ -24,7 +24,6 @@
 package cc.kune.core.client.invitation;
 
 import cc.kune.common.client.actions.ui.descrip.MenuItemDescriptor;
-import cc.kune.common.shared.i18n.I18n;
 import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.sn.actions.GroupSNOptionsMenu;
 
@@ -34,16 +33,16 @@ import com.google.inject.Singleton;
 /**
  * The class GroupInviteUserMenuItem. Menu item to invite existing kune users to
  * a group.
- * 
+ *
  * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
- * 
+ *
  */
 @Singleton
 public class GroupInviteUserMenuItem extends MenuItemDescriptor {
 
   /**
    * Instantiates a new group invite user menu item.
-   * 
+   *
    * @param action
    *          the action
    * @param icons
@@ -55,7 +54,6 @@ public class GroupInviteUserMenuItem extends MenuItemDescriptor {
   public GroupInviteUserMenuItem(final GroupInviteUserAction action, final IconicResources icons,
       final GroupSNOptionsMenu optionsMenu) {
     super(action);
-    withText(I18n.t("Invite [%s] users to this group", I18n.getSiteCommonName())).withIcon(icons.add());
     setParent(optionsMenu);
     setPosition(0);
   }

@@ -4,9 +4,7 @@ import cc.kune.common.client.actions.Action;
 import cc.kune.common.shared.i18n.I18n;
 import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.rpcservices.InvitationServiceAsync;
-import cc.kune.core.client.state.AccessRightsClientManager;
-import cc.kune.core.client.state.Session;
-import cc.kune.core.client.state.StateManager;
+import cc.kune.core.client.state.*;
 import cc.kune.core.shared.domain.InvitationType;
 import cc.kune.core.shared.dto.AccessRolDTO;
 
@@ -39,9 +37,9 @@ import com.google.inject.Provider;
 /**
  * The class ListInviteUserAction. The action of inviting an existing user to a
  * kune list.
- * 
+ *
  * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
- * 
+ *
  */
 public class ListInviteUserAction extends AbstractInviteUserAction {
 
@@ -58,7 +56,7 @@ public class ListInviteUserAction extends AbstractInviteUserAction {
       final IconicResources res, final Provider<InvitationServiceAsync> invitationService) {
     super(stateManager, session, rightsManager, AccessRolDTO.Administrator, true, false, true,
         searchPanel, res, InvitationType.TO_LISTS, invitationService);
-    putValue(NAME, I18n.t("Invite [%s] users to this list", I18n.getSiteCommonName()));
+    putValue(NAME, I18n.t("Invite some other user of [%s] to this list", I18n.getSiteCommonName()));
     putValue(Action.SMALL_ICON, res.add());
   }
 

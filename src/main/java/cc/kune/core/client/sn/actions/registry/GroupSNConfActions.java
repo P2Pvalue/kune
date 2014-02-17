@@ -63,7 +63,7 @@ import com.google.inject.Provider;
 /**
  * You must call {@link GroupSNPresenter#refreshActions()} when adding some
  * action externally with.
- * 
+ *
  * {@link #add(cc.kune.common.client.actions.ui.descrip.GuiActionDescrip)}
  */
 
@@ -74,7 +74,7 @@ public class GroupSNConfActions extends AbstractSNActionsRegistry {
 
   /**
    * Instantiates a new group sn conf actions.
-   * 
+   *
    * @param session
    *          the session
    * @param stateManager
@@ -214,7 +214,7 @@ public class GroupSNConfActions extends AbstractSNActionsRegistry {
   /**
    * You must call {@link GroupSNPresenter#refreshActions()} when adding some
    * action externally with.
-   * 
+   *
    * @param action
    *          the action
    * @return true, if successful
@@ -227,7 +227,7 @@ public class GroupSNConfActions extends AbstractSNActionsRegistry {
 
   /**
    * Adds the impl.
-   * 
+   *
    * @param action
    *          the action
    * @return true, if successful

@@ -24,7 +24,6 @@
 package cc.kune.core.client.invitation;
 
 import cc.kune.common.client.actions.ui.descrip.MenuItemDescriptor;
-import cc.kune.common.shared.i18n.I18n;
 import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.sn.actions.GroupSNOptionsMenu;
 
@@ -33,9 +32,9 @@ import com.google.inject.Singleton;
 
 /**
  * The class ListInviteUserMenuItem. A menu item to invite users to a kune list.
- * 
+ *
  * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
- * 
+ *
  */
 
 @Singleton
@@ -48,7 +47,6 @@ public class ListInviteUserMenuItem extends MenuItemDescriptor {
   public ListInviteUserMenuItem(final ListInviteUserAction action, final IconicResources icons,
       final GroupSNOptionsMenu optionsMenu) {
     super(action);
-    withText(I18n.t("Invite [%s] users to this list", I18n.getSiteCommonName())).withIcon(icons.add());
   }
 
 }

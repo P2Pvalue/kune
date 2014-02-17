@@ -32,9 +32,7 @@ import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.rpcservices.InvitationServiceAsync;
 import cc.kune.core.client.sitebar.search.EntitySearchPanel;
 import cc.kune.core.client.sitebar.search.OnEntitySelectedInSearch;
-import cc.kune.core.client.state.AccessRightsClientManager;
-import cc.kune.core.client.state.Session;
-import cc.kune.core.client.state.StateManager;
+import cc.kune.core.client.state.*;
 import cc.kune.core.shared.domain.InvitationType;
 import cc.kune.core.shared.domain.utils.StateToken;
 import cc.kune.core.shared.dto.AbstractContentSimpleDTO;
@@ -46,9 +44,9 @@ import com.google.inject.Provider;
 /**
  * The class AbstractInviteUserAction. Abstracts the invitation of an existing
  * kune users to groups and lists
- * 
+ *
  * @author Antonio Tenorio Fornés <antoniotenorio@ucm.es>
- * 
+ *
  */
 public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
 
@@ -107,7 +105,7 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see
    * cc.kune.common.client.actions.ActionListener#actionPerformed(cc.kune.common
    * .client.actions.ActionEvent)
