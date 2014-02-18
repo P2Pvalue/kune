@@ -31,7 +31,7 @@ import cc.kune.core.client.state.impl.HistoryUtils;
 import cc.kune.core.client.ui.DefaultForm;
 import cc.kune.core.shared.CoreConstants;
 
-import com.extjs.gxt.ui.client.widget.form.TextField;
+import com.extjs.gxt.ui.client.widget.form.*;
 import com.google.inject.Singleton;
 
 // TODO: Auto-generated Javadoc
@@ -42,8 +42,44 @@ import com.google.inject.Singleton;
 public class UserFieldFactory {
 
   /**
+   * Creates a new TextField object for repeat password field.
+   *
+   * @param fieldId
+   *          the field id
+   * @param fieldText
+   *          the field text
+   * @param passwordField
+   *          the password field to compare with
+   * @return the text field< string>
+   *
+   */
+  public static TextField<String> createDupPasswd(final String fieldId, final String fieldText,
+      final TextField<String> passwordField) {
+    final TextField<String> dupPasswdRegField = new TextField<String>();
+    dupPasswdRegField.setFieldLabel(fieldText);
+    dupPasswdRegField.setName(fieldId);
+    dupPasswdRegField.setId(fieldId);
+    dupPasswdRegField.setWidth(DefaultForm.DEF_FIELD_WIDTH);
+    dupPasswdRegField.setPassword(true);
+    dupPasswdRegField.setAllowBlank(false);
+    dupPasswdRegField.setValidator(new Validator() {
+
+      @Override
+      public String validate(final Field<?> field, final String value) {
+        if (passwordField.getValue().equals(value)) {
+          return null;
+        } else {
+          return I18n.t("passwords do not match");
+        }
+      }
+    });
+    dupPasswdRegField.setValidationDelay(1000);
+    return dupPasswdRegField;
+  }
+
+  /**
    * Creates a new UserField object.
-   * 
+   *
    * @param fieldId
    *          the field id
    * @return the text field< string>
@@ -64,7 +100,7 @@ public class UserFieldFactory {
 
   /**
    * Creates a new UserField object.
-   * 
+   *
    * @param fieldId
    *          the field id
    * @return the text field< string>
@@ -89,7 +125,7 @@ public class UserFieldFactory {
 
   /**
    * Creates a new UserField object.
-   * 
+   *
    * @param fieldId
    *          the field id
    * @param fieldText
@@ -114,7 +150,7 @@ public class UserFieldFactory {
 
   /**
    * Creates a new UserField object.
-   * 
+   *
    * @param fieldId
    *          the field id
    * @return the text field< string>
@@ -143,7 +179,7 @@ public class UserFieldFactory {
 
   /**
    * Gets the register link.
-   * 
+   *
    * @return the register link
    */
   public static String getRegisterLink() {
@@ -152,7 +188,7 @@ public class UserFieldFactory {
 
   /**
    * Gets the register link.
-   * 
+   *
    * @param withText
    *          the with text
    * @param redirect
@@ -169,7 +205,7 @@ public class UserFieldFactory {
 
   /**
    * Gets the sign in link.
-   * 
+   *
    * @return the sign in link
    */
   public static String getSignInLink() {
@@ -178,7 +214,7 @@ public class UserFieldFactory {
 
   /**
    * Gets the sign in link.
-   * 
+   *
    * @param redirect
    *          the redirect
    * @return the sign in link

@@ -31,7 +31,7 @@ import com.extjs.gxt.ui.client.widget.form.TextField;
 // TODO: Auto-generated Javadoc
 /**
  * The Class RegisterForm.
- * 
+ *
  * @author vjrj@ourproject.org (Vicente J. Ruiz Jurado)
  */
 public class RegisterForm extends DefaultForm {
@@ -75,6 +75,9 @@ public class RegisterForm extends DefaultForm {
   /** The long name reg field. */
   private final TextField<String> longNameRegField;
 
+  /** The passw reg dup field */
+  private final TextField<String> passwdRegDupField;
+
   /** The passwd reg field. */
   private final TextField<String> passwdRegField;
 
@@ -83,7 +86,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Instantiates a new register form.
-   * 
+   *
    * @param i18n
    *          the i18n
    */
@@ -102,14 +105,19 @@ public class RegisterForm extends DefaultForm {
     passwdRegField.setTabIndex(3);
     add(passwdRegField);
 
+    passwdRegDupField = UserFieldFactory.createDupPasswd(PASSWORD_FIELD_DUP, i18n.t("Repeat password"),
+        passwdRegField);
+    passwdRegDupField.setTabIndex(4);
+    add(passwdRegDupField);
+
     emailRegField = UserFieldFactory.createUserEmail(EMAIL_FIELD);
-    emailRegField.setTabIndex(4);
+    emailRegField.setTabIndex(5);
     add(emailRegField);
   }
 
   /**
    * Gets the email.
-   * 
+   *
    * @return the email
    */
   public String getEmail() {
@@ -118,7 +126,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Gets the long name.
-   * 
+   *
    * @return the long name
    */
   public String getLongName() {
@@ -127,7 +135,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Gets the long name field.
-   * 
+   *
    * @return the long name field
    */
   public Field<String> getLongNameField() {
@@ -136,7 +144,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Gets the register password.
-   * 
+   *
    * @return the register password
    */
   public String getRegisterPassword() {
@@ -145,7 +153,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Gets the short name.
-   * 
+   *
    * @return the short name
    */
   public String getShortName() {
@@ -154,7 +162,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Gets the short name field.
-   * 
+   *
    * @return the short name field
    */
   public Field<String> getShortNameField() {
@@ -163,7 +171,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Sets the email failed.
-   * 
+   *
    * @param msg
    *          the new email failed
    */
@@ -173,7 +181,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Sets the long name failed.
-   * 
+   *
    * @param msg
    *          the new long name failed
    */
@@ -183,7 +191,7 @@ public class RegisterForm extends DefaultForm {
 
   /**
    * Sets the short name failed.
-   * 
+   *
    * @param msg
    *          the new short name failed
    */
