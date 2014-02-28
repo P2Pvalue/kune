@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 
 import javax.annotation.Nullable;
@@ -34,9 +34,10 @@ import org.mvel2.templates.TemplateRuntime;
 import org.mvel2.templates.util.TemplateTools;
 import org.waveprotocol.box.server.CoreSettings;
 
-import com.google.common.base.Function;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.MapMaker;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -46,7 +47,7 @@ import com.google.wave.splash.text.Markup;
 // TODO: Auto-generated Javadoc
 /**
  * Handles all our html templates, loading, parsing and processing them.
- * 
+ *
  * @author dhanji@gmail.com (Dhanji R. Prasanna)
  */
 @Singleton
@@ -89,20 +90,21 @@ public class Templates {
   private final boolean productionMode = true;
   /**
    * file name of template -> compiled template lazy cache.
-   * 
-   * FIXME: For new versions of guava
-   * http://code.google.com/p/guava-libraries/wiki/MapMakerMigration
+   *
    */
-  private final ConcurrentMap<String, CompiledTemplate> templates = new MapMaker().makeComputingMap(new Function<String, CompiledTemplate>() {
-    @Override
-    public CompiledTemplate apply(@Nullable final String template) {
-      return loadTemplate(template);
-    }
-  });
+  private final LoadingCache<String, CompiledTemplate> templates = (LoadingCache<String, CompiledTemplate>) CacheBuilder
+      .newBuilder().build(new CacheLoader<String, CompiledTemplate>() {
+
+        @Override
+        public CompiledTemplate load(@Nullable final String template) throws Exception {
+          return loadTemplate(template);
+        }
+
+      });
 
   /**
    * Instantiates a new templates.
-   * 
+   *
    * @param markup
    *          the markup
    * @param resourceBases
@@ -126,7 +128,7 @@ public class Templates {
 
   /**
    * Load template.
-   * 
+   *
    * @param template
    *          the template
    * @return the compiled template
@@ -151,7 +153,7 @@ public class Templates {
 
   /**
    * Opens a packaged resource from the file system.
-   * 
+   *
    * @param file
    *          The name of the file/resource to open.
    * @return An {@linkplain InputStream} to the named file, if found
@@ -172,7 +174,7 @@ public class Templates {
 
   /**
    * Loads templates if necessary.
-   * 
+   *
    * @param template
    *          Name of the template file. example: "blip.html.fragment"
    * @param context
@@ -181,8 +183,12 @@ public class Templates {
    */
   public String process(final String template, final Object context) {
     // Reload template each time for development mode.
-    final CompiledTemplate compiledTemplate = productionMode ? templates.get(template)
-        : loadTemplate(template);
+    CompiledTemplate compiledTemplate = null;
+    try {
+      compiledTemplate = productionMode ? templates.get(template) : loadTemplate(template);
+    } catch (ExecutionException e) {
+      LOG.warning("Error loading template from LoadingCache");
+    }
 
     final Map<String, Object> vars = Maps.newHashMap();
     vars.put("markup", markup);
