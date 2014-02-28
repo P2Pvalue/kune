@@ -116,8 +116,8 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
     Preconditions.checkNotNull(waveletName);
     Preconditions.checkNotNull(participantId);
 
-    @SuppressWarnings("deprecation")
-    final ListenableFutureTask<Void> task = new ListenableFutureTask<Void>(new Callable<Void>() {
+    final ListenableFutureTask<Void> task = ListenableFutureTask
+        .<Void> create(new Callable<Void>() {
 
       @Override
       @KuneTransactional
@@ -144,8 +144,9 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
       final ParticipantId participantId) {
     Preconditions.checkNotNull(waveletName);
     Preconditions.checkNotNull(participantId);
-    @SuppressWarnings("deprecation")
-    final ListenableFutureTask<Void> task = new ListenableFutureTask<Void>(new Callable<Void>() {
+
+    final ListenableFutureTask<Void> task = ListenableFutureTask
+        .<Void> create(new Callable<Void>() {
 
       @Override
       @KuneTransactional
@@ -184,8 +185,9 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
     } catch (final WaveServerException e) {
       LOG.error("Failed to initialize index for " + waveletName, e);
     }
-    @SuppressWarnings("deprecation")
-    final ListenableFutureTask<Void> task = new ListenableFutureTask<Void>(new Callable<Void>() {
+
+    final ListenableFutureTask<Void> task = ListenableFutureTask
+        .<Void> create(new Callable<Void>() {
       @Override
       public Void call() throws Exception {
         return null;

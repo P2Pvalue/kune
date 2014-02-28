@@ -30,7 +30,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 
 import org.apache.commons.configuration.ConfigurationException;
-import org.eclipse.jetty.servlets.ProxyServlet;
+import org.eclipse.jetty.proxy.ProxyServlet;
 import org.waveprotocol.box.common.comms.WaveClientRpc.ProtocolWaveClientRpc;
 import org.waveprotocol.box.server.CoreSettings;
 import org.waveprotocol.box.server.ServerModule;
@@ -130,8 +130,8 @@ public class CustomServerMain {
         @Named(CoreSettings.GADGET_SERVER_PORT) int gadgetServerPort){
 
       LOG.info("Starting GadgetProxyServlet for " + gadgetServerHostname + ":" + gadgetServerPort);
-      proxyServlet = new ProxyServlet.Transparent("/gadgets", "http", gadgetServerHostname,
-          gadgetServerPort,"/gadgets");
+      proxyServlet = new ProxyServlet.Transparent("http://" + gadgetServerHostname + ":"
+          + gadgetServerPort, "/gadgets");
     }
 
     /* (non-Javadoc)
@@ -285,7 +285,8 @@ public class CustomServerMain {
   private static void initializeServlets(Injector injector, ServerRpcProvider server) {
     // See exclude list in {@link KuneRackModule}
     server.addServlet("/gadget/gadgetlist", injector.getInstance(CustomGadgetProviderServlet.class));
-    server.addServlet("/attachment/*", injector.getInstance(AttachmentServlet.class));
+    // server.addServlet("/attachment/*",
+    // injector.getInstance(AttachmentServlet.class));
     server.addServlet(AttachmentServlet.ATTACHMENT_URL + "/*", injector.getInstance(AttachmentServlet.class));
     server.addServlet(AttachmentServlet.THUMBNAIL_URL + "/*", injector.getInstance(AttachmentServlet.class));
     server.addServlet(AttachmentInfoServlet.ATTACHMENTS_INFO_URL, injector.getInstance(AttachmentInfoServlet.class));
