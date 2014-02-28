@@ -51,7 +51,6 @@ import cc.kune.core.server.rack.dock.Dock;
 import cc.kune.core.server.rack.dock.RequestMatcher;
 import cc.kune.core.server.rack.utils.RackHelper;
 import cc.kune.core.server.scheduler.CustomJobFactory;
-import cc.kune.core.server.searcheable.SearchEngineServletFilter;
 import cc.kune.wave.server.search.CustomPerUserWaveViewHandlerImpl;
 
 import com.google.gwt.logging.server.RemoteLoggingServiceImpl;
@@ -185,9 +184,12 @@ public class RackServletFilter implements Filter {
       @Override
       public void configure(final Binder binder) {
         // Here, other objects that are not register in Rack
-        binder.bind(SearchEngineServletFilter.class).toInstance(
-            (SearchEngineServletFilter) filterConfig.getServletContext().getAttribute(
-                SearchEngineServletFilter.SEARCH_ENGINE_FILTER_ATTRIBUTE));
+        /*
+         * binder.bind(SearchEngineServletFilter.class).toInstance(
+         * (SearchEngineServletFilter)
+         * filterConfig.getServletContext().getAttribute(
+         * SearchEngineServletFilter.SEARCH_ENGINE_FILTER_ATTRIBUTE));
+         */
       }
     };
 
