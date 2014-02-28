@@ -4,14 +4,16 @@
   <groupId>cc.kune</groupId>
   <artifactId>kune</artifactId>
   <packaging>jar</packaging>
-  <version>0.3.0-SNAPSHOT</version>
+  <version>0.1.0-p2pv-SNAPSHOT</version>
   <name>kune</name>
   <description>kune free/open/libre collaboration platform</description>
-  <url>http://kune.ourproject.org</url>
+  <url>http://kune.ourproject.org</url> 
+  <!--  
   <ciManagement>
     <url>http://ci.comunes.org/job/kune/</url>
     <system>Hudson</system>
   </ciManagement>
+  -->
   <properties>
     <!-- Available versions: http://repo1.maven.org/maven2/com/google/gwt/gwt-dev/ -->
     <gwt.version>2.5.1</gwt.version>
@@ -23,8 +25,8 @@
     <slf4j.version>1.6.1</slf4j.version>
     <openjpa.version>2.0.1</openjpa.version>
     <hibernate.version>4.1.2.Final</hibernate.version>
-    <wiab.version>0.3.45</wiab.version>
-    <jetty.version>9.1.1.v20140108</jetty.version>
+    <wiab.version>0.1.0-p2pv-SNAPSHOT</wiab.version>
+    <jetty.version>9.1.1.v20140108</jetty.version>  
     <skipTests>true</skipTests>
   </properties>
   <repositories>
@@ -461,7 +463,10 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava-gwt</artifactId>
-      <version>15.0</version>
+      <!-- Needs some migration
+      http://code.google.com/p/guava-libraries/wiki/MapMakerMigration -->
+      <version>15.0</version> 
+      <!--  <version>r09</version> -->
     </dependency>
     <dependency>
       <groupId>com.google.gxp</groupId>
