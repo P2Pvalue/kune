@@ -31,8 +31,8 @@
   </properties>
   <repositories>
     <repository>
-      <id>comunes-internal</id>
-      <url>http://archiva.comunes.org/repository/comunes-internal/</url>
+      <id>libs-release</id>
+      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/libs-release/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -41,9 +41,8 @@
       </snapshots>
     </repository>
     <repository>
-      <id>comunes-snapshots</id>
-      <name>Comunes Archiva Snapshot Repository</name>
-      <url>http://archiva.comunes.org/repository/comunes-snapshots/</url>
+      <id>libs-snapshot</id>
+      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/libs-snapshot/</url>
       <releases>
         <enabled>false</enabled>
       </releases>
@@ -54,21 +53,14 @@
   </repositories>
   <pluginRepositories>
     <pluginRepository>
-      <id>comunes-internal</id>
-      <name>Comunes Archiva Internal Repository</name>
-      <url>http://archiva.comunes.org/repository/comunes-internal/</url>
+      <id>plugins-release</id>
+      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/plugins-release/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-    </pluginRepository>
-    <pluginRepository>
-      <id>gwt-plugin-repo</id>
-      <url>http://google-web-toolkit.googlecode.com/svn/2.1.0/gwt/maven/
-      </url>
-      <name>Google Web Toolkit Plugin Repository</name>
     </pluginRepository>
   </pluginRepositories>
   <dependencies>
