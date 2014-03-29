@@ -30,6 +30,53 @@
     <skipTests>true</skipTests>
   </properties>
   <repositories>
+
+    <repository>
+      <id>p2pvalue-snapshot</id>
+      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/p2pvalue-snapshot</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>ext-release-local</id>
+      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/ext-release-local</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+
+    <repository>
+      <id>ext-snapshot-local</id>
+      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/ext-snapshot-local</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+
+
+    <repository>
+      <id>remote-repos</id>
+      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/remote-repos</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+
+
+<!--
     <repository>
       <id>libs-release</id>
       <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/libs-release/</url>
@@ -50,6 +97,7 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+-->
   </repositories>
   <pluginRepositories>
     <pluginRepository>
@@ -167,12 +215,16 @@
       <version>2.0.0</version>
     </dependency>
     <!-- FIXME Try to remove this dependency -->
+
     <dependency>
       <groupId>org.adamtacy</groupId>
       <artifactId>gwt-fx</artifactId>
       <scope>provided</scope>
       <version>r464</version>
-    </dependency>
+   
+   </dependency>
+
+
     <!-- cc -->
     <dependency>
       <groupId>com.allen-sauer.gwt.voices</groupId>
@@ -195,7 +247,7 @@
     <dependency>
       <groupId>jmagick</groupId>
       <artifactId>jmagick</artifactId>
-      <version>6.2.6-0</version>
+      <version>6.2.4</version>
     </dependency>
     <!-- xmpp -->
     <dependency>
@@ -643,11 +695,13 @@
       <classifier>2.1.0</classifier>
       <scope>provided</scope>
     </dependency>
+  
     <dependency>
       <groupId>com.googlecode</groupId>
       <artifactId>gwtrpccommlayer</artifactId>
-      <version>0.0.1</version>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
+  
     <!-- jetty -->
     <!-- <dependency> -->
     <!-- <groupId>org.eclipse.jetty</groupId> -->
