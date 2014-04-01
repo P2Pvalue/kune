@@ -1,17 +1,4 @@
 language: java
 jdk:
   - openjdk6
-before_install:
-  - cp src/main/resources/kune-dev.properties src/main/resources/kune.properties
-  - mysql -e "CREATE DATABASE kune_dev;"
-  - mysql -e "CREATE DATABASE kune_test;"
-  - mysql -u root -e "GRANT ALL PRIVILEGES ON kune_dev.* TO kune@localhost IDENTIFIED BY 'db4kune';"
-  - mysql -u root -e "GRANT ALL PRIVILEGES ON kune_test.* TO kune@localhost IDENTIFIED BY 'db4kune';"
-  - mysql -e "FLUSH PRIVILEGES;"
-  - mysql -e "ALTER DATABASE kune_dev CHARACTER SET utf8 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin DEFAULT COLLATE utf8_bin;"
-  - mysql -e "ALTER DATABASE kune_test CHARACTER SET utf8 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin DEFAULT COLLATE utf8_bin;"
-  - mvn compile -Dliquibase.should.run=false
-  - mysql -u root kune_dev < src/main/resources/db/kune_initialize.sql
-  - mysql -u root kune_test < src/main/resources/db/kune_initialize.sql
-  - bin/liquibase-migrate.sh
 script: mvn assembly:assembly -P production
