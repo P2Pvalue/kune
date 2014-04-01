@@ -1,5 +1,8 @@
 language: java
 jdk:
   - openjdk6
+before_install:
+  - mysql -e "CREATE DATABASE kune_dev;"
+  - mysql -u root -e "GRANT ALL PRIVILEGES ON kune_dev.* TO kune@localhost IDENTIFIED BY 'db4kune';"
 install: true
 script: mvn assembly:assembly -P production
