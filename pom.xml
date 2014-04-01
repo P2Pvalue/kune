@@ -30,53 +30,6 @@
     <skipTests>true</skipTests>
   </properties>
   <repositories>
-
-    <repository>
-      <id>p2pvalue-snapshot</id>
-      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/p2pvalue-snapshot</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>ext-release-local</id>
-      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/ext-release-local</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-
-    <repository>
-      <id>ext-snapshot-local</id>
-      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/ext-snapshot-local</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-
-
-    <repository>
-      <id>remote-repos</id>
-      <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/remote-repos</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-
-
-<!--
     <repository>
       <id>libs-release</id>
       <url>http://grasia.fdi.ucm.es/p2pvalue/artifactory/libs-release/</url>
@@ -97,7 +50,6 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
--->
   </repositories>
   <pluginRepositories>
     <pluginRepository>
