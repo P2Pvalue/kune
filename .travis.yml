@@ -14,3 +14,4 @@ before_install:
   - mysql -u root kune_dev < src/main/resources/db/kune_initialize.sql
   - mysql -u root kune_test < src/main/resources/db/kune_initialize.sql
   - bin/liquibase-migrate.sh
+script: mvn assembly:assembly -P production
