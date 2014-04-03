@@ -13,6 +13,7 @@ Options:
 -l LOGLEVEL : IGNORE|DEBUG|INFO|WARN
 -x: -Xmx memory value
 -m: -Xms memory value
+-c: Remote JMX console
 
 Debug Options:
 -d: debug
@@ -42,12 +43,13 @@ SUSPEND="n"
 DEBUG=""
 DEBUG_PORT=""
 LOG_LEVEL="INFO"
-LOGFILE=/var/log/kune/kune.log
+LOGFILE=/var/log/kune/console.log
 PIDFILE=/var/run/kune.pid
 MX=""
 MS=""
+JMX=""
 
-while getopts “hm:x:j:k:w:s:up:l:da” OPTION
+while getopts “hm:x:j:k:w:s:up:l:dac” OPTION
 do
     case $OPTION in
         h)
@@ -94,6 +96,9 @@ do
         d)
             DEBUG="y"
             ;;
+        c)
+            JMX="y"
+            ;;
         ?)
             usage
             exit
@@ -110,6 +115,17 @@ fi
 if [[ -n $DEBUG ]]
 then
     DEBUG_FLAGS=-Xrunjdwp:transport=dt_socket,server=y,suspend=$SUSPEND$DEBUG_PORT
+fi
+
+if [[ -n $JMX ]]
+then
+    JMX="-Dcom.sun.management.jmxremote=true \
+         -Dcom.sun.management.jmxremote.port=9009 \
+         -Dcom.sun.management.jmxremote.ssl=false \
+         -Dcom.sun.management.jmxremote.authenticate=false \
+         -Djava.rmi.server.hostname=localhost" 
+#         -Dcom.sun.management.jmxremote.password.file=${KUNE_HOME}/jmxremote.password \
+#         -Dcom.sun.management.jmxremote.password.file=${KUNE_HOME}/jmxremote.access"
 fi
 
 if [[ -z $JAR ]] 
@@ -129,6 +145,7 @@ else
             -Djava.awt.headless=true \
             $MS \
 	    $MX \
+            $JMX \
 	    -jar $JAR >> $LOGFILE 2>> $LOGFILE &
     else
 	exec java $DEBUG_FLAGS \
@@ -140,6 +157,7 @@ else
             -Djava.awt.headless=true \
             $MS \
 	    $MX \
+            $JMX \
 	    -jar $JAR >> $LOGFILE 2>> $LOGFILE
     fi
 fi
