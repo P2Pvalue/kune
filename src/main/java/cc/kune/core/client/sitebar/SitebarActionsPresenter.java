@@ -110,6 +110,9 @@ public class SitebarActionsPresenter extends
   /** The my groups menu. */
   private final Provider<MyGroupsMenu> myGroupsMenu;
 
+  /** The my personal page link. */
+  private final Provider<SitebarGotoPersonalPageLink> myPersonalPageLink;
+
   /** The new group link. */
   private final Provider<SitebarNewGroupLink> newGroupLink;
 
@@ -156,7 +159,8 @@ public class SitebarActionsPresenter extends
       final SitebarActionsProxy proxy, final I18nTranslationService i18n,
       final Provider<SitebarNewGroupLink> newGroupLink, final Provider<SitebarSignOutLink> signOutLink,
       final Provider<SitebarSignInLink> signInLink, final CoreResources res,
-      final IconicResources icons, final Provider<MyGroupsMenu> myGroupsMenu, final Session session) {
+      final IconicResources icons, final Provider<MyGroupsMenu> myGroupsMenu,
+      final Provider<SitebarGotoPersonalPageLink> myPersonalPageLink, final Session session) {
     super(eventBus, view, proxy);
     this.i18n = i18n;
     this.newGroupLink = newGroupLink;
@@ -164,6 +168,7 @@ public class SitebarActionsPresenter extends
     this.signInLink = signInLink;
     this.icons = icons;
     this.myGroupsMenu = myGroupsMenu;
+    this.myPersonalPageLink = myPersonalPageLink;
     this.res = res;
     this.session = session;
     init();
@@ -267,6 +272,7 @@ public class SitebarActionsPresenter extends
     signInLink.get();
     myGroupsMenu.get();
     newGroupLink.get();
+    myPersonalPageLink.get();
     createGotoKune();
     MenuItemDescriptor.build(MORE_MENU, faqAction);
     MenuItemDescriptor.build(MORE_MENU, bugsAction);
