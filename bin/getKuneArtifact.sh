@@ -5,7 +5,7 @@ REPO=p2pvalue-snapshot
 GROUP=cc/kune
 
 DIR=`dirname $0`
-VERSION=`$DIR/kune-version`
+VERSION=`cd $DIR/.. && bin/kune-version`
 
 VERSION_PATH="$SERVER/$REPO/$GROUP/kune-$VERSION-complete/$VERSION"
 
