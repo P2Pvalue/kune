@@ -58,16 +58,16 @@ public class ShareInIdenticaMenuItem extends AbstractShareInSocialNetMenuItem {
    */
   @Inject
   public ShareInIdenticaMenuItem(final AbstractShareInSocialNetAction action,
-      final IconicResources iconic, final Session session, final ContentViewerShareMenu menu,
+      final IconicResources iconic, final Session session, final ShareMenu menu,
       final I18nTranslationService i18n) {
     super(action, session, menu, i18n.t("Share this in identi.ca"), iconic.identica(),
         ClientFormattedString.build(
             false,
             URL_TEMPLATE,
             URL.encodeQueryString("#"
-                + ShareInSocialNetUtils.getTitle(session)
+                + ShareInHelper.getTitle(session)
                 + " "
-                + ShareInSocialNetUtils.getCurrentUrl(session)
+                + ShareInHelper.getCurrentUrl(session)
                 + " "
                 + i18n.tWithNT("via [%s]", "used in references 'something via @someone'",
                     i18n.getSiteCommonName()))));

@@ -1,7 +1,54 @@
+kune (0.3.0+b43) unstable; urgency=low
+
+  * Gadget proxy fixed
+  * Core updated to 1.7
+  * KuneOpenfireAuth command line options and updated libs.
+
+ -- Vicente J. Ruiz Jurado <vjrj@ourproject.org>  Mon, 07 Apr 2014 14:48:24 +0200
+
+kune (0.3.0+b42) unstable; urgency=low
+
+  * Fix for #582. It solves issues with Custom Wave Search and Initials Profiler
+  * Disabled /auth/register (#577)
+
+ -- Vicente J. Ruiz Jurado <vjrj@ourproject.org>  Thu, 27 Mar 2014 19:19:01 +0100
+
+kune (0.3.0+b41) unstable; urgency=low
+
+  * Wave updated.
+  * Jetty updated to 9.1.1. 
+  * Intials avatars.
+
+ -- Vicente J. Ruiz Jurado <vjrj@ourproject.org>  Wed, 26 Mar 2014 11:44:24 +0100
+
+kune (0.3.0+b40) unstable; urgency=low
+
+  * Added an embed doc action to Share menu (#561)
+  * Several fixes for #561
+  * Fix for lists subscriptors group list mode (#550)
+  * Removed singleton for list and admin members (#550)
+
+ -- Vicente J. Ruiz Jurado <vjrj@ourproject.org>  Thu, 06 Mar 2014 13:11:08 +0100
+
+kune (0.3.0+b39) unstable; urgency=low
+
+  * Add 'Show in ui devel features' property and Mbean
+  * Several bug fixes for #550
+  * Some more share in social network options (closes #391, and more work in #550)
+  * Some minor fix in embed system
+  * Intercept all a href links so don't open another window/tab for local #links (closes #366)
+
+ -- Vicente J. Ruiz Jurado <vjrj@ourproject.org>  Tue, 18 Feb 2014 11:27:26 +0100
+
 kune (0.3.0+b38) unstable; urgency=low
+
+  [ Vicente J. Ruiz Jurado ]
   * Merge of share dialog (wip of #550)
   * More work in #561 to embed waves (jsni export improved, clientdownutils 
     singleton, removed server logs)
+
+  [Antonio Tenorio Fornés]
+  * Invite kune users to groups/list. Partial work for enhancement #467 
 
  -- Vicente J. Ruiz Jurado <vjrj@ourproject.org>  Mon, 16 Dec 2013 15:47:59 +0100
 

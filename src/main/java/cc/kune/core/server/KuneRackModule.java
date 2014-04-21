@@ -1,5 +1,6 @@
 /*
  *
+
  * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
  * one or more contributor license agreements (see COPYRIGHT for details).
  * The CA licenses this file to you under the GNU Affero General Public
@@ -22,8 +23,7 @@
  */
 package cc.kune.core.server;
 
-import static com.google.inject.matcher.Matchers.annotatedWith;
-import static com.google.inject.matcher.Matchers.any;
+import static com.google.inject.matcher.Matchers.*;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -35,6 +35,7 @@ import org.waveprotocol.box.server.rpc.AttachmentServlet;
 import cc.kune.barters.server.BarterServerModule;
 import cc.kune.blogs.server.BlogServerModule;
 import cc.kune.chat.server.ChatServerModule;
+import cc.kune.common.shared.i18n.I18n;
 import cc.kune.core.client.rpcservices.ContentService;
 import cc.kune.core.client.rpcservices.GroupService;
 import cc.kune.core.client.rpcservices.I18nService;
@@ -79,8 +80,12 @@ import cc.kune.lists.client.rpc.ListsService;
 import cc.kune.lists.server.ListsServerModule;
 import cc.kune.tasks.server.TaskServerModule;
 import cc.kune.trash.server.TrashServerModule;
+import cc.kune.wave.server.CustomInitialsProfilesFetcher;
+import cc.kune.wave.server.CustomInitialsProfilesFetcherImpl;
 import cc.kune.wave.server.kspecific.KuneWaveServerUtils;
 import cc.kune.wave.server.kspecific.WaveEmailNotifier;
+import cc.kune.wave.server.search.CustomPerUserWaveViewHandler;
+import cc.kune.wave.server.search.CustomPerUserWaveViewHandlerImpl;
 import cc.kune.wiki.server.WikiServerModule;
 
 import com.google.inject.AbstractModule;
@@ -138,6 +143,7 @@ public class KuneRackModule implements RackModule {
         requestStaticInjection(KuneWaveServerUtils.class);
         requestStaticInjection(EventsServerConversionUtil.class);
         requestStaticInjection(GroupServerUtils.class);
+        requestStaticInjection(I18n.class);
       }
     };
   }
@@ -198,6 +204,7 @@ public class KuneRackModule implements RackModule {
     builder.exclude("/socket");
     builder.exclude("/static/.*");
     builder.exclude("/webclient/.*");
+    builder.exclude("/initials/.*");
 
     // builder.at(".*").install(new LogFilter());
     builder.at(".*").install(new GuiceFilter());
@@ -252,8 +259,10 @@ public class KuneRackModule implements RackModule {
         final KuneJpaLocalTxnInterceptor kuneJpaTxnInterceptor = kuneDataSource.getTransactionInterceptor();
         // Warning: parent instances (like Wave classes) are not intercepted
         // See: http://code.google.com/p/google-guice/issues/detail?id=461
+        // and https://code.google.com/p/google-guice/issues/detail?id=390
         bindInterceptor(annotatedWith(KuneTransactional.class), any(), kuneJpaTxnInterceptor);
         bindInterceptor(any(), annotatedWith(KuneTransactional.class), kuneJpaTxnInterceptor);
+        bindInterceptor(any(), annotatedWith(TestChildInterception.class), new TestChildInterceptor());
         filter("/*").through(DataSourceKunePersistModule.MY_DATA_SOURCE_ONE_FILTER_KEY);
         if (!kuneProperties.getBoolean(KuneProperties.SITE_OPENFIRE_IGNORE)) {
           final OpenfireJpaLocalTxnInterceptor openfireJpaTxnInterceptor = openfireDataSource.getTransactionInterceptor();
@@ -261,6 +270,14 @@ public class KuneRackModule implements RackModule {
           bindInterceptor(any(), annotatedWith(OpenfireTransactional.class), openfireJpaTxnInterceptor);
           filter("/*").through(DataSourceOpenfirePersistModule.MY_DATA_SOURCE_TWO_FILTER_KEY);
         }
+
+        // As parent instances are not intercepted by Guice AOP we have to use
+        // the delegation pattern with a child so Wave instances are binded in
+        // the kune child injector (and intercepted)
+        bind(CustomPerUserWaveViewHandlerImpl.class).in(Singleton.class);
+        requestStaticInjection(CustomPerUserWaveViewHandler.class);
+        bind(CustomInitialsProfilesFetcherImpl.class).in(Singleton.class);
+        requestStaticInjection(CustomInitialsProfilesFetcher.class);
         super.configureServlets();
       }
     });

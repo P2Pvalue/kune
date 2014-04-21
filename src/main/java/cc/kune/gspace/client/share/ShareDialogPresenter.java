@@ -22,6 +22,9 @@ package cc.kune.gspace.client.share;
  * The Class ShareDialogPresenter, allows to set up how a content is shared to others
  */
 
+import java.util.List;
+
+import cc.kune.common.client.log.Log;
 import cc.kune.common.shared.utils.SimpleCallback;
 import cc.kune.core.client.events.StateChangedEvent;
 import cc.kune.core.client.events.StateChangedEvent.StateChangedHandler;
@@ -154,6 +157,9 @@ public class ShareDialogPresenter extends
           if (cnt instanceof StateContentDTO) {
             final StateContentDTO content = (StateContentDTO) cnt;
             if (content.isWave()) {
+              final List<String> parts = content.getWaveParticipants();
+              Log.debug("Share Dialog: trying to add: " + groupName + " to part. list: "
+                  + parts.toString());
               contentService.get().addParticipant(cnt.getStateToken(), groupName, onAdd);
             }
           }
@@ -185,15 +191,17 @@ public class ShareDialogPresenter extends
 
     final AccessListsDTO acl = cnt.getAccessLists();
     final GroupDTO currentGroup = cnt.getGroup();
+    final String currentUser = session.getCurrentUser().getShortName();
     if (cnt instanceof StateContentDTO) {
       final StateContentDTO content = (StateContentDTO) cnt;
       if (content.isWave()) {
-        helper.setState(currentGroup, acl, typeId, content.getParticipants());
+        helper.setState(currentGroup, currentUser, acl, typeId, content.getWaveCreator(),
+            content.getWaveParticipants());
       } else {
-        helper.setState(currentGroup, acl, typeId);
+        helper.setState(currentGroup, currentUser, acl, typeId);
       }
     } else {
-      helper.setState(currentGroup, acl, typeId);
+      helper.setState(currentGroup, currentUser, acl, typeId);
     }
     shareToNetView.get().setLinkToShare(StateTokenUtils.getGroupSpaceUrl(session.getCurrentStateToken()));
     getView().show();

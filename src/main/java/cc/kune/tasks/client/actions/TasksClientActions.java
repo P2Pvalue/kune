@@ -48,12 +48,9 @@ import cc.kune.gspace.client.actions.WriteToParticipantsMenuItem;
 import cc.kune.gspace.client.actions.share.AddAdminMembersToContentMenuItem;
 import cc.kune.gspace.client.actions.share.AddAllMembersToContentMenuItem;
 import cc.kune.gspace.client.actions.share.AddCollabMembersToContentMenuItem;
-import cc.kune.gspace.client.actions.share.ContentViewerShareMenu;
 import cc.kune.gspace.client.actions.share.ShareDialogMenuItem;
-import cc.kune.gspace.client.actions.share.ShareInFacebookMenuItem;
-import cc.kune.gspace.client.actions.share.ShareInGPlusMenuItem;
-import cc.kune.gspace.client.actions.share.ShareInIdenticaMenuItem;
-import cc.kune.gspace.client.actions.share.ShareInTwitterMenuItem;
+import cc.kune.gspace.client.actions.share.ShareInHelper;
+import cc.kune.gspace.client.actions.share.ShareMenu;
 import cc.kune.trash.shared.TrashToolConstants;
 
 import com.google.inject.Inject;
@@ -77,7 +74,7 @@ public class TasksClientActions extends AbstractFoldableToolActions {
       final Provider<MarkAsNotDoneTaskMenuItem> marksAsNotDoneMenuItem,
       final Provider<RefreshContentMenuItem> refresh,
       final Provider<ContentViewerOptionsMenu> optionsMenuContent,
-      final Provider<ContentViewerShareMenu> shareMenuContent,
+      final Provider<ShareMenu> shareMenuContent,
       final Provider<ParticipateInContentBtn> participateBtn, final Provider<TutorialBtn> tutorialBtn,
       final Provider<DelTaskMenuItem> delContentMenuItem,
       final Provider<AddAllMembersToContentMenuItem> addAllMenuItem,
@@ -93,11 +90,7 @@ public class TasksClientActions extends AbstractFoldableToolActions {
       final Provider<DelFolderMenuItem> delFolderMenuItem,
       final Provider<MoveContentMenuItem> moveContentMenuItem,
       final Provider<SetAsHomePageMenuItem> setAsHomePage,
-      final Provider<ShareDialogMenuItem> shareSettings,
-      final Provider<ShareInTwitterMenuItem> shareInTwitter,
-      final Provider<ShareInGPlusMenuItem> shareInGPlus,
-      final Provider<ShareInIdenticaMenuItem> shareInIdentica,
-      final Provider<ShareInFacebookMenuItem> shareInFacebook) {
+      final Provider<ShareDialogMenuItem> shareSettings, final ShareInHelper shareIHelper) {
     super(TOOL_NAME, session, registry);
     add(TOPBAR, all, optionsMenuContent);
     add(TOPBAR, all, refresh);
@@ -112,10 +105,10 @@ public class TasksClientActions extends AbstractFoldableToolActions {
     add(BOTTOMBAR, containers, folderGoUp);
     add(TOPBAR, all, tutorialBtn);
     add(TOPBAR, all, shareMenuContent);
-    add(TOPBAR, contents, addAllMenuItem, addAdminMembersMenuItem, addCollabMembersMenuItem,
-        shareSettings);
-    add(TOPBAR, all, shareInTwitter, shareInGPlus);
-    add(TOPBAR, contents, participateBtn, chatAbout, copyContent, writeToParticipants);
+    add(TOPBAR, contents, addAllMenuItem, addAdminMembersMenuItem, addCollabMembersMenuItem);
+    add(TOPBAR, contents, shareIHelper.getShareInWaves());
+    add(TOPBAR, all, shareIHelper.getShareInAll());
+    add(TOPBAR, contents, shareSettings, participateBtn, chatAbout, copyContent, writeToParticipants);
     add(ITEM_MENU, contents, openContentMenuItem, moveContentMenuItem);
     add(ITEM_MENU, containersNoRoot, openContentMenuItem, moveContentMenuItem);
     add(TOOL_NAME, ITEM_MENU, marksAsDoneMenuItem, ContentStatus.publishedOnline, TYPE_TASK);

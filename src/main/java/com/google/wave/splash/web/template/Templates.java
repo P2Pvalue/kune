@@ -26,13 +26,14 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 
-import javax.annotation.Nullable;
-
 import org.mvel2.templates.CompiledTemplate;
 import org.mvel2.templates.TemplateCompiler;
 import org.mvel2.templates.TemplateRuntime;
 import org.mvel2.templates.util.TemplateTools;
 import org.waveprotocol.box.server.CoreSettings;
+
+
+import cc.kune.common.client.log.Log;
 
 import com.google.common.base.Preconditions;
 import com.google.common.cache.CacheBuilder;
@@ -90,16 +91,17 @@ public class Templates {
   private final boolean productionMode = true;
   /**
    * file name of template -> compiled template lazy cache.
-   *
+   * 
+   * FIXME: For new versions of guava
+   * http://code.google.com/p/guava-libraries/wiki/MapMakerMigration
    */
-  private final LoadingCache<String, CompiledTemplate> templates = (LoadingCache<String, CompiledTemplate>) CacheBuilder
-      .newBuilder().build(new CacheLoader<String, CompiledTemplate>() {
 
+  private final LoadingCache<String, CompiledTemplate> templates = CacheBuilder.newBuilder().build(
+      new CacheLoader<String, CompiledTemplate>() {
         @Override
-        public CompiledTemplate load(@Nullable final String template) throws Exception {
-          return loadTemplate(template);
+        public CompiledTemplate load(final String key) throws Exception {
+          return loadTemplate(key);
         }
-
       });
 
   /**
@@ -186,8 +188,8 @@ public class Templates {
     CompiledTemplate compiledTemplate = null;
     try {
       compiledTemplate = productionMode ? templates.get(template) : loadTemplate(template);
-    } catch (ExecutionException e) {
-      LOG.warning("Error loading template from LoadingCache");
+    } catch (final ExecutionException e) {
+      Log.error("Cannot process the template: ", e);
     }
 
     final Map<String, Object> vars = Maps.newHashMap();

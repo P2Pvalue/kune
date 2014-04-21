@@ -1353,7 +1353,8 @@ button.k-aurorisColorPicker-btn {
   margin: 10px 0 5px;
 }
 
-div.k-aurorisColorPicker table tbody tr td table tbody tr td div.gwt-HTML {
+div.k-aurorisColorPicker table tbody tr td table tbody tr td div.gwt-HTML
+  {
   margin: 2px;
 }
 
@@ -1374,7 +1375,6 @@ div.k-aurorisColorPicker table tbody tr td table tbody tr td div.gwt-HTML {
 }
 
 /* Share dialog */
-
 .k-sharelist-title {
   font-size: 14px;
   font-weight: bold;
@@ -1404,7 +1404,6 @@ div.k-shareitem {
   margin: 5px 0 0 0;
 }
 
-
 div.k-shareitem div.k-iconlabel {
   padding-left: 5px;
   overflow: hidden;
@@ -1425,6 +1424,12 @@ div.k-shareitem div.k-iconlabel {
   cursor: default;
 }
 
+button.k-share-item-noactions, button:disabled.k-share-item-noactions {
+  color: #999 !important;
+  border: 0px;
+  background: transparent;
+}
+
 .k-share-others {
   margin-top: 5px;
   background-color: #f2f2f2;
@@ -1432,15 +1437,15 @@ div.k-shareitem div.k-iconlabel {
   color: #aa4400;
 }
 
-.k-share-searchbox, .k-sharelink-box {
+.k-share-searchbox,.k-sharelink-box {
   float: left;
 }
 
 input.k-sharelink-box {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
-.k-share-searchbox input, input.k-sharelink-box {
+.k-share-searchbox input,input.k-sharelink-box {
   border: 1px solid #E4A374;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1461,7 +1466,6 @@ input.k-sharelink-box {
 }
 
 /* Embeded waves */
-
 .k-embed-sitebar {
   border-top: 2px solid #FFF !important;
   border-left: 1px solid #ACACAC !important;
@@ -1471,7 +1475,7 @@ input.k-sharelink-box {
   -moz-border-radius-bottomleft: 5px;
   border-bottom-left-radius: 5px;
   -webkit-border-bottom-left-radius: 5px;
-    -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomright: 5px;
   border-bottom-right-radius: 5px;
   -webkit-border-bottom-right-radius: 5px;
   line-height: 11px;

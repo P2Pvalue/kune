@@ -28,10 +28,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import cc.kune.common.client.log.Log;
+import cc.kune.core.shared.domain.GroupListMode;
 import cc.kune.core.shared.dto.AccessListsDTO;
 import cc.kune.core.shared.dto.GroupDTO;
 import cc.kune.core.shared.dto.GroupListDTO;
-import cc.kune.gspace.client.actions.share.ContentViewerShareMenu;
+import cc.kune.gspace.client.actions.share.ShareMenu;
 import cc.kune.lists.shared.ListsToolConstants;
 
 import com.google.inject.Inject;
@@ -40,9 +42,10 @@ import com.google.inject.Singleton;
 @Singleton
 public class ShareDialogHelper {
 
+  private static final String NO_CREATOR = "";
   private static final List<String> NO_MORE_PARTICIPANTS = new ArrayList<String>();
   private String localDomain;
-  ContentViewerShareMenu shareMenuBtn;
+  ShareMenu shareMenuBtn;
   private final ShareToListView shareToListView;
   private final ShareToOthersView shareToOthersView;
   private final ShareToTheNetView shareToTheNetView;
@@ -50,7 +53,7 @@ public class ShareDialogHelper {
   @Inject
   public ShareDialogHelper(final ShareToListView shareToListView,
       final ShareToTheNetView shareToTheNetView, final ShareToOthersView shareToOthersView,
-      final ContentViewerShareMenu shareMenuBtn) {
+      final ShareMenu shareMenuBtn) {
     this.shareToListView = shareToListView;
     this.shareToTheNetView = shareToTheNetView;
     this.shareToOthersView = shareToOthersView;
@@ -61,12 +64,13 @@ public class ShareDialogHelper {
     this.localDomain = "@" + localDomain;
   }
 
-  public void setState(final GroupDTO currentGroup, final AccessListsDTO acl, final String typeId) {
-    setState(currentGroup, acl, typeId, NO_MORE_PARTICIPANTS);
+  public void setState(final GroupDTO currentGroup, final String currentUser, final AccessListsDTO acl,
+      final String typeId) {
+    setState(currentGroup, currentUser, acl, typeId, NO_CREATOR, NO_MORE_PARTICIPANTS);
   }
 
-  public void setState(final GroupDTO currentGroup, final AccessListsDTO acl, final String typeId,
-      final List<String> participants) {
+  public void setState(final GroupDTO currentGroup, final String currentUser, final AccessListsDTO acl,
+      final String typeId, final String waveCreator, final List<String> participants) {
     final GroupListDTO admins = acl.getAdmins();
     final GroupListDTO editors = acl.getEditors();
     final GroupListDTO viewers = acl.getViewers();
@@ -81,8 +85,14 @@ public class ShareDialogHelper {
     // Owner
     shareToListView.addOwner(currentGroup);
 
+    Log.debug("Share Dialog: editors list mode: " + editorMode);
+    if (editorMode.equals(GroupListMode.NORMAL)) {
+      Log.debug("Share Dialog: editors list size: " + editorsList.size());
+    }
+
     shareToTheNetView.setVisible(viewerMode.equals(EVERYONE));
     final boolean isAList = typeId.equals(ListsToolConstants.TYPE_LIST);
+    // final boolean isAWiki = typeId.equals(WikiToolConstants.TYPE_WIKIPAGE);
     final boolean isWave = participants.size() != 0;
 
     shareToOthersView.setVisible(!editorMode.equals(EVERYONE) || isAList);
@@ -90,33 +100,39 @@ public class ShareDialogHelper {
     // Admins
     if (!isWave && adminsMode.equals(NORMAL)) {
       for (final GroupDTO admin : adminList) {
-        if (!admin.equals(currentGroup)) {
+        final boolean isMe = admin.getShortName().equals(currentUser);
+        if (!isMe) {
           shareToListView.addAdmin(admin);
+        } else {
+          shareToListView.addAdmin(admin, true);
         }
       }
     }
     if (isWave) {
       // Participants
-      if (participants.contains(localDomain)) {
+      final boolean editableByAny = participants.contains(localDomain);
+      if (editableByAny) {
         shareToListView.addEditableByAnyone();
       }
       for (final String participant : participants) {
         if (!localDomain.equals(participant)) {
-          shareToListView.addParticipant(participant);
+          shareToListView.addParticipant(participant, participant.equals(waveCreator));
         }
+      }
+      if (!editableByAny) {
+        shareToListView.addNotEditableByOthers();
       }
     } else {
       // Editors
       final boolean noEditors = editorMode.equals(NOBODY)
           || (editorMode.equals(NORMAL) && editorsList.size() == 0);
-      if (noEditors && !isAList) {
+      if ((noEditors && !isAList)) {
         shareToListView.addNotEditableByOthers();
       } else {
         if (editorMode.equals(NORMAL)) {
           for (final GroupDTO editor : editorsList) {
-            if (!editor.equals(currentGroup)) {
-              shareToListView.addEditor(editor);
-            }
+            Log.debug("Share Dialog: adding editor: " + editor.getShortName());
+            shareToListView.addEditor(editor);
           }
         } else if (editorMode.equals(EVERYONE) && !isAList) {
           shareToListView.addEditableByAnyone();
@@ -132,9 +148,7 @@ public class ShareDialogHelper {
     } else {
       if (viewerMode.equals(NORMAL)) {
         for (final GroupDTO viewer : viewersList) {
-          if (!viewer.equals(currentGroup)) {
-            shareToListView.addViewer(viewer);
-          }
+          shareToListView.addViewer(viewer);
         }
         shareMenuBtn.setVisibleToEveryone(false);
       } else if (viewerMode.equals(EVERYONE)) {

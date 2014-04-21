@@ -99,6 +99,9 @@ public class InitData {
   /** The img thumbsize. */
   private int imgThumbsize;
 
+  /** The kune embed template. */
+  private String kuneEmbedTemplate;
+
   /** The issue tracker url. */
   private String issuesUrl;
 
@@ -122,6 +125,9 @@ public class InitData {
 
   /** The reserved words. */
   private ReservedWordsRegistryDTO reservedWords;
+
+  /** If the UI Devel Features should be showed */
+  private boolean showInDevelFeatures;
 
   /** The site common name. */
   private String siteCommonName;
@@ -321,6 +327,10 @@ public class InitData {
     return imgThumbsize;
   }
 
+  public String getKuneEmbedTemplate() {
+    return kuneEmbedTemplate;
+  }
+
   /**
    * Gets the issues url.
    * 
@@ -382,6 +392,10 @@ public class InitData {
    */
   public ReservedWordsRegistryDTO getReservedWords() {
     return this.reservedWords;
+  }
+
+  public boolean getShowInDevelFeatures() {
+    return showInDevelFeatures;
   }
 
   /**
@@ -695,6 +709,10 @@ public class InitData {
     this.imgThumbsize = imgThumbsize;
   }
 
+  public void setKuneEmbedTemplate(final String kuneEmbedTemplate) {
+    this.kuneEmbedTemplate = kuneEmbedTemplate;
+  }
+
   /**
    * Sets the issues url.
    * 
@@ -773,6 +791,10 @@ public class InitData {
    */
   public void setReservedWords(final ReservedWordsRegistryDTO reservedWords) {
     this.reservedWords = reservedWords;
+  }
+
+  public void setShowInDevelFeatures(final boolean showInDevelFeatures) {
+    this.showInDevelFeatures = showInDevelFeatures;
   }
 
   /**

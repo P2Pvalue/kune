@@ -20,7 +20,6 @@
   <!-- <set-property name="user.agent" value="gecko1_8" /> -->
   <set-property name="user.agent" value="gecko1_8,safari" />
 
-
   <!-- I18n ===================================================== -->
   <!-- http://bit.ly/uCiBDm -->
   <extend-property name="locale" values="en,ar,es" />
@@ -43,5 +42,12 @@
   <!-- Superdev mode ============================================ -->
   <set-configuration-property name="devModeRedirectEnabled"
     value="true" />
+
+  <!-- http://stackoverflow.com/questions/21933607/gwt-super-dev-mode-bindaddress-changes-not-showing/21938574#21938574 -->
+  <set-configuration-property name="devModeUrlWhitelistRegexp" value="http://(mymachinename|192\.168\.1\.8)(:\d+)?/.*" />
+
+  <!-- Faster compilation  ====================================== -->
+  <!-- http://stackoverflow.com/questions/1011863/how-do-i-speed-up-the-gwt-compiler -->
+  <collapse-all-properties />
 
 </module>

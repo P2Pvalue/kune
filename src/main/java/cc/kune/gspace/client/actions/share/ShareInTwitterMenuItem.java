@@ -40,7 +40,7 @@ import com.google.inject.Inject;
 public class ShareInTwitterMenuItem extends AbstractShareInSocialNetMenuItem {
 
   /** The Constant URL_TEMPLATE. */
-  private static final String URL_TEMPLATE = "https://twitter.com/intent/tweet?source=webclient&text=%s";
+  private static final String URL_TEMPLATE = "https://twitter.com/intent/tweet?text=%s";
 
   /**
    * Instantiates a new share in twitter menu item.
@@ -58,16 +58,16 @@ public class ShareInTwitterMenuItem extends AbstractShareInSocialNetMenuItem {
    */
   @Inject
   public ShareInTwitterMenuItem(final AbstractShareInSocialNetAction action,
-      final IconicResources iconic, final Session session, final ContentViewerShareMenu menu,
+      final IconicResources iconic, final Session session, final ShareMenu menu,
       final I18nTranslationService i18n) {
     super(action, session, menu, i18n.t("Share this in twitter"), iconic.twitter(),
         ClientFormattedString.build(
             false,
             URL_TEMPLATE,
             URL.encodeQueryString("#"
-                + ShareInSocialNetUtils.getTitle(session)
+                + ShareInHelper.getTitle(session)
                 + " "
-                + ShareInSocialNetUtils.getCurrentUrl(session)
+                + ShareInHelper.getCurrentUrl(session)
                 + " "
                 + i18n.tWithNT("via [%s]", "used in references 'something via @someone'",
                     i18n.getSiteCommonName()))));

@@ -183,4 +183,8 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
       }
     });
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> kune/master

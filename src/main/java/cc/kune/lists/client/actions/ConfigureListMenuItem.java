@@ -16,29 +16,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *******************************************************************************/
 
-package cc.kune.gspace.client.actions.share;
+package cc.kune.lists.client.actions;
 
+import cc.kune.common.client.actions.ui.descrip.ButtonDescriptor;
 import cc.kune.common.shared.i18n.I18n;
+import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.state.Session;
-import cc.kune.core.client.state.StateTokenUtils;
-import cc.kune.core.shared.dto.StateAbstractDTO;
-import cc.kune.core.shared.dto.StateContainerDTO;
-import cc.kune.core.shared.dto.StateContentDTO;
+import cc.kune.gspace.client.actions.IsInDevelopmentCondition;
+import cc.kune.gspace.client.actions.share.ShareDialogAction;
+import cc.kune.gspace.client.share.ShareDialog;
 
-public class ShareInSocialNetUtils {
-  public static String getCurrentUrl(final Session session) {
-    return StateTokenUtils.getGroupSpaceUrl(session.getCurrentState().getStateToken());
+import com.google.inject.Inject;
+
+public class ConfigureListMenuItem extends ButtonDescriptor {
+
+  @Inject
+  public ConfigureListMenuItem(final ShareDialog shareDialog, final ShareDialogAction shareAction,
+      final IsInDevelopmentCondition isInDevAddCondition, final IconicResources icons,
+      final Session session) {
+    super(shareAction);
+    withText(session.isNewbie() ? I18n.t("Configure") : "");
+    withToolTip(I18n.t("Configure this list: manage members, etc"));
+    withIcon(icons.prefs());
+    withAddCondition(isInDevAddCondition);
   }
 
-  public static String getTitle(final Session session) {
-    final StateAbstractDTO state = session.getCurrentState();
-    final String prefix = session.getCurrentGroupShortName() + ", ";
-    if (!(state instanceof StateContentDTO)) {
-      return prefix
-          + (((StateContainerDTO) state).getContainer().isRoot() ? I18n.t(state.getTitle())
-              : state.getTitle());
-    } else {
-      return prefix + session.getCurrentState().getTitle();
-    }
-  }
 }

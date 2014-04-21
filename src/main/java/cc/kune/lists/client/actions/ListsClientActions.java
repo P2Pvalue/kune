@@ -55,12 +55,10 @@ import cc.kune.gspace.client.actions.WriteToParticipantsMenuItem;
 import cc.kune.gspace.client.actions.share.AddAdminMembersToContentMenuItem;
 import cc.kune.gspace.client.actions.share.AddAllMembersToContentMenuItem;
 import cc.kune.gspace.client.actions.share.AddCollabMembersToContentMenuItem;
-import cc.kune.gspace.client.actions.share.ContentViewerShareMenu;
 import cc.kune.gspace.client.actions.share.ShareDialogMenuItem;
-import cc.kune.gspace.client.actions.share.ShareInFacebookMenuItem;
-import cc.kune.gspace.client.actions.share.ShareInGPlusMenuItem;
-import cc.kune.gspace.client.actions.share.ShareInIdenticaMenuItem;
-import cc.kune.gspace.client.actions.share.ShareInTwitterMenuItem;
+import cc.kune.gspace.client.actions.share.ShareInHelper;
+import cc.kune.gspace.client.actions.share.ShareMenu;
+import cc.kune.gspace.client.actions.share.ShareMenu;
 import cc.kune.trash.shared.TrashToolConstants;
 
 import com.google.inject.Inject;
@@ -86,7 +84,7 @@ public class ListsClientActions extends AbstractFoldableToolActions {
       final Provider<RefreshListMenuItem> refreshList, final Provider<SubscribeToListBtn> subscribeBtn,
       final Provider<OptionsListMenu> optionsMenuContainer,
       final Provider<ContentViewerOptionsMenu> optionsMenuContent,
-      final Provider<ContentViewerShareMenu> shareMenuContent,
+      final Provider<ShareMenu> shareMenuContent,
       final Provider<ShowSubscribersOfListBtn> subscribersCount,
       final Provider<TutorialBtn> tutorialBtn,
       final Provider<AddAllMembersToContentMenuItem> addAllMenuItem,
@@ -105,13 +103,11 @@ public class ListsClientActions extends AbstractFoldableToolActions {
       final Provider<MoveContentMenuItem> moveContentMenuItem,
       final Provider<SetAsHomePageMenuItem> setAsHomePage,
       final Provider<ShareDialogMenuItem> shareDialog,
-      final Provider<ShareInTwitterMenuItem> shareInTwitter,
-      final Provider<ShareInGPlusMenuItem> shareInGPlus,
-      final Provider<ShareInIdenticaMenuItem> shareInIdentica,
-      final Provider<ShareInFacebookMenuItem> shareInFacebook,
+      final Provider<ConfigureListMenuItem> configureList,      
       final Provider<ListInvitationShareMenuItem> shareInvitation,
       final Provider<ListInvitationMenuItem> inviteMenuItem,
-      final Provider<ListInviteUserMenuItem> inviteUserMenuItem) {
+      final Provider<ListInviteUserMenuItem> inviteUserMenuItem,
+      final ShareInHelper shareIHelper) {
     super(TOOL_NAME, session, registry);
     // add(NAME, TOOLBAR, newListMenuItem,
     // TYPE_ROOT);
@@ -125,11 +121,12 @@ public class ListsClientActions extends AbstractFoldableToolActions {
     add(BOTTOMBAR, contents, folderGoUp);
     add(BOTTOMBAR, containers, folderGoUp);
     add(TOPBAR, all, tutorialBtn, shareMenuContent);
+    add(TOPBAR, containersNoRoot, configureList);
     add(TOPBAR, contents, addAllMenuItem, addAdminMembersMenuItem, addCollabMembersMenuItem);
     add(TOPBAR, allExceptRoot, shareInvitation);
-    add(TOPBAR, containersNoRoot, shareDialog);
+    add(TOPBAR, contents, shareIHelper.getShareInWaves());
+    add(TOPBAR, all, shareIHelper.getShareInAll());
     add(TOPBAR, contents, shareDialog);
-    add(TOPBAR, all, shareInTwitter, shareInGPlus);
     add(TOPBAR, containersNoRoot, subscribersCount);
     add(ITEM_MENU, containersNoRoot, openContentMenuItem, delFolderMenuItem);
     add(TOPBAR, contents, participateBtn, copyContent, chatAbout, writeToParticipants);

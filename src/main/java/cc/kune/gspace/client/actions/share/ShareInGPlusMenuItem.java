@@ -27,12 +27,9 @@ import cc.kune.common.client.utils.ClientFormattedString;
 import cc.kune.common.shared.i18n.I18nTranslationService;
 import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.state.Session;
-import cc.kune.core.client.state.StateTokenUtils;
 
-import com.google.gwt.http.client.URL;
 import com.google.inject.Inject;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ShareInGPlusMenuItem.
  * 
@@ -59,16 +56,8 @@ public class ShareInGPlusMenuItem extends AbstractShareInSocialNetMenuItem {
    */
   @Inject
   public ShareInGPlusMenuItem(final AbstractShareInSocialNetAction action, final IconicResources iconic,
-      final Session session, final ContentViewerShareMenu menu, final I18nTranslationService i18n) {
-    super(
-        action,
-        session,
-        menu,
-        i18n.t("Share this in google+"),
-        iconic.googlePlus(),
-        ClientFormattedString.build(
-            false,
-            URL_TEMPLATE,
-            URL.encodeQueryString(StateTokenUtils.getGroupSpaceUrl(session.getCurrentState().getStateToken()))));
+      final Session session, final ShareMenu menu, final I18nTranslationService i18n) {
+    super(action, session, menu, i18n.t("Share this in google+"), iconic.googlePlus(),
+        ClientFormattedString.build(false, URL_TEMPLATE, ShareInHelper.getCommonUrl()));
   }
 }

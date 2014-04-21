@@ -26,6 +26,8 @@ public interface ShareToListView {
 
   void addAdmin(GroupDTO admin);
 
+  void addAdmin(GroupDTO admin, boolean isMe);
+
   void addEditableByAnyone();
 
   void addEditor(GroupDTO editor);
@@ -37,6 +39,8 @@ public interface ShareToListView {
   void addOwner(GroupDTO owner);
 
   void addParticipant(String waveParticipant);
+
+  void addParticipant(String waveParticipant, boolean isCreator);
 
   void addViewer(GroupDTO viewer);
 

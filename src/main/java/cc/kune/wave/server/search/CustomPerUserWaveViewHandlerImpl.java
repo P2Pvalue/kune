@@ -1,7 +1,10 @@
 /*
  *
- * Copyright (C) 2007-2012 The kune development team (see CREDITS for details)
- * This file is part of kune.
+ * Copyright (C) 2007-2014 Licensed to the Comunes Association (CA) under
+ * one or more contributor license agreements (see COPYRIGHT for details).
+ * The CA licenses this file to you under the GNU Affero General Public
+ * License version 3, (the "License"); you may not use this file except in
+ * compliance with the License. This file is part of kune.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as
@@ -17,7 +20,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
 package cc.kune.wave.server.search;
 
 import java.io.Closeable;
@@ -60,14 +62,12 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
 
   public static final Log LOG = LogFactory.getLog(CustomPerUserWaveViewHandlerImpl.class);
 
-  private ParticipantEntityManager participantEntityManager;
-  private WaveEntityManager waveEntityManager;
-  private final ReadableWaveletDataProvider waveletProvider;
-
   @Inject
-  public CustomPerUserWaveViewHandlerImpl(final ReadableWaveletDataProvider waveletProvider) {
-    this.waveletProvider = waveletProvider;
-  }
+  private ParticipantEntityManager participantEntityManager;
+  @Inject
+  private WaveEntityManager waveEntityManager;
+  @Inject
+  private ReadableWaveletDataProvider waveletProvider;
 
   @KuneTransactional
   private void addWaveToUser(final WaveEntity waveEntity, final ParticipantId participantId) {
@@ -99,13 +99,6 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
     return waveEntity;
   }
 
-  public void init(final WaveEntityManager waveEntityManager,
-      final ParticipantEntityManager partEntManager) {
-    this.participantEntityManager = partEntManager;
-    Preconditions.checkNotNull(waveEntityManager);
-    this.waveEntityManager = waveEntityManager;
-  }
-
   private void logNotFound(final ParticipantId participantId) {
     LOG.info("Failed to find and retrieve participant " + participantId.getAddress());
   }
@@ -116,8 +109,7 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
     Preconditions.checkNotNull(waveletName);
     Preconditions.checkNotNull(participantId);
 
-    final ListenableFutureTask<Void> task = ListenableFutureTask
-        .<Void> create(new Callable<Void>() {
+    final ListenableFutureTask<Void> task = ListenableFutureTask.<Void> create(new Callable<Void>() {
 
       @Override
       @KuneTransactional
@@ -144,9 +136,7 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
       final ParticipantId participantId) {
     Preconditions.checkNotNull(waveletName);
     Preconditions.checkNotNull(participantId);
-
-    final ListenableFutureTask<Void> task = ListenableFutureTask
-        .<Void> create(new Callable<Void>() {
+    final ListenableFutureTask<Void> task = ListenableFutureTask.<Void> create(new Callable<Void>() {
 
       @Override
       @KuneTransactional
@@ -173,10 +163,8 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
   public ListenableFuture<Void> onWaveInit(final WaveletName waveletName) {
     Preconditions.checkNotNull(waveletName);
     LOG.debug("On wave init of wave " + waveletName.toString());
-    // FIXME... move this to task?
-    ReadableWaveletData waveletData;
     try {
-      waveletData = waveletProvider.getReadableWaveletData(waveletName);
+      final ReadableWaveletData waveletData = waveletProvider.getReadableWaveletData(waveletName);
       final WaveEntity waveEntity = getWaveEntity(waveletData);
       Preconditions.checkNotNull(waveEntity);
       for (final ParticipantId participantId : waveletData.getParticipants()) {
@@ -185,9 +173,7 @@ public class CustomPerUserWaveViewHandlerImpl implements PerUserWaveViewHandler,
     } catch (final WaveServerException e) {
       LOG.error("Failed to initialize index for " + waveletName, e);
     }
-
-    final ListenableFutureTask<Void> task = ListenableFutureTask
-        .<Void> create(new Callable<Void>() {
+    final ListenableFutureTask<Void> task = ListenableFutureTask.<Void> create(new Callable<Void>() {
       @Override
       public Void call() throws Exception {
         return null;
