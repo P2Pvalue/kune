@@ -13,4 +13,5 @@ MAVEN_XML="maven-metadata.xml"
 MAVEN_PATH="$VERSION_PATH/$MAVEN_XML"
 
 LATEST=`curl -s $MAVEN_PATH | grep -m 1 '<value>' | sed "s/.*<value>\([^<]*\)<\/value>.*/\1/"`
-wget -P "$DIR/../target/" "$VERSION_PATH/kune-$VERSION-complete-$LATEST.jar"
+mkdir -p "$DIR/../target"
+wget -q -O "$DIR/../target/kune-$VERSION-complete.jar" "$VERSION_PATH/kune-$VERSION-complete-$LATEST.jar"
