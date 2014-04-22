@@ -903,9 +903,8 @@
                 <!-- <exclude>**gxt**</exclude> -->
                 <!-- </excludes> -->
                 <includes>
-                  <!-- FIXME try use ${project.version } here -->
-                  <include>${basedir}/target/kune-0.3.0-SNAPSHOT/ws/**</include>
-                  <include>${basedir}/target/kune-0.3.0-SNAPSHOT/wse/**</include>
+                  <include>${basedir}/target/kune-${project.version}/ws/**</include>
+                  <include>${basedir}/target/kune-${project.version}/wse/**</include>
                   <include>${basedir}/src/main/webapp/**</include>
                 </includes>
               </unpackOptions>
@@ -916,9 +915,8 @@
               <directory>${basedir}</directory>
               <outputDirectory>/</outputDirectory>
               <includes>
-                <!-- FIXME try use ${project.version } here -->
-                <include>**/target/kune-0.3.0-SNAPSHOT/ws/**</include>
-                <include>**/target/kune-0.3.0-SNAPSHOT/wse/**</include>
+                <include>**/target/kune-${project.version}/ws/**</include>
+                <include>**/target/kune-${project.version}/wse/**</include>
                 <include>**src/main/webapp**</include>
               </includes>
             </fileSet>
