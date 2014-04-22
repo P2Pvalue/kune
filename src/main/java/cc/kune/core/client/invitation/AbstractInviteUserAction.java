@@ -32,7 +32,9 @@ import cc.kune.core.client.resources.iconic.IconicResources;
 import cc.kune.core.client.rpcservices.InvitationServiceAsync;
 import cc.kune.core.client.sitebar.search.EntitySearchPanel;
 import cc.kune.core.client.sitebar.search.OnEntitySelectedInSearch;
-import cc.kune.core.client.state.*;
+import cc.kune.core.client.state.AccessRightsClientManager;
+import cc.kune.core.client.state.Session;
+import cc.kune.core.client.state.StateManager;
 import cc.kune.core.shared.domain.InvitationType;
 import cc.kune.core.shared.domain.utils.StateToken;
 import cc.kune.core.shared.dto.AbstractContentSimpleDTO;
@@ -183,8 +185,5 @@ public abstract class AbstractInviteUserAction extends RolActionAutoUpdated {
       }
     });
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> kune/master
+
