@@ -27,7 +27,7 @@ done
 # GWT files
 for i in ws wse
 do
-  ln -s ../target/${VERSION}/${i} ${WEBAPP_DIR}
+  ln -s ../../target/kune-${VERSION}/${i} ${WEBAPP_DIR}
 done
 
 cd ${RELEASE_DIR} && zip -r ../kune.zip *
