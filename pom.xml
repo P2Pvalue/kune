@@ -746,6 +746,9 @@
         <version>1.2</version>
         <executions>
           <execution>
+            <configuration>
+              <extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+            </configuration>
             <phase>exec</phase>
             <goals>
               <goal>java</goal>
