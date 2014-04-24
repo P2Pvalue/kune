@@ -7,6 +7,9 @@ VERSION=`cd ${ROOT_DIR} && bin/kune-version`
 RELEASE_DIR=${ROOT_DIR}/release
 WEBAPP_DIR=${RELEASE_DIR}/webapp
 
+# Clean old release
+rm -r ${RELEASE_DIR}
+
 mkdir -p ${RELEASE_DIR}
 mkdir -p ${WEBAPP_DIR}
 mkdir -p ${WEBAPP_DIR}/WEB-INF
