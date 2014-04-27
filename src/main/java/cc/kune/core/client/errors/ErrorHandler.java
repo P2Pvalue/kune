@@ -29,7 +29,6 @@ import cc.kune.common.client.notify.ProgressHideEvent;
 import cc.kune.common.client.notify.UserNotifyEvent;
 import cc.kune.common.shared.i18n.I18nTranslationService;
 import cc.kune.common.shared.utils.TextUtils;
-import cc.kune.core.client.events.GoHomeEvent;
 import cc.kune.core.client.events.StackErrorEvent;
 import cc.kune.core.client.events.UserMustBeLoggedEvent;
 
@@ -73,13 +72,6 @@ public class ErrorHandler {
   }
 
   /**
-   * Go home.
-   */
-  private void goHome() {
-    GoHomeEvent.fire(eventBus);
-  }
-
-  /**
    * Log exception.
    * 
    * @param caught
@@ -119,7 +111,6 @@ public class ErrorHandler {
       eventBus.fireEvent(new UserNotifyEvent(NotifyLevel.error,
           i18n.t("You do not have rights to perform that action")
               + (!TextUtils.empty(msg) && msg.length() > 2 ? ". " + i18n.t(msg) : "")));
-      goHome();
     } else if (caught instanceof SessionExpiredException) {
       logException(caught);
       doSessionExpired();
@@ -129,24 +120,20 @@ public class ErrorHandler {
     } else if (caught instanceof GroupNotFoundException) {
       logException(caught);
       eventBus.fireEvent(new UserNotifyEvent(NotifyLevel.veryImportant, i18n.t("Group not found")));
-      goHome();
     } else if (caught instanceof IncompatibleRemoteServiceException) {
       eventBus.fireEvent(new UserNotifyEvent(NotifyLevel.error,
           i18n.t("Your browser is outdated with the server software. Please reload this page.")));
     } else if (caught instanceof ContentNotFoundException) {
       logException(caught);
       eventBus.fireEvent(new UserNotifyEvent(NotifyLevel.veryImportant, i18n.t("Content not found")));
-      goHome();
     } else if (caught instanceof ContentNotPermittedException) {
       logException(caught);
       eventBus.fireEvent(new UserNotifyEvent(NotifyLevel.error,
           i18n.t("Action not permitted in this location")));
-      goHome();
     } else if (caught instanceof ContainerNotPermittedException) {
       logException(caught);
       eventBus.fireEvent(new UserNotifyEvent(NotifyLevel.error,
           i18n.t("Action not permitted in this location")));
-      goHome();
     } else if (caught instanceof NameInUseException) {
       logException(caught);
       eventBus.fireEvent(new UserNotifyEvent(NotifyLevel.error,

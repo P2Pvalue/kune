@@ -174,7 +174,16 @@ public class StateManagerDefault implements StateManager, ValueChangeHandler<Str
         session.onUserSignOut(false, new UserSignOutEvent.UserSignOutHandler() {
           @Override
           public void onUserSignOut(final UserSignOutEvent event) {
-            refreshCurrentStateWithoutCache();
+            if (!startingUp()) {
+              getContent(new StateToken(SiteTokens.GROUP_HOME), true, new OnFinishGetContent() {
+                @Override
+                public void finish() {
+                  SpaceSelectEvent.fire(eventBus, Space.homeSpace, true);
+                }
+              });
+            } else {
+              refreshCurrentStateWithoutCache();
+            }
           }
         });
         processCurrentHistoryToken();
