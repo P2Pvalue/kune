@@ -29,8 +29,7 @@ namespace :deploy do
 
     run "sed -i 's/db4kune/#{ db_pwd }/g' #{ db_files }"
 
-    # Get last version of kune from P2Pvalue artifactory
-    run "#{ release_path }/bin/getKuneArtifact.sh"
+    run "cd #{ release_path } && mvn assembly:assembly -P production"
 
     # Backup database
     run "mkdir -p #{ current_path }/bck"
