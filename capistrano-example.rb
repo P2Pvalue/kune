@@ -67,7 +67,7 @@ namespace :deploy do
   end
 
   task :restart, roles: :app, except: { no_release: true } do
-    run "cd #{ release_path }/local-release/webapp && ./restart.sh"
+    run "cd #{ release_path }/local-release && ./restart.sh"
   end
 
 end
