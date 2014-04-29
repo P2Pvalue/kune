@@ -7,4 +7,4 @@ then
 fi
 
 DIR=`dirname $0`
-$DIR/server.sh -j $DIR/../target/kune-*-complete.jar -c -a
+$DIR/server.sh -j $DIR/../kune-*-complete.jar -c -a
